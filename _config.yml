@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Di Wu"
 title_separator          : "-"
 name                     : &name "Di Wu"
-description              : &description "Senior Computer Science Undergrad at UCLA"
+description              : &description "Incoming PhD student at UCLA"
 url                      : https://xiaowu0162.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "xiaowu0162/xiaowu0162.github.io"
@@ -94,7 +94,7 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "https://www.facebook.com/profile.php?id=100015407345064"
   foursquare       :
   github           : "xiaowu0162"
   google_plus      :
@@ -109,7 +109,7 @@ author:
   stackoverflow    :
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : "DiWu0162"
   vine             :
   weibo            :
   xing             :
