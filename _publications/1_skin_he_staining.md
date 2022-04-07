@@ -1,7 +1,7 @@
 ---
 title: "Biopsy-free in vivo virtual histology of skin using deep learning"
 collection: publications
-Authors: 'Jingxi Li, Jason Garfinkel, Xiaoran Zhang, <b>Di Wu </b>, Yijie Zhang, Kevin De Haan, Hongda Wang, Tairan Liu, Bijie Bai, Yair Rivenson, Gennady Rubinstein, Philip O Scumpia, and Aydogan Ozcan.'
+Authors: 'Jingxi Li, Jason Garfinkel, Xiaoran Zhang, <b>Di Wu</b>, Yijie Zhang, Kevin De Haan, Hongda Wang, Tairan Liu, Bijie Bai, Yair Rivenson, Gennady Rubinstein, Philip O Scumpia, and Aydogan Ozcan.'
 date: 11/2021
 venue: 'Light: Science & Applications'
 paperurl: 'https://www.nature.com/articles/s41377-021-00674-8'
