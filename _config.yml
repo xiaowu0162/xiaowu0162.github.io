@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Di Wu"
 title_separator          : "-"
 name                     : &name "Di Wu"
-description              : &description "Incoming PhD student at UCLA"
+description              : &description "First-year PhD student at UCLA"
 url                      : https://xiaowu0162.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "xiaowu0162/xiaowu0162.github.io"
