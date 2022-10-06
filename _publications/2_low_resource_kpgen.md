@@ -3,7 +3,7 @@ title: "Representation Learning for Resource-Constrained Keyphrase Generation"
 collection: publications
 Authors: ' <b>Di Wu</b>, Wasi Ahmad, Sunipa Dev, and Kai-Wei Chang.'
 date: 03/2022
-venue: 'arXiv'
+venue: 'Findings of the ACL: EMNLP'
 paperurl: 'https://arxiv.org/abs/2203.08118'
 codeurl: 'https://github.com/xiaowu0162/low-resource-kpgen'
 excerpt: ''
