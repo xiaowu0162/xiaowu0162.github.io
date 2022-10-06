@@ -14,3 +14,4 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [10.2022] Our paper [Representation Learning for Resource-Constrained Keyphrase Generation](https://arxiv.org/abs/2203.08118) has been accepted by EMNLP (findings) 2022.
