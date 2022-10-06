@@ -25,9 +25,7 @@ You can also find my articles on <a href="https://scholar.google.com/citations?u
 
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
 {% for year in publicationsByYear reversed %}
-  {% if year.name != "2022" %}
   <h1 style="margin: 1.5em 0px -0.5em; padding: 0px; color: brown;">{{ year.name }}</h1>
-  {% endif %}
   {% assign publicationsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
   {% for month in publicationsByMonth reversed %}
     {% for post in month.items reversed %}
@@ -37,3 +35,4 @@ You can also find my articles on <a href="https://scholar.google.com/citations?u
     {% endfor %}
   {% endfor %}
 {% endfor %}
+
