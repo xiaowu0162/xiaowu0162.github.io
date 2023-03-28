@@ -14,5 +14,6 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [03.2023] Introducing [KPEval](https://arxiv.org/abs/2303.15422), a new framework for evaluating keyphrase systems.
 * [10.2022] Our paper [Representation Learning for Resource-Constrained Keyphrase Generation](https://arxiv.org/abs/2203.08118) has been accepted by Findings of the ACL: EMNLP 2022.
 * [09.2022] Started working as a PhD student in the [UCLA NLP Group](http://web.cs.ucla.edu/~kwchang/members/).
