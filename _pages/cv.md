@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2022/12/28). 
+Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2023/6/2). 
 
 # Education
 <br/>
