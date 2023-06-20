@@ -32,6 +32,21 @@
       {% else %}
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
+	    {% if post.paperurl %}
+	       &nbsp;a href=" {{ post.paperurl }} " target="_blank" style="color: blue">[Paper]</a>
+	    {% endif %}
+	    {% if post.presentationurl %}
+		&nbsp;<a href=" {{ post.presentationurl }} " target="_blank" style="color: blue">[Presentation]</a>
+	    {% endif %}
+	    {% if post.codeurl %}
+		&nbsp;<a href=" {{ post.codeurl }} " target="_blank" style="color: blue">[Code]</a>
+	    {% endif %}
+	    {% if post.demourl %}
+		&nbsp;<a href=" {{ post.demourl }} " target="_blank" style="color: blue">[Demo]</a>
+	    {% endif %}
+	    {% if post.mediaurl %}
+		&nbsp;<a href=" {{ post.mediaurl }} " target="_blank" style="color: blue">[Media Coverage]</a>
+	    {% endif %}
     </h2>
     
     {% if post.read_time %}
@@ -46,31 +61,17 @@
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
     {% endif %}
 
+
     {% if post.Authors %}
     	<p class="archive__twentysixpoint">{{ post.Authors }}</p>
     {% endif %}
-    
-    
+
     {% if post.citation and post.paperurl %}
       <p>Recommended citation: {{ post.citation }} <a href="{{ post.paperurl }}"><u>{{ post.paperurl }}</u></a></p>
     {% elsif post.citation %}
       <p>Recommended citation: {{ post.citation }} </p>
-    {% elsif post.paperurl %}
-      <p class="archive__twentysixpoint"><a href=" {{ post.paperurl }} " target="_blank" style="color: blue">[Paper]</a>
     {% endif %}
-    {% if post.presentationurl %}
-	&nbsp;<a href=" {{ post.presentationurl }} " target="_blank" style="color: blue">[Presentation]</a>
-    {% endif %}
-    {% if post.codeurl %}
-    	&nbsp;<a href=" {{ post.codeurl }} " target="_blank" style="color: blue">[Code]</a>
-    {% endif %}
-    {% if post.demourl %}
-    	&nbsp;<a href=" {{ post.demourl }} " target="_blank" style="color: blue">[Demo]</a>
-    {% endif %}
-    {% if post.mediaurl %}
-    	&nbsp;<a href=" {{ post.mediaurl }} " target="_blank" style="color: blue">[Media Coverage]</a>
-    {% endif %}
-    </p>
+
     {% if post.portfolioImage %}
     	<table class="table__tablenospace">
  			<tr>
