@@ -4,11 +4,12 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-<!-- 
+
 You can also find my articles on <a href="https://scholar.google.com/citations?user=vu1pDZgAAAAJ" target="_blank">my Google Scholar profile</a>.
 
 {% include base_path %}
- -->
+</hr>
+
 <!-- <h1 style="margin: 1.25em 0px -0.5em; padding: 0px; color: brown;">Theses</h1>
 {% for post in site.publications reversed %}
   {% if post.venue == "UCLA Electronic Theses and Dissertations" %}
@@ -22,6 +23,8 @@ You can also find my articles on <a href="https://scholar.google.com/citations?u
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
+
+</hr>
 
 <h1 style="margin: 1.25em 0px -0.5em; padding: 0px; color: brown;">Publications</h1>
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
