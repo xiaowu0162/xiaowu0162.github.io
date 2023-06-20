@@ -45,7 +45,7 @@
     {% if post.collection == 'teaching' %}
           <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
     {% elsif post.collection == 'publications' %}
-          <font color="brown"><p class="archive__twentysixpoint"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
+          <p class="archive__twentysixpoint"><font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
 	    {% if post.paperurl %}
 	       &nbsp;<a href=" {{ post.paperurl }} " target="_blank" style="color: blue">[Paper]</a>
 	    {% endif %}
