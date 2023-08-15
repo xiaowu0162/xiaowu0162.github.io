@@ -51,7 +51,8 @@
 	  <!--           <p class="archive__twentysixpoint"><font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font> -->
 	  {% if post.venue == "arXiv" %}
 	      <font color="brown"><i>Preprint</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
-	  {% else %}
+	  {% endif %}
+	  {% if post.venue != "arXiv" %}
 	      <font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
 	  {% endif %}
           
