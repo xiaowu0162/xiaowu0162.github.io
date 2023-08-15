@@ -1,7 +1,7 @@
 ---
 title: "KPEval: Towards Fine-grained Semantic-based Evaluation of Keyphrase Extraction and Generation Systems"
 collection: publications
-Authors: ' <b>Di Wu</b>, Da Yin, and Kai-Wei Chang.'
+Authors: '<b>Di Wu</b>, Da Yin, and Kai-Wei Chang.'
 date: 03/2023
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2303.15422'
