@@ -19,7 +19,6 @@ Period of Study: September 2022 - present <br/>
 Bachelor of Science (B.Sc.) in Computer Science, <b>Summa Cum Laude</b> <a href="../files/bs_diploma.pdf">[Diploma]</a> <br/>
 Period of Study: September 2018 - June 2022 <br/>
 GPA: <b>3.973/4.000</b> <br/>
-
 <span style="color:black; font-size:17px"><b><a href="http://www.nkzx.cn/" target="_blank"><font color="brown" size="4.5">Tianjin Nankai High School</font></a></b></span><br/>
 Period of Study: September 2012 - July 2018 <br/>
 
