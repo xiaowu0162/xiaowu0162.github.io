@@ -17,7 +17,9 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
   {% assign publicationsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
   {% for month in publicationsByMonth reversed %}
     {% for post in month.items reversed %}
-      {% include archive-single.html %}
+      {% if post.selected == "true" %}
+        {% include archive-single.html %}
+      {% endif %}
     {% endfor %}
   {% endfor %}
 {% endfor %}
