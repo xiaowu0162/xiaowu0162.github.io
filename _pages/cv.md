@@ -26,7 +26,13 @@ GPA: <b>3.973/4.000</b> <br/>
 Period of Study: September 2012 - July 2018 <br/>
 <br/>
 
+# Industry Experience
+* Applied Scientist Intern at Amazon (Jun. 2023 – Sep. 2023)
+* Research Intern at Microsoft Research Asia (Jun. 2021 – Sep. 2021)
+* NLP Engineer Intern at Newsbreak (Jun. 2020 – Sep. 2020)
+
 # Professional Services 
 Program Committee/Reviewer
-* AAAI 2023
+* AAAI 2023, 2024
 * ACL 2023
+* EMNLP 2023
