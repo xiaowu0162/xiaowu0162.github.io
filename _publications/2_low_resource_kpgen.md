@@ -8,6 +8,7 @@ paperurl: 'https://arxiv.org/abs/2203.08118'
 codeurl: 'https://github.com/xiaowu0162/low-resource-kpgen'
 posterurl: 'https://drive.google.com/file/d/17xZXmxWI161t2kQT90YOPuMfkceAlcAC/view?usp=sharing'
 excerpt: ''
+selected: 'true'
 ---
 ---
 <a href='https://aclanthology.org/2022.findings-emnlp.49/' target="_blank">[Download Paper]</a><a href='https://github.com/xiaowu0162/low-resource-kpgen' target="_blank">[Source Code]</a>
