@@ -1,7 +1,7 @@
 ---
 title: "Pre-trained Language Models for Keyphrase Generation: A Thorough Empirical Study"
 collection: publications
-Authors: ' <b>Di Wu</b>, Wasi Uddin Ahmad, and Kai-Wei Chang.'
+Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, and Kai-Wei Chang.'
 date: 12/2022
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2212.10233'
