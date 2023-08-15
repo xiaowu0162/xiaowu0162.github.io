@@ -18,6 +18,9 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
   {% for month in publicationsByMonth reversed %}
     {% for post in month.items reversed %}
       {% include archive-single.html %}
+      <!--   {% if post.selected != "true" %} -->
+        <!--   {% include archive-single.html %} -->
+      <!--   {% endif %} -->
     {% endfor %}
   {% endfor %}
 {% endfor %}
@@ -28,28 +31,3 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
     {% include archive-single.html %}
   {% endif %}
 {% endfor %} -->
-
-<!---
-<h1 style="margin: 1.25em 0px -0.5em; padding: 0px; color: brown;">Preprints</h1><br>
-{% for post in site.publications reversed %}
-  {% if post.venue == "arXiv" %}
-    {% include archive-single.html %}
-  {% endif %}
-{% endfor %}
-
----
-
-<h1 style="margin: 1.25em 0px -0.5em; padding: 0px; color: brown;">Publications</h1><br>
-{% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
-{% for year in publicationsByYear reversed %}
-<!--   <h1 style="margin: 1.5em 0px -0.5em; padding: 0px; color: brown;">{{ year.name }}</h1> -->
-  {% assign publicationsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
-  {% for month in publicationsByMonth reversed %}
-    {% for post in month.items reversed %}
-      {% if post.venue != "arXiv" %}
-        {% include archive-single.html %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-{% endfor %}
--->
