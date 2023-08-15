@@ -12,7 +12,7 @@ redirect_from:
 Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2023/6/2). 
 
 # Education
-<span style="color:black; font-size:17px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size=4">University of California, Los Angeles</font></a></b></span><br/>
+<span style="color:black; font-size:17px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
 Ph.D. Student in Computer Science<br/>
 Period of Study: September 2022 - present <br/>
 <br/>
