@@ -26,9 +26,9 @@ Period of Study: September 2012 - July 2018 <br/>
 <br/>
 
 # Industry Experience
-* Applied Scientist Intern at Amazon (Jun. 2023 – Sep. 2023)
-* Research Intern at Microsoft Research Asia (Jun. 2021 – Sep. 2021)
-* NLP Engineer Intern at Newsbreak (Jun. 2020 – Sep. 2020)
+* Applied Scientist Intern at <a href="https://www.amazon.science/" target="_blank">Amazon</a> (June 2023 – September 2023)
+* Research Intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a> (June 2021 – September 2021)
+* NLP Engineer Intern at <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – October 2020)
 <br/>
 
 # Professional Services 
