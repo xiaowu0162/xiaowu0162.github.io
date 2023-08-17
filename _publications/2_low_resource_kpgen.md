@@ -4,7 +4,7 @@ collection: publications
 Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, Sunipa Dev, and Kai-Wei Chang.'
 date: 03/2022
 venue: 'Findings of the ACL: EMNLP'
-paperurl: 'https://arxiv.org/abs/2203.08118'
+paperurl: 'https://aclanthology.org/2022.findings-emnlp.49/'
 codeurl: 'https://github.com/xiaowu0162/low-resource-kpgen'
 posterurl: 'https://drive.google.com/file/d/17xZXmxWI161t2kQT90YOPuMfkceAlcAC/view?usp=sharing'
 excerpt: ''
