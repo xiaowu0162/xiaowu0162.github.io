@@ -24,10 +24,13 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2023/6/2).
 <span style="color:black; font-size:17px"><b><a href="http://www.nkzx.cn/" target="_blank"><font color="brown" size="5">Tianjin Nankai High School</font></a></b></span><br/>
 * Period of Study: September 2012 - July 2018 <br/>
 
-# Industry Experience
+# Internship
 * Applied Scientist Intern at <a href="https://www.amazon.science/" target="_blank">Amazon</a>, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a> (June 2023 – Sept. 2023)
 * Research Intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a>, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a> (June 2021 – Sept. 2021)
 * NLP Engineer Intern at <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – Oct. 2020)
+
+# Teaching
+* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2023
 
 # Professional Services 
 Program Committee/Reviewer
