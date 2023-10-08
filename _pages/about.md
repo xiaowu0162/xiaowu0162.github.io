@@ -14,8 +14,10 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2023/10] Seq2seq PLM for kpgen has been accepted by EMNLP 2023.
+* [2023/07] Started my applied scientist internship at AWS.
 * [2023/03] Introducing [KPEval](https://arxiv.org/abs/2303.15422), a new framework for evaluating keyphrase systems.
-* [2022/10] Our paper [Representation Learning for Resource-Constrained Keyphrase Generation](https://arxiv.org/abs/2203.08118) has been accepted by Findings of the ACL: EMNLP 2022.
+* [2022/10] [Low resource kpgen]([https://arxiv.org/abs/2203.08118](https://aclanthology.org/2022.findings-emnlp.49/)) has been accepted by EMNLP 2022 (Findings).
 * [2022/09] Started working as a PhD student in the [UCLA NLP Group](http://web.cs.ucla.edu/~kwchang/members/).
 
 <br />
