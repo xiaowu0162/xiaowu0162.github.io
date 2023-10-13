@@ -2,7 +2,7 @@
 title: "Rethinking Model Selection and Decoding for Keyphrase Generation with Pre-trained Sequence-to-Sequence Models
 "
 collection: publications
-Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, Sunipa Dev, and Kai-Wei Chang.'
+Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, and Kai-Wei Chang.'
 date: 10/2023
 venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2310.06374/'
