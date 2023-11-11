@@ -37,3 +37,4 @@ Program Committee/Reviewer
 * AAAI 2023, 2024
 * ACL 2023
 * EMNLP 2023
+* JAIR
