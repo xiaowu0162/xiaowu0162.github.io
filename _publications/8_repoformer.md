@@ -5,7 +5,7 @@ collection: publications
 Authors: ''
 date: 12/2023
 venue: 'arXiv'
-paperurl: '[https://arxiv.org/abs/2310.06374/](https://xiaowu0162.github.io/files/repoformer_preprint.pdf)'
+paperurl: 'https://xiaowu0162.github.io/files/repoformer_preprint.pdf'
 excerpt: ''
 selected: 'true'
 ---
