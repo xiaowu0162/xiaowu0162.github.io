@@ -4,10 +4,10 @@ title: "Repoformer: Selective Retrieval for Repository-level Code Completion
 collection: publications
 Authors: ''
 date: 12/2023
-venue: 'arXiv'
+venue: 'Anonymous Preprint'
 paperurl: 'https://xiaowu0162.github.io/files/repoformer_preprint.pdf'
 excerpt: ''
-selected: 'false'
+selected: 'true'
 ---
 ---
 <a href='https://xiaowu0162.github.io/files/repoformer_preprint.pdf' target="_blank">[Download Paper]</a>
