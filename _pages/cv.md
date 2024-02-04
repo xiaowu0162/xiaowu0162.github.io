@@ -25,9 +25,14 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2023/10).
     - Period of Study: September 2012 - July 2018 <br/>
 
 # Internship
-* Applied Scientist Intern at <a href="https://www.amazon.science/" target="_blank">Amazon</a>, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a> (June 2023 – Sept. 2023)
-* Research Intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a>, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a> (June 2021 – Sept. 2021)
-* NLP Engineer Intern at <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – Oct. 2020)
+* <a href="https://www.amazon.science/" target="_blank">AWS AI</a> (June 2023 – Sept. 2023)
+    - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
+    - Mentors: [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/)
+* <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a> (June 2021 – Sept. 2021)
+    - Research Intern, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a>
+    - Mentor: Ning Shang
+* <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – Oct. 2020)
+    - NLP Engineer Intern
 
 # Teaching
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2023
