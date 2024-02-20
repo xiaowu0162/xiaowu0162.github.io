@@ -8,6 +8,7 @@ venue: 'EMNLP'
 paperurl: 'https://aclanthology.org/2023.emnlp-main.410/'
 codeurl: 'https://github.com/uclanlp/DeepKPG'
 excerpt: ''
+topic: 'keyphrase'
 selected: 'true'
 ---
 ---
