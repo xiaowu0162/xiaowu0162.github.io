@@ -11,7 +11,7 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
 
 ---
 
-## Retrieval-Augmented Language Models
+## 🔍 Retrieval-Augmented Language Models
 
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
 {% for year in publicationsByYear reversed %}
@@ -28,7 +28,7 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
   {% endfor %}
 {% endfor %}
 
-## Keyphrase Generation and Extraction
+## 📌 Keyphrase Generation and Extraction
 
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
 {% for year in publicationsByYear reversed %}
@@ -45,7 +45,7 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
   {% endfor %}
 {% endfor %}
 
-## Virtual Histology
+## 🔬 Virtual Histology
 
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
 {% for year in publicationsByYear reversed %}
