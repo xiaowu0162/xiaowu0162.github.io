@@ -1,5 +1,5 @@
 ---
-title: "KPEval: Towards Fine-grained Semantic-based Keyphrase Evaluation"
+title: "KPEval: Towards Fine-Grained Semantic-Based Keyphrase Evaluation"
 collection: publications
 Authors: '<b>Di Wu</b>, Da Yin, and Kai-Wei Chang.'
 date: 03/2023
