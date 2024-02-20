@@ -7,6 +7,7 @@ venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2311.00288/'
 codeurl: 'https://github.com/PlusLabNLP/Active-IT'
 excerpt: ''
+topic: 'llm'
 selected: 'false'
 ---
 ---
