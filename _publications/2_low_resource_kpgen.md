@@ -8,6 +8,7 @@ paperurl: 'https://aclanthology.org/2022.findings-emnlp.49/'
 codeurl: 'https://github.com/xiaowu0162/low-resource-kpgen'
 posterurl: 'https://drive.google.com/file/d/17xZXmxWI161t2kQT90YOPuMfkceAlcAC/view?usp=sharing'
 excerpt: ''
+topic: 'keyphrase'
 selected: 'true'
 ---
 ---
