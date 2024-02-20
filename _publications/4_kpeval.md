@@ -7,6 +7,7 @@ venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2303.15422'
 codeurl: 'https://github.com/uclanlp/KPEval'
 excerpt: ''
+topic: 'keyphrase'
 selected: 'true'
 ---
 ---
