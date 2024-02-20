@@ -5,6 +5,7 @@ Authors: 'Yuzhu Li, Nir Pillar, Jingxi Li, Tairan Liu, <b>Di Wu</b>, Songyu Sun,
 date: 08/2023
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2308.00920'
+topic: 'staining'
 excerpt: ''
 selected: 'false'
 ---
