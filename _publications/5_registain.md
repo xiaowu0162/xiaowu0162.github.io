@@ -2,12 +2,12 @@
 title: "Virtual histological staining of unlabeled autopsy tissue"
 collection: publications
 Authors: 'Yuzhu Li, Nir Pillar, Jingxi Li, Tairan Liu, <b>Di Wu</b>, Songyu Sun, Guangdong Ma, Kevin de Haan, Luzhe Huang, Sepehr Hamidi, Anatoly Urisman, Tal Keidar Haran, William Dean Wallace, Jonathan E Zuckerman, and Aydogan Ozcan.'
-date: 08/2023
-venue: 'arXiv'
+date: 02/2024
+venue: 'Nature Communications'
 paperurl: 'https://arxiv.org/abs/2308.00920'
 topic: 'staining'
 excerpt: ''
-selected: 'false'
+selected: 'true'
 ---
 ---
 <a href='https://arxiv.org/pdf/2308.00920.pdf' target="_blank">[Download Paper]</a>
