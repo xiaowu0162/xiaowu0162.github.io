@@ -7,6 +7,7 @@ venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2212.10233'
 codeurl: 'https://github.com/uclanlp/DeepKPG'
 excerpt: ''
+topic: 'keyphrase'
 selected: 'true'
 ---
 ---
