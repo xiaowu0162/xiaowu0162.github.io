@@ -5,6 +5,7 @@ Authors: 'Yuzhu Li, Nir Pillar, Jingxi Li, Tairan Liu, <b>Di Wu</b>, Songyu Sun,
 date: 02/2024
 venue: 'Nature Communications'
 paperurl: '[https://arxiv.org/abs/2308.00920](https://www.nature.com/articles/s41467-024-46077-2)'
+codeurl: 'https://github.com/liyuzhu1998/Autopsy-Virtual-Staining'
 topic: 'staining'
 excerpt: ''
 selected: 'true'
