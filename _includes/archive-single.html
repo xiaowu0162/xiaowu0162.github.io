@@ -74,6 +74,9 @@
 	    {% if post.mediaurl %}
 		&nbsp;<a href=" {{ post.mediaurl }} " target="_blank" style="color: blue">[Media Coverage]</a>
 	    {% endif %}
+	    {% if post.website %}
+		&nbsp;<a href=" {{ post.website }} " target="_blank" style="color: blue">[Website]</a>
+	    {% endif %}
 	  <br>
 	  <!--   	</p> -->
     {% elsif post.date %}
