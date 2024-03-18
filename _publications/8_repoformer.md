@@ -5,7 +5,7 @@ collection: publications
 Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, Dejiao Zhang, Murali Krishna Ramanathan, and Xiaofei Ma'
 date: 12/2023
 venue: 'arXiv'
-paperurl: 'https://xiaowu0162.github.io/files/repoformer_preprint.pdf'
+paperurl: 'https://arxiv.org/pdf/2403.10059.pdf'
 website: 'https://repoformer.github.io/'
 excerpt: ''
 topic: 'rag'
