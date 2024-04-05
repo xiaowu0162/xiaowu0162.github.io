@@ -36,11 +36,12 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2023/10).
 
 # Teaching
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2023
+* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Spring 2024
 
 # Professional Services 
 Program Committee/Reviewer
 * AAAI 2023, 2024
 * ACL 2023
 * EMNLP 2023
-* ACL ARR: 2023/10
+* ACL ARR: 2023, 2024
 * JAIR
