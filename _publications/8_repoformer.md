@@ -3,8 +3,8 @@ title: "Repoformer: Selective Retrieval for Repository-level Code Completion
 "
 collection: publications
 Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, Dejiao Zhang, Murali Krishna Ramanathan, and Xiaofei Ma'
-date: 12/2023
-venue: 'arXiv'
+date: 03/2024
+venue: 'ICML'
 paperurl: 'https://arxiv.org/pdf/2403.10059.pdf'
 website: 'https://repoformer.github.io/'
 excerpt: ''
