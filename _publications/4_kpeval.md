@@ -2,8 +2,8 @@
 title: "KPEval: Towards Fine-Grained Semantic-Based Keyphrase Evaluation"
 collection: publications
 Authors: '<b>Di Wu</b>, Da Yin, and Kai-Wei Chang.'
-date: 03/2023
-venue: 'arXiv'
+date: 05/2024
+venue: 'ACL (Findings)'
 paperurl: 'https://arxiv.org/abs/2303.15422'
 codeurl: 'https://github.com/uclanlp/KPEval'
 excerpt: ''
