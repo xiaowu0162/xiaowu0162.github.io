@@ -14,7 +14,8 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
-* [2024/05] [Repoformer](https://repoformer.github.io/) is accepted by ICML 2024. See you in Vienna!
+* [2024/05] [KPEval](https://arxiv.org/abs/2303.15422) is accepted by ACL 2024 (Findings).
+* [2024/05] [Repoformer](https://repoformer.github.io/) is accepted by ICML 2024.
 * [2024/03] Introducing [Repoformer](https://repoformer.github.io/): efficient and effective repository-level code completion.
 * [2023/10] [Rethinking seq2seq PLMs for kpgen](https://arxiv.org/abs/2310.06374) has been accepted by EMNLP 2023.
 * [2023/07] Started my applied scientist internship at AWS.
