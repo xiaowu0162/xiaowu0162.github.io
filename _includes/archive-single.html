@@ -54,7 +54,7 @@
 	  {% endif %}
 	  {% if post.venue != "arXiv" %}
 	  	{% if post.oral %}
-	  		<font color="brown"><i>{{ post.venue }} (Oral Presentation)</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
+	  		<font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} (Oral Presentation)</font>
 	  	{% else %}
 	      		<font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
 		{% endif %}
