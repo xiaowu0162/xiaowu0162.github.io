@@ -57,6 +57,7 @@
 	  		<font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} <font color="red"><i>(Oral Presentation)</i> </font>
 	  	{% else %}
 	      		<font color="brown"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </font>
+		{% endif %}
 	  {% endif %}
           
 	    {% if post.paperurl %}
