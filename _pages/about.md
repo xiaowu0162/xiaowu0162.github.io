@@ -21,10 +21,12 @@ News
 * [2023/10] [Rethinking seq2seq PLMs for kpgen](https://arxiv.org/abs/2310.06374) has been accepted by EMNLP 2023.
 <details>
 <summary>Show More News</summary>
-* [2023/07] Started my applied scientist internship at AWS.
-* [2023/03] Introducing [KPEval](https://arxiv.org/abs/2303.15422), a new framework for evaluating keyphrase systems.
-* [2022/10] [Low resource kpgen](https://aclanthology.org/2022.findings-emnlp.49/) has been accepted by EMNLP 2022 (Findings).
-* [2022/09] Started working as a PhD student in the [UCLA NLP Group](http://web.cs.ucla.edu/~kwchang/members/).
+<ul>
+<li>[2023/07] Started my applied scientist internship at AWS.</li>
+<li>[2023/03] Introducing <a href="https://arxiv.org/abs/2303.15422">KPEval</a>, a new framework for evaluating keyphrase systems.</li>
+<li>[2022/10] <a href="https://aclanthology.org/2022.findings-emnlp.49/">Low resource kpgen</a> has been accepted by EMNLP 2022 (Findings).</li>
+<li>[2022/09] Started working as a PhD student in the <a href="http://web.cs.ucla.edu/~kwchang/members/">UCLA NLP Group</a>.</li>
+</ul>
 </details>
 
 <br />
