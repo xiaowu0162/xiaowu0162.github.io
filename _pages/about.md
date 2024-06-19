@@ -19,10 +19,14 @@ News
 * [2024/05] [Repoformer](https://repoformer.github.io/) is accepted by ICML 2024 (oral).
 * [2024/03] Introducing [Repoformer](https://repoformer.github.io/): efficient and effective repository-level code completion.
 * [2023/10] [Rethinking seq2seq PLMs for kpgen](https://arxiv.org/abs/2310.06374) has been accepted by EMNLP 2023.
-* [2023/07] Started my applied scientist internship at AWS.
-* [2023/03] Introducing [KPEval](https://arxiv.org/abs/2303.15422), a new framework for evaluating keyphrase systems.
-* [2022/10] [Low resource kpgen](https://aclanthology.org/2022.findings-emnlp.49/) has been accepted by EMNLP 2022 (Findings).
-* [2022/09] Started working as a PhD student in the [UCLA NLP Group](http://web.cs.ucla.edu/~kwchang/members/).
+<div id="more-news" style="display: none;">
+  * [2023/07] Started my applied scientist internship at AWS.
+  * [2023/03] Introducing [KPEval](https://arxiv.org/abs/2303.15422), a new framework for evaluating keyphrase systems.
+  * [2022/10] [Low resource kpgen](https://aclanthology.org/2022.findings-emnlp.49/) has been accepted by EMNLP 2022 (Findings).
+  * [2022/09] Started working as a PhD student in the [UCLA NLP Group](http://web.cs.ucla.edu/~kwchang/members/).
+</div>
+<br />
+<button onclick="toggleNews()">Show More News</button>
 
 <br />
 <a href="https://clustrmaps.com/site/1bw2e" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=YEXbU0ztNHSLCXRZZYQ1EhkrUToe0dYoB34LhCgU-xU&cl=ffffff"></a>
