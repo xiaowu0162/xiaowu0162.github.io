@@ -25,7 +25,10 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/05).
     - Period of Study: September 2012 - July 2018 <br/>
 
 # Internship
-* <a href="https://www.amazon.science/" target="_blank">AWS AI</a> (June 2023 – Sept. 2023)
+* <a href="https://ai.tencent.com/ailab/en/about/" target="_blank">Tencent AI Lab</a> (June 2024 – Sept. 2024)
+    - Research Intern
+    - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
+* <a href="https://www.amazon.science/" target="_blank">AWS AI Labs</a> (June 2023 – Sept. 2023)
     - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
     - Mentors: [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/)
 * <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a> (June 2021 – Sept. 2021)
