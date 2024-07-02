@@ -1,7 +1,7 @@
 ---
 title: "The Factuality Tax of Diversity-Intervened Text-to-Image Generation: Benchmark and Fact-Augmented Intervention"
 collection: publications
-Authors: 'Yixin Wan, <b>Di Wu</b>, and Kai-Wei Chang.'
+Authors: 'Yixin Wan, <b>Di Wu</b>, Haoran Wang, and Kai-Wei Chang.'
 date: 07/2024
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2407.00377/'
