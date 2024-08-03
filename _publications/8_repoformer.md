@@ -6,6 +6,8 @@ Authors: '<b>Di Wu</b>, Wasi Uddin Ahmad, Dejiao Zhang, Murali Krishna Ramanatha
 date: 03/2024
 venue: 'ICML'
 paperurl: 'https://arxiv.org/pdf/2403.10059.pdf'
+posterurl: 'https://drive.google.com/file/d/1zILw2Km4CVHvfIB6mRRZ1HiYkcM8J296/view?usp=sharing'
+presentationurl: 'https://docs.google.com/presentation/d/193XNNa3XtCaq22fNTXfdXWQUgDmcl61T/edit?usp=sharing&ouid=112942099362791325316&rtpof=true&sd=true'
 website: 'https://repoformer.github.io/'
 excerpt: ''
 topic: 'rag'
