@@ -7,6 +7,7 @@ date: 10/2023
 venue: 'EMNLP'
 paperurl: 'https://aclanthology.org/2023.emnlp-main.410/'
 codeurl: 'https://github.com/uclanlp/DeepKPG'
+posterurl: 'https://drive.google.com/file/d/1zxQRiOOFJjcklf8D5dbkjmBorq3KFpZb/view?usp=sharing'
 excerpt: ''
 topic: 'keyphrase'
 selected: 'true'
