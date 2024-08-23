@@ -6,7 +6,7 @@ date: 05/2024
 venue: 'ACL (Findings)'
 paperurl: 'https://arxiv.org/abs/2303.15422'
 codeurl: 'https://github.com/uclanlp/KPEval'
-presentationurl: 'https://docs.google.com/presentation/d/1qUray2_hyHISFa_rKHHuFV3LuFrGmzHW/edit?usp=sharing&ouid=112942099362791325316&rtpof=true&sd=true'
+presentationurl: 'https://drive.google.com/file/d/1tOSDFN24Z_ipZFS1d42xFC72yrUlLf_u/view?usp=sharing'
 posterurl: 'https://drive.google.com/file/d/1Pv1zOFoOHSLHzijHnLuiqT9SbKxPDrHm/view?usp=sharing'
 excerpt: ''
 topic: 'keyphrase'
