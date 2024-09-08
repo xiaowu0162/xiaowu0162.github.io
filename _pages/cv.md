@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/06).
+Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/09).
 
 # Education
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
@@ -40,6 +40,7 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/06).
 # Teaching
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2023
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Spring 2024
+* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2024
 
 # Professional Services 
 Program Committee/Reviewer
