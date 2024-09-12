@@ -11,7 +11,7 @@ You can find all of my articles on <a href="https://scholar.google.com/citations
 
 ---
 
-## 🔍 Retrieval-Augmentation and Beyond
+## 🔍 Retrieval Augmentation and Beyond
 
 {% assign publicationsByYear = site.publications | group_by_exp:"post", "post.date | date: '%Y'" %}
 {% for year in publicationsByYear reversed %}
