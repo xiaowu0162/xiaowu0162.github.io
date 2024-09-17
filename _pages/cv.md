@@ -26,7 +26,7 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/09).
 
 # Internship
 * <a href="https://ai.tencent.com/ailab/en/about/" target="_blank">Tencent AI Lab</a> (June 2024 – Sept. 2024)
-    - Research Intern
+    - Research Intern, team <a href="https://tencent-ailab.github.io/CogKernel/" target="_blank">Cognitive Kernel</a>
     - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
 * <a href="https://www.amazon.science/" target="_blank">AWS AI Labs</a> (June 2023 – Sept. 2023)
     - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
