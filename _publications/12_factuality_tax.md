@@ -3,11 +3,11 @@ title: "The Factuality Tax of Diversity-Intervened Text-to-Image Generation: Ben
 collection: publications
 Authors: 'Yixin Wan, <b>Di Wu</b>, Haoran Wang, and Kai-Wei Chang.'
 date: 07/2024
-venue: 'arXiv'
+venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2407.00377/'
 codeurl: ''
 excerpt: ''
-topic: 'llm'
+topic: 'rag'
 selected: 'false'
 ---
 ---
