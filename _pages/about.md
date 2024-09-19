@@ -14,6 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2024/09] Three papers (↓) accepted by EMNLP 2024.
 * [2024/07] Check out our recent work: [SynCheck](https://arxiv.org/abs/2406.13692), [MetaKP](https://arxiv.org/abs/2407.00191), and [the factuality tax](https://arxiv.org/abs/2407.00377).
 * [2024/06] Started my research internship at Tencent AI Lab (Bellevue).
 * [2024/05] [KPEval](https://arxiv.org/abs/2303.15422) is accepted by ACL 2024 (Findings).
