@@ -3,7 +3,7 @@ title: "MetaKP: On-Demand Keyphrase Generation"
 collection: publications
 Authors: '<b>Di Wu</b>, Xiaoxian Shen, and Kai-Wei Chang.'
 date: 07/2024
-venue: 'arXiv'
+venue: 'EMNLP (Findings)'
 paperurl: 'https://arxiv.org/abs/2407.00191'
 codeurl: 'https://github.com/uclanlp/MetaKP'
 excerpt: ''
