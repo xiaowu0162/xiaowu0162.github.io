@@ -3,7 +3,7 @@ title: "Synchronous Faithfulness Monitoring for Trustworthy Retrieval-Augmented 
 collection: publications
 Authors: '<b>Di Wu</b>, Jia-Chen Gu, Fan Yin, Nanyun Peng, and Kai-Wei Chang.'
 date: 06/2024
-venue: 'arXiv'
+venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2406.13692'
 codeurl: 'https://github.com/xiaowu0162/sync-ralm-faithfulness'
 website: 'https://xiaowu0162.github.io/syncheck/'
