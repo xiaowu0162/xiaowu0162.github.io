@@ -1,5 +1,5 @@
 ---
-title: "Pre-trained Language Models for Keyphrase Generation: A Thorough Empirical Study"
+title: "	LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"
 collection: publications
 Authors: '<b>Di Wu</b>, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu.'
 date: 10/2024
