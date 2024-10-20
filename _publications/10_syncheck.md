@@ -6,6 +6,8 @@ date: 06/2024
 venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2406.13692'
 codeurl: 'https://github.com/xiaowu0162/sync-ralm-faithfulness'
+presentationurl: 'https://docs.google.com/presentation/d/1M_ctHffF5Cy-CP64QRoma_h1ZXKLACEX/edit?usp=sharing&ouid=112942099362791325316&rtpof=true&sd=true'
+posterurl: 'https://drive.google.com/file/d/14HGVh4HL--xDHSvU9Gu_Ej2knUSJvjvc/view?usp=sharing'
 website: 'https://xiaowu0162.github.io/syncheck/'
 excerpt: ''
 topic: 'rag'
