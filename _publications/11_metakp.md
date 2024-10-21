@@ -6,6 +6,8 @@ date: 07/2024
 venue: 'EMNLP (Findings)'
 paperurl: 'https://arxiv.org/abs/2407.00191'
 codeurl: 'https://github.com/uclanlp/MetaKP'
+posterurl: 'https://drive.google.com/file/d/1Ib4sBPpG4GCxzN0Mf1zkL_vxyQAshYgd/view?usp=sharing'
+presentationurl: 'https://docs.google.com/presentation/d/1SUQtdtKNJFBMlCbFwI6KLfm5Oldp31hA/edit?usp=sharing&ouid=112942099362791325316&rtpof=true&sd=true'
 excerpt: ''
 topic: 'keyphrase'
 selected: 'true'
