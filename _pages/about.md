@@ -14,6 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2024/10] Check out [BRIEF](https://github.com/JasonForJoy/BRIEF): multi-hop reasoning-aware context compression.
 * [2024/10] Introducing [LongMemEval](https://github.com/xiaowu0162/LongMemEval): a comprehensive, challenging, and scalable benchmark for long-term memory.
 * [2024/09] Three papers (↓) accepted by EMNLP 2024 Main and Findings.
 * [2024/07] Check out our recent work: [SynCheck](https://arxiv.org/abs/2406.13692), [MetaKP](https://arxiv.org/abs/2407.00191), and [the factuality tax](https://arxiv.org/abs/2407.00377).
