@@ -38,9 +38,7 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/10).
     - NLP Engineer Intern
 
 # Teaching
-* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2023
-* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Spring 2024
-* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization, Fall 2024
+* Teaching Assistant, UCLA CS 33, Introduction to Computer Organization: Fall 2023, Spring 2024, Fall 2024
 
 # Professional Services 
 Program Committee/Reviewer
