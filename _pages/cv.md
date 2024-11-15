@@ -47,3 +47,7 @@ Program Committee/Reviewer
 * EMNLP 2023
 * ACL ARR: 2023, 2024
 * JAIR
+
+# Awards
+* Outstanding Reviewer, EMNLP 2024
+* Dean Honor List, UCLA Engineering (8 times)
