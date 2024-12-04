@@ -27,13 +27,13 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/10).
 # Internship
 * <a href="https://ai.tencent.com/ailab/en/about/" target="_blank">Tencent AI Lab</a> (June 2024 – Sept. 2024)
     - Research Intern, team <a href="https://arxiv.org/abs/2409.10277" target="_blank">Cognitive Kernel</a>
-    - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
+    - Mentored by [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/) (Manager: Dong Yu)
 * <a href="https://www.amazon.science/" target="_blank">AWS AI Labs</a> (June 2023 – Sept. 2023)
     - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
-    - Mentors: [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/)
+    - Mentored by [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/) (Manager: Xiaofei Ma)
 * <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a> (June 2021 – Sept. 2021)
     - Research Intern, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a>
-    - Mentor: Ning Shang
+    - Mentored by Ning Shang and [Quanlu Zhang](https://openreview.net/profile?id=~Quanlu_Zhang1) (Manager: Qiufeng Yin)
 * <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – Oct. 2020)
     - NLP Engineer Intern
 
