@@ -33,7 +33,7 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/10).
     - Mentored by [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/) (Manager: Xiaofei Ma)
 * <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia</a> (June 2021 – Sept. 2021)
     - Research Intern, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a>
-    - Mentored by Ning Shang and [Quanlu Zhang](https://openreview.net/profile?id=~Quanlu_Zhang1) (Manager: Qiufeng Yin)
+    - Mentored by [Ning Shang](https://openreview.net/profile?id=~Ning_Shang1) and [Quanlu Zhang](https://openreview.net/profile?id=~Quanlu_Zhang1) (Manager: Qiufeng Yin)
 * <a href="https://www.newsbreak.com/" target="_blank">NewsBreak</a> (July 2020 – Oct. 2020)
     - NLP Engineer Intern
 
