@@ -2,8 +2,8 @@
 title: "BRIEF: Bridging Retrieval and Inference for Multi-hop Reasoning via Compression"
 collection: publications
 Authors: 'Yuankai Li*, Jia-Chen Gu*, <b>Di Wu</b>, Kai-Wei Chang, and Nanyun Peng.'
-date: 10/2024
-venue: 'arXiv'
+date: 04/2025
+venue: 'NAACL (Findings)'
 paperurl: 'https://arxiv.org/abs/2410.15277/'
 codeurl: 'https://github.com/JasonForJoy/BRIEF'
 excerpt: ''
