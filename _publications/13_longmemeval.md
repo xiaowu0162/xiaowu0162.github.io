@@ -2,8 +2,8 @@
 title: "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"
 collection: publications
 Authors: '<b>Di Wu</b>, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu.'
-date: 10/2024
-venue: 'arXiv'
+date: 04/2025
+venue: 'ICLR 2025'
 paperurl: 'https://arxiv.org/abs/2410.10813'
 codeurl: 'https://github.com/xiaowu0162/LongMemEval'
 website: 'https://xiaowu0162.github.io/long-mem-eval/'
