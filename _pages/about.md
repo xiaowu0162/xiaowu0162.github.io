@@ -14,7 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
-* [2024/05] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.
+* [2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.
 * [2024/10] Check out [BRIEF](https://github.com/JasonForJoy/BRIEF): multi-hop reasoning-aware context compression.
 * [2024/10] Introducing [LongMemEval](https://github.com/xiaowu0162/LongMemEval): a comprehensive, challenging, and scalable benchmark for long-term memory.
 * [2024/09] Three papers (↓) accepted by EMNLP 2024 Main and Findings.
