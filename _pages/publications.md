@@ -7,6 +7,8 @@ author_profile: true
 
 You can find all of my articles on <a href="https://scholar.google.com/citations?user=vu1pDZgAAAAJ" target="_blank">my Google Scholar profile</a>.
 
+(* = equal contribution)
+
 {% include base_path %}
 
 ---
