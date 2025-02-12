@@ -5,7 +5,7 @@ Authors: 'Yixin Wan, <b>Di Wu</b>, Haoran Wang, and Kai-Wei Chang.'
 date: 07/2024
 venue: 'EMNLP'
 paperurl: 'https://arxiv.org/abs/2407.00377/'
-codeurl: ''
+codeurl: 'https://github.com/elainew728/factuality-tax-t2i'
 excerpt: ''
 topic: 'rag'
 selected: 'true'
