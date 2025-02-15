@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2024/10).
+Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2025/02).
 
 # Education
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
