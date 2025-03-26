@@ -6,6 +6,7 @@ date: 04/2025
 venue: 'ICLR'
 paperurl: 'https://arxiv.org/abs/2410.10813'
 codeurl: 'https://github.com/xiaowu0162/LongMemEval'
+presentationurl: 'https://drive.google.com/file/d/1q1QYZm3SzLT8yp9o6PDrkDvbjqkCruRC/view?usp=sharing'
 website: 'https://xiaowu0162.github.io/long-mem-eval/'
 excerpt: ''
 topic: 'rag'
