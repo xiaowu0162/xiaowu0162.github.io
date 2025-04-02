@@ -14,7 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
-* [2025/04] Introducing Self-Routing RAG [\[paper\]](https://arxiv.org/abs/2504.01018) [\[slides\]](https://drive.google.com/file/d/14ZFl7Nq3KjJV4jH0y3PEcuYF-WG1rr0p/view?usp=sharing).
+* [2025/04] Check out our recent work: [Self-Routing RAG](https://arxiv.org/abs/2504.01018).
 * [2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.
 * [2025/01] [BRIEF](https://github.com/JasonForJoy/BRIEF) is accepted by NAACL 2025 (Findings).
 * [2024/10] Check out [BRIEF](https://github.com/JasonForJoy/BRIEF): multi-hop reasoning-aware context compression.
