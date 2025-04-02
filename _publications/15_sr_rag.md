@@ -3,7 +3,7 @@ title: "Self-Routing RAG: Binding Selective Retrieval with Knowledge Verbalizati
 collection: publications
 Authors: '<b>Di Wu*</b>, Jia-Chen Gu*, Kai-Wei Chang, and Nanyun Peng.'
 date: 04/2025
-venue: 'EMNLP (Findings)'
+venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2504.01018'
 codeurl: 'https://github.com/xiaowu0162/self-routing-rag'
 presentationurl: 'https://drive.google.com/file/d/14ZFl7Nq3KjJV4jH0y3PEcuYF-WG1rr0p/view?usp=sharing'
