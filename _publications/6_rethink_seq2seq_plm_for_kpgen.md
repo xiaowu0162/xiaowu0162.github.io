@@ -10,7 +10,7 @@ codeurl: 'https://github.com/uclanlp/DeepKPG'
 posterurl: 'https://drive.google.com/file/d/1zxQRiOOFJjcklf8D5dbkjmBorq3KFpZb/view?usp=sharing'
 excerpt: ''
 topic: 'keyphrase'
-selected: 'true'
+selected: 'false'
 ---
 ---
 <a href='https://aclanthology.org/2023.emnlp-main.410.pdf' target="_blank">[Download Paper]</a><a href='https://github.com/uclanlp/DeepKPG' target="_blank">[Source Code]</a>
