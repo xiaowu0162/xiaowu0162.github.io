@@ -44,12 +44,15 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2025/02).
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization: Fall 2023, Spring 2024, Fall 2024
 
 # Professional Services 
-Program Committee/Reviewer
-* AAAI 2023, 2024
-* ACL 2023
-* EMNLP 2023
-* ACL ARR: 2023, 2024
-* JAIR
+* Program Committee/Reviewer
+  * AAAI 2023, 2024
+  * ACL 2023
+  * EMNLP 2023
+  * ACL ARR: 2023, 2024, 2025
+  * ICLR: 2025
+  * JAIR
+* Volunteer: NAACL 2025
+* Session Chair: NAACL 2025
 
 # Awards
 * Outstanding Reviewer, EMNLP 2024
