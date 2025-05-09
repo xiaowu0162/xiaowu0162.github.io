@@ -8,7 +8,7 @@ paperurl: 'https://arxiv.org/abs/2410.15277/'
 codeurl: 'https://github.com/JasonForJoy/BRIEF'
 excerpt: ''
 topic: 'rag'
-selected: 'true'
+selected: 'false'
 ---
 ---
 <a href='https://arxiv.org/pdf/2410.15277' target="_blank">[Download Paper]</a>
