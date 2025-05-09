@@ -8,7 +8,7 @@ paperurl: 'https://arxiv.org/abs/2407.00377/'
 codeurl: 'https://github.com/elainew728/factuality-tax-t2i'
 excerpt: ''
 topic: 'rag'
-selected: 'true'
+selected: 'false'
 ---
 ---
 <a href='https://arxiv.org/pdf/2407.00377' target="_blank">[Download Paper]</a>
