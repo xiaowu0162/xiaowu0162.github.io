@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a third-year PhD candidate at University of California, Los Angeles (UCLA) advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/). My current research interests lie in building robust and trustworthy knowledge-augmented language model systems. On the application side, I have worked on keyphrase generation extensively.
+I am a third-year PhD candidate at University of California, Los Angeles (UCLA) advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/). My current research interests lie in building language model systems with large scale memory.
 
 I did my undergraduate studies at UCLA, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/). 
 
