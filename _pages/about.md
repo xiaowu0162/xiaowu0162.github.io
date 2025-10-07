@@ -15,7 +15,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 News
 ====
 * [2025/06] Started my research internship at Meta FAIR (NYC).
-* [2025/05] Introducing [Visualized T2I Retrieval](https://xiaowu0162.github.io/visret/): imagine your query before retrieval. 
+* [2025/05] Introducing [VisRet](https://xiaowu0162.github.io/visret/): imagine your query before retrieval. 
 * [2025/04] Introducing [Self-Routing RAG](https://arxiv.org/abs/2504.01018): efficiently enabling an LLM to route between knowledge sources and to act as a knowledge source itself.
 * [2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.
 
