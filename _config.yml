@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Di Wu"
 title_separator          : "-"
 name                     : &name "Di Wu"
-description              : &description "Third-year PhD student at UCLA"
+description              : &description "Fourth-year PhD student at UCLA"
 url                      : https://xiaowu0162.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "xiaowu0162/xiaowu0162.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Di Wu"
   avatar           : "wudi_2022_ucla.png"
-  bio              : "Third-year PhD student at UCLA"
+  bio              : "Fourth-year PhD student at UCLA"
   location         : "Los Angeles, CA"
   employer         :
   pubmed           :
