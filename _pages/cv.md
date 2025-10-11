@@ -25,6 +25,9 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2025/10).
     - Period of Study: September 2012 - July 2018 <br/>
 
 # Internship
+* <span style="color:black; font-size:15px"><b><a href="https://ai.meta.com/research/" target="_blank"><font color="brown" size="4">Meta FAIR</font></a></b></span> (June 2025 – Oct. 2025)
+    - Research Scientist Intern under Communication & Language
+    - Mentors: [Mingda Chen](https://mingdachen.github.io/), [Devendra Sachan](https://www.dsachan.com/), and [Scott Yih](https://scottyih.org/). 
 * <span style="color:black; font-size:15px"><b><a href="https://ai.tencent.com/ailab/en/about/" target="_blank"><font color="brown" size="4">Tencent AI Lab</font></a></b></span> (June 2024 – Sept. 2024)
     - Research Intern, team <a href="https://arxiv.org/abs/2409.10277" target="_blank">Cognitive Kernel</a>
     - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
