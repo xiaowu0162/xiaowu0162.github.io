@@ -27,18 +27,23 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2025/10).
 # Internship
 * <span style="color:black; font-size:15px"><b><a href="https://ai.meta.com/research/" target="_blank"><font color="brown" size="4">Meta FAIR</font></a></b></span> (June 2025 – Oct. 2025)
     - Research Scientist Intern under Communication & Language
-    - Mentors: [Mingda Chen](https://mingdachen.github.io/), [Devendra Sachan](https://www.dsachan.com/), and [Scott Yih](https://scottyih.org/). 
+    - Mentors: [Mingda Chen](https://mingdachen.github.io/), [Devendra Sachan](https://www.dsachan.com/), and [Scott Yih](https://scottyih.org/).
+    - Research Topic: Reasoning and Memory.
 * <span style="color:black; font-size:15px"><b><a href="https://ai.tencent.com/ailab/en/about/" target="_blank"><font color="brown" size="4">Tencent AI Lab</font></a></b></span> (June 2024 – Sept. 2024)
     - Research Intern, team <a href="https://arxiv.org/abs/2409.10277" target="_blank">Cognitive Kernel</a>
     - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
+    - Research Topic: RAG and Memory. 
 * <span style="color:black; font-size:15px"><b><a href="https://www.amazon.science/" target="_blank"><font color="brown" size="4">AWS AI Labs</font></a></b></span> (June 2023 – Sept. 2023)
     - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
     - Mentors: [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/)
+    - Research Topic: RAG, Code Generation. 
 * <span style="color:black; font-size:15px"><b><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank"><font color="brown" size="4">Microsoft Research Asia</font></a></b></span> (June 2021 – Sept. 2021)
     - Research Intern, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a>
     - Mentors: [Ning Shang](https://openreview.net/profile?id=~Ning_Shang1) and [Quanlu Zhang](https://openreview.net/profile?id=~Quanlu_Zhang1)
+    - Research Topic: Model Compression, AutoML. 
 * <span style="color:black; font-size:15px"><b><a href="https://www.newsbreak.com/" target="_blank"><font color="brown" size="4">NewsBreak</font></a></b></span> (July 2020 – Oct. 2020)
     - NLP Engineer Intern
+    - Worked on news classification and topic modeling. 
 
 # Teaching
 * Teaching Assistant, UCLA CS 33, Introduction to Computer Organization: Fall 2023, Spring 2024, Fall 2024
