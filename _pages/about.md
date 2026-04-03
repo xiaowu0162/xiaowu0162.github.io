@@ -14,6 +14,8 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2026/04] New paper: [Procedural Knowledge at Scale Improves Reasoning](https://arxiv.org/abs/2604.01348).
+* [2026/03] New paper: [Open-Domain Safety Policy Construction](https://aclanthology.org/2026.findings-eacl.262/).
 * [2025/10] Check out our recent papers: [BRIEF-Pro](https://arxiv.org/abs/2510.13799) for context compression and [UI-Simulator](https://arxiv.org/abs/2510.14969) for agent training.
 * [2025/10] Check out our [long-term memory reading list](https://github.com/xiaowu0162/awesome-long-term-memory).
 * [2025/06] Started my research internship at Meta FAIR (NYC).
