@@ -1,5 +1,5 @@
 ---
-title: "Open-Domain Safety Policy Construction"
+title: "Procedural Knowledge at Scale Improves Reasoning"
 collection: publications
 Authors: '<b>Di Wu</b>, Devendra Singh Sachan, Wen-tau Yih, Mingda Chen.'
 date: 04/2026
