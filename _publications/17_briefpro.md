@@ -3,7 +3,7 @@ title: "BRIEF-Pro: Universal Context Compression with Short-to-Long Synthesis fo
 collection: publications
 Authors: 'Jia-Chen Gu*, Junyi Zhang*, <b>Di Wu</b>, Yuankai Li, Kai-Wei Chang, and Nanyun Peng.'
 date: 10/2025
-venue: 'arXiv'
+venue: 'ACL 2026 (Findings)'
 paperurl: 'https://arxiv.org/abs/2510.13799/'
 codeurl: 'https://github.com/JasonForJoy/BRIEF'
 excerpt: ''
