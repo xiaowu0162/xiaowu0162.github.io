@@ -3,7 +3,7 @@ title: "VisRet: Visualization Improves Knowledge-Intensive Text-to-Image Retriev
 collection: publications
 Authors: '<b>Di Wu*</b>, Yixin Wan*, and Kai-Wei Chang.'
 date: 05/2025
-venue: 'arXiv'
+venue: 'ACL 2026'
 paperurl: 'https://arxiv.org/abs/2505.20291'
 codeurl: 'https://github.com/xiaowu0162/Visualize-then-Retrieve'
 website: 'https://xiaowu0162.github.io/visret/'
