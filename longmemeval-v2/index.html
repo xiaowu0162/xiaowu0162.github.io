@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues">
+  <meta name="keywords" content="LongMemEval-V2, agent memory, long-term memory, web agents, benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LongMemEval-V2</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+  <button class="toc-burger" id="toc-burger" aria-label="Open table of contents">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="toc-overlay" id="toc-overlay"></div>
+  <aside class="toc-wrapper" id="toc-wrapper" aria-label="Table of contents">
+    <div class="toc-header">
+      <h4>Contents</h4>
+      <button class="toc-close" id="toc-close" aria-label="Close table of contents">&times;</button>
+    </div>
+    <ol class="toc-list">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#benchmark">Benchmark</a></li>
+      <li><a href="#evaluation">Evaluation</a></li>
+      <li><a href="#agentrunbook">AgentRunbook</a></li>
+      <li><a href="#pilot">Pilot Studies</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#data-viewer">Data Viewer</a></li>
+      <li><a href="#leaderboard">Leaderboard</a></li>
+      <li><a href="#citation">Citation</a></li>
+    </ol>
+  </aside>
+
+  <section class="hero project-hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        <p class="publication-venue">Preprint</p>
+        <h1 class="title publication-title">
+          LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues
+        </h1>
+        <div class="publication-authors">
+          <span class="author-block"><a href="https://xiaowu0162.github.io/">Di Wu</a></span>,
+          <span class="author-block"><a href="https://www.linkedin.com/pub/dir/Zixiang/Ji">Zixiang Ji</a></span>,
+          <span class="author-block"><a href="https://www.linkedin.com/in/asmi-kawatkar">Asmi Kawatkar</a></span>,
+          <span class="author-block"><a href="https://www.linkedin.com/in/kwan-bryan">Bryan Kwan</a></span>,
+          <span class="author-block"><a href="https://jasonforjoy.github.io/index.html">Jia-Chen Gu</a></span>,
+          <span class="author-block"><a href="https://vnpeng.net/">Nanyun Peng</a></span>,
+          <span class="author-block"><a href="https://kwchang.net/">Kai-Wei Chang</a></span>
+        </div>
+        <div class="publication-affiliation">UCLA</div>
+
+        <div class="publication-links">
+          <a class="button is-dark link-button todo-link" href="#todo-links" aria-label="Paper link todo">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper TODO</span>
+          </a>
+          <a class="button is-dark link-button todo-link" href="#todo-links" aria-label="Code link todo">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code TODO</span>
+          </a>
+          <a class="button is-dark link-button todo-link" href="#todo-links" aria-label="Data link todo">
+            <span class="icon"><i class="fas fa-database"></i></span>
+            <span>Data TODO</span>
+          </a>
+          <a class="button is-dark link-button" href="#leaderboard">
+            <span class="icon"><i class="fas fa-table"></i></span>
+            <span>Leaderboard</span>
+          </a>
+          <a class="button is-dark link-button" href="#citation">
+            <span class="icon"><i class="ai ai-google-scholar"></i></span>
+            <span>Citation</span>
+          </a>
+        </div>
+
+        <div class="stat-strip" aria-label="Benchmark summary">
+          <div class="stat-chip"><strong>451</strong><span>questions</span></div>
+          <div class="stat-chip"><strong>1,870</strong><span>trajectories</span></div>
+          <div class="stat-chip"><strong>115M</strong><span>tokens</span></div>
+          <div class="stat-chip"><strong>5</strong><span>memory abilities</span></div>
+          <div class="stat-chip"><strong>72.5%</strong><span>best avg. acc.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container is-max-desktop">
+        <h2 class="title section-title">Overview</h2>
+        <div class="content project-copy">
+          <p>
+            Long-term memory is crucial for agents in specialized web environments, where success depends on recalling interface affordances,
+            state dynamics, workflows, and recurring failure modes. LongMemEval-V2 evaluates whether memory systems can help agents acquire
+            the experience needed to become knowledgeable colleagues in customized environments.
+          </p>
+          <p>
+            The benchmark pairs manually curated questions with long histories of multimodal web-agent trajectories. Memory systems consume
+            the trajectory history and return compact evidence for downstream question answering, making accuracy and query latency both central outcomes.
+          </p>
+        </div>
+
+        <figure class="paper-figure hero-figure">
+          <img src="./assets/figures/main_figure.png" alt="Examples of LongMemEval-V2 questions across memory abilities">
+          <figcaption>
+            LongMemEval-V2 questions cover static state recall, dynamic state tracking, workflow knowledge, environment gotchas, and premise awareness.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-band" id="benchmark">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Benchmark</h2>
+        <div class="experience-block">
+          <h3>What defines an experienced colleague?</h3>
+          <div class="experience-line"><strong>Static state recall</strong><span>remembers important landmarks, page layouts, module affordances, and subtle state differences.</span></div>
+          <div class="experience-line"><strong>Dynamic state tracking</strong><span>understands how states and actions change the environment over time.</span></div>
+          <div class="experience-line"><strong>Workflow knowledge</strong><span>knows the steps needed to complete recurring tasks in customized environments.</span></div>
+          <div class="experience-line"><strong>Environment gotchas</strong><span>recognizes recurring local failure modes and avoids environment-specific traps.</span></div>
+          <div class="experience-line"><strong>Premise awareness</strong><span>detects assumptions that are valid elsewhere but wrong in the current deployment.</span></div>
+        </div>
+
+        <div class="construction-block">
+          <h3>Benchmark construction</h3>
+          <div class="construction-steps">
+            <div><strong>1. Collect trajectories</strong><span>Gather task-solving traces from WebArena, WorkArena, and WorkArena++ environments.</span></div>
+            <div><strong>2. Annotate questions</strong><span>Manually curate questions that target experienced-colleague memory abilities.</span></div>
+            <div><strong>3. Label evidence</strong><span>Identify answer-bearing trajectories and verify evidence coverage.</span></div>
+            <div><strong>4. Build haystacks</strong><span>Assemble sparse-answer histories for LME-V2-Small and LME-V2-Medium.</span></div>
+          </div>
+        </div>
+
+        <figure class="paper-figure distribution-figure">
+          <img src="./assets/figures/question_stats.png" alt="Question distribution statistics">
+          <figcaption>Questions span domains, types, and answer formats.</figcaption>
+        </figure>
+
+        <figure class="paper-figure distribution-figure">
+          <img src="./assets/figures/haystack_stats.png" alt="Haystack trajectory and token statistics">
+          <figcaption>History haystacks are large, while answer-bearing trajectories remain sparse.</figcaption>
+        </figure>
+
+        <div class="table-wrap comparison-wrap">
+          <table class="table is-fullwidth benchmark-table">
+            <thead>
+              <tr>
+                <th>Group</th>
+                <th>Benchmark</th>
+                <th>Domain</th>
+                <th>Sessions</th>
+                <th>Tokens</th>
+                <th>Context MM</th>
+                <th>Questions</th>
+                <th>Question MM</th>
+                <th>Static</th>
+                <th>Dynamic</th>
+                <th>Workflow</th>
+                <th>Gotchas</th>
+                <th>Premise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>General long context</td>
+                <td><a href="https://aclanthology.org/2025.acl-long.183/">LongBench V2</a></td>
+                <td>Mixed</td>
+                <td>N/A</td>
+                <td>260K</td>
+                <td>No</td>
+                <td>503</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>General long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2507.05257">MemoryAgentBench</a></td>
+                <td>Mixed</td>
+                <td>N/A</td>
+                <td>285K</td>
+                <td>No</td>
+                <td>2,071</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>General long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2602.03587">CL-Bench</a></td>
+                <td>Mixed</td>
+                <td>N/A</td>
+                <td>10K</td>
+                <td>No</td>
+                <td>1,899</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Conversational long context</td>
+                <td><a href="https://doi.org/10.18653/v1/2024.acl-long.747">LoCoMo</a></td>
+                <td>User-user chat</td>
+                <td>28</td>
+                <td>~16K</td>
+                <td>Yes</td>
+                <td>7,512</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Conversational long context</td>
+                <td><a href="https://openreview.net/forum?id=pZiyCaVuti">LongMemEval-V1</a></td>
+                <td>User-assistant chat</td>
+                <td>48-475</td>
+                <td>115K-1.5M</td>
+                <td>No</td>
+                <td>500</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Conversational long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2504.14225">PersonaMem</a></td>
+                <td>User-assistant chat</td>
+                <td>5-60</td>
+                <td>26K-951K</td>
+                <td>No</td>
+                <td>5,990</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Conversational long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2512.06688">PersonaMem-v2</a></td>
+                <td>User-assistant chat</td>
+                <td>10-20</td>
+                <td>33K-124K</td>
+                <td>Yes</td>
+                <td>5,000</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Conversational long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2510.27246">BEAM</a></td>
+                <td>User-assistant chat</td>
+                <td>4.5-100</td>
+                <td>124K-10M</td>
+                <td>No</td>
+                <td>2,000</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Agentic long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2602.16313">MemoryArena</a></td>
+                <td>Agent mixed</td>
+                <td>7</td>
+                <td>40K+</td>
+                <td>No</td>
+                <td>766</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Agentic long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2601.20730">AgentLongBench</a></td>
+                <td>Game agent</td>
+                <td>1</td>
+                <td>31K-4M</td>
+                <td>No</td>
+                <td>6,400</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Agentic long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2601.16690">EMemBench</a></td>
+                <td>Game agent</td>
+                <td>1</td>
+                <td>2K-infinity</td>
+                <td>Yes</td>
+                <td>1,280+</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Agentic long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2604.04901">FileGramBench</a></td>
+                <td>File-system agent</td>
+                <td>12</td>
+                <td>11K</td>
+                <td>Yes</td>
+                <td>4,333</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Agentic long context</td>
+                <td><a href="https://doi.org/10.48550/arXiv.2602.22769">AMA-Bench</a></td>
+                <td>Agent mixed</td>
+                <td>1</td>
+                <td>57K</td>
+                <td>No</td>
+                <td>2,496</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>Agentic long context</td>
+                <td>LongMemEval-V2</td>
+                <td>Web agent</td>
+                <td>100-498</td>
+                <td>25M-115M</td>
+                <td>Yes</td>
+                <td>451</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evaluation">
+      <div class="container is-max-desktop">
+        <h2 class="title section-title">Evaluation</h2>
+        <div class="evaluation-flow" aria-label="Context gathering evaluation workflow">
+          <div class="flow-node"><span>1</span><strong>Insert</strong><em>stream trajectories</em></div>
+          <div class="flow-arrow" aria-hidden="true"></div>
+          <div class="flow-node"><span>2</span><strong>Memory</strong><em>store experience</em></div>
+          <div class="flow-arrow" aria-hidden="true"></div>
+          <div class="flow-node"><span>3</span><strong>Query</strong><em>gather evidence</em></div>
+          <div class="flow-arrow" aria-hidden="true"></div>
+          <div class="flow-node"><span>4</span><strong>Reader</strong><em>answer from context</em></div>
+        </div>
+        <div class="content project-copy evaluation-copy">
+          <p>
+            LME-V2 uses a context gathering formulation. A memory system sequentially inserts trajectories, then returns a bounded multimodal
+            memory context for a question. A fixed reader answers from that context.
+          </p>
+          <div class="formula-strip">
+            <code>Insert(h)</code>
+            <code>Query(q) &rarr; context</code>
+            <code>Reader(q, context) &rarr; answer</code>
+          </div>
+          <p>
+            The evaluation reports answer accuracy and query latency, so memory modules are measured by both evidence quality and operational cost.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="agentrunbook">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">AgentRunbook</h2>
+        <figure class="paper-figure">
+          <img src="./assets/figures/agentrunbook_method_v1.png" alt="AgentRunbook memory module overview">
+          <figcaption>
+            AgentRunbook explores two memory designs: a structured retrieval pipeline and a file-based coding-agent memory controller.
+          </figcaption>
+        </figure>
+
+        <div class="method-grid">
+          <article class="method-panel">
+            <h3>AgentRunbook-R</h3>
+            <p>RAG memory with three knowledge pools for targeted recall.</p>
+            <ul>
+              <li>Raw state slices for fine-grained UI evidence.</li>
+              <li>State transition events for environment dynamics.</li>
+              <li>Procedure and hint notes for workflows and gotchas.</li>
+            </ul>
+          </article>
+          <article class="method-panel">
+            <h3>AgentRunbook-C</h3>
+            <p>File-based memory that invokes a coding agent to gather evidence.</p>
+            <ul>
+              <li>Trajectory files stored directly on disk.</li>
+              <li>Workflow documents and memory manifests.</li>
+              <li>Helper scripts for state and trajectory inspection.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pilot">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Pilot Studies</h2>
+        <div class="pilot-layout">
+          <figure class="paper-figure pilot-figure">
+            <img src="./assets/figures/pilot_no_context.png" alt="No-context pilot study accuracy by model">
+            <figcaption>Frontier LLMs perform poorly without trajectory evidence; the best no-context result reaches 14.1% overall accuracy.</figcaption>
+          </figure>
+          <div class="pilot-cards">
+            <div class="pilot-card"><strong>14.1%</strong><span>best no-context accuracy</span></div>
+            <div class="pilot-card"><strong>65.3%</strong><span>GPT-5.4-mini with oracle trajectories</span></div>
+            <div class="pilot-card"><strong>86.3%</strong><span>oracle slices plus notes</span></div>
+            <div class="pilot-card"><strong>89.7%</strong><span>Codex with oracle trajectory files</span></div>
+          </div>
+        </div>
+        <p class="pilot-note">
+          The pilot studies show that LME-V2 questions require environment-specific experience, and that reading long multimodal trajectories is itself
+          difficult even when answer-bearing trajectories are known. This motivates the AgentRunbook designs evaluated below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Results</h2>
+        <div class="result-callout">
+          <div>
+            <span class="callout-label">Best average accuracy</span>
+            <strong>72.5%</strong>
+          </div>
+          <p>
+            AgentRunbook-C outperforms the strongest RAG baseline and improves over vanilla Codex while reducing query latency.
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table class="table is-fullwidth results-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Family</th>
+                <th>Small Overall</th>
+                <th>Small Latency</th>
+                <th>Medium Overall</th>
+                <th>Medium Latency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>No retrieval</td>
+                <td>Reader only</td>
+                <td>1.3%</td>
+                <td>0s</td>
+                <td>1.3%</td>
+                <td>0s</td>
+              </tr>
+              <tr>
+                <td>RAG: query to slice</td>
+                <td>RAG</td>
+                <td>42.8%</td>
+                <td>0.1s</td>
+                <td>38.1%</td>
+                <td>0.1s</td>
+              </tr>
+              <tr>
+                <td>RAG: query to slice + notes</td>
+                <td>RAG</td>
+                <td>51.0%</td>
+                <td>0.2s</td>
+                <td>45.9%</td>
+                <td>0.3s</td>
+              </tr>
+              <tr>
+                <td>AgentRunbook-R</td>
+                <td>RAG</td>
+                <td>58.6%</td>
+                <td>26.9s</td>
+                <td>57.0%</td>
+                <td>25.8s</td>
+              </tr>
+              <tr>
+                <td>Codex</td>
+                <td>Coding agent</td>
+                <td>69.9%</td>
+                <td>177.2s</td>
+                <td>68.7%</td>
+                <td>185.8s</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>AgentRunbook-C</td>
+                <td>Coding agent</td>
+                <td>74.9%</td>
+                <td>108.3s</td>
+                <td>70.1%</td>
+                <td>139.9s</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="paper-figure">
+          <img src="./assets/figures/accuracy_vs_latency.png" alt="Accuracy and latency tradeoff for memory methods">
+          <figcaption>AgentRunbook improves the accuracy-latency frontier for long-term agent memory.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-band" id="data-viewer">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Data Viewer</h2>
+        <div class="viewer-summary" id="viewer-summary"></div>
+
+        <div class="viewer-layout">
+          <section class="viewer-panel" aria-labelledby="question-viewer-title">
+            <div class="viewer-panel-header">
+              <h3 id="question-viewer-title">Questions</h3>
+              <select id="question-filter" aria-label="Filter questions by type">
+                <option value="all">All types</option>
+              </select>
+            </div>
+            <div class="question-list" id="question-list"></div>
+          </section>
+
+          <section class="viewer-panel" aria-labelledby="trajectory-viewer-title">
+            <div class="viewer-panel-header">
+              <h3 id="trajectory-viewer-title">Trajectory Excerpts</h3>
+              <select id="trajectory-select" aria-label="Select trajectory"></select>
+            </div>
+            <div id="trajectory-viewer"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leaderboard">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Leaderboard</h2>
+        <div class="todo-panel">
+          <div>
+            <span class="todo-badge">TODO</span>
+            <h3>Leaderboard shell</h3>
+          </div>
+          <p>
+            The public leaderboard will use a sortable table with filters for method family, model, memory setting, tier, accuracy, and query latency.
+            Entries and submission instructions will be added after the leaderboard schema is finalized.
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table class="table is-fullwidth leaderboard-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>System</th>
+                <th>Memory Type</th>
+                <th>Small Acc.</th>
+                <th>Medium Acc.</th>
+                <th>Avg. Latency</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="7">Leaderboard entries coming soon.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="todo-links">
+      <div class="container is-max-desktop">
+        <h2 class="title section-title">Release Links</h2>
+        <div class="release-grid">
+          <div class="release-item">
+            <span>Paper</span>
+            <strong>TODO</strong>
+          </div>
+          <div class="release-item">
+            <span>Code</span>
+            <strong>TODO</strong>
+          </div>
+          <div class="release-item">
+            <span>Data</span>
+            <strong>TODO</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="citation">
+      <div class="container is-max-desktop">
+        <h2 class="title section-title">Citation</h2>
+        <pre class="citation-block"><code>@article{wu2026longmemevalv2,
+  title = {LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues},
+  author = {Wu, Di and Ji, Zixiang and Kawatkar, Asmi and Kwan, Bryan and Gu, Jia-Chen and Peng, Nanyun and Chang, Kai-Wei},
+  year = {2026},
+  note = {Preprint}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop has-text-centered">
+      <p>
+        Website prototype for LongMemEval-V2. Layout and interaction patterns are adapted from the IneqMath project website style.
+      </p>
+    </div>
+  </footer>
+
+  <script src="./static/js/index.js"></script>
+</body>
+
+</html>

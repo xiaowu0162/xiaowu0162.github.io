@@ -1,0 +1,240 @@
+{
+  "dataset": {
+    "title": "LongMemEval-V2",
+    "version": 1,
+    "kaggle_ref": "lmev2anonymous/longmemeval-v2",
+    "license": "CC BY-NC 4.0",
+    "questions": 451,
+    "trajectories": 1870,
+    "question_images": 29,
+    "domains": {
+      "enterprise": 211,
+      "web": 240
+    },
+    "question_types": {
+      "dynamic-environment": 86,
+      "procedure": 74,
+      "static-environment": 134,
+      "procedure-abs": 32,
+      "dynamic-environment-abs": 41,
+      "static-environment-abs": 55,
+      "errors-gotchas": 29
+    },
+    "local_note": "This viewer uses the public Kaggle sample subset and selected screenshots; the full archive is not bundled in the website repo."
+  },
+  "questions": [
+    {
+      "id": "01307e07",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment",
+      "question": "I am working with our ServiceNow portal. On the Incidents list page, when I open the \"Filters\" dropdown, excluding \"Edit personal filters\" and \"-- None --\", which filter option labels contain the substring \"Incident\"?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "answer": "Incident Mobile, Incident Portal, My Open Incidents",
+      "image": null,
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "109b334c",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am working with our ServiceNow portal. After opening a Hardware Asset record and clicking \"Personalize Form\", the dialog shows many \"Form Fields\" checkboxes. Which checkbox labels contain the substring \"Amortiz\" (that is, amortization-related)?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "answer": "There are no checkbox labels containing Amortiz in that Personalize Form dialog.",
+      "image": null,
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "18b91103",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "errors-gotchas",
+      "question": "I am working in our ServiceNow portal. I need to order the same item as someone else did, and the instructions mention adding Adobe Photoshop, but in Service Catalog I only see Adobe Creative Cloud. The screenshot shows what I am seeing. What is the most likely issue or one action I should take? Please give me only the most likely explanation or if action is needed only that one action. Do not list alternatives.",
+      "answer": "you should not order the Adobe Creative Cloud bundle here. instead, you should proceed ordering the hardware and in the configuration page, select the Adobe Photoshop there to add to the hardware.",
+      "image": "assets/screenshots/questions/18b91103.png",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "285db8ec",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "errors-gotchas",
+      "question": "I am working in our ServiceNow portal. I am trying to delete the incorrect investments after identifying the exact records I want to remove with Delete with Preview, but after I press \"Execute Now\", the deletion does not happen. The screenshot shows the page state when this occurs. What is the most likely issue or one action I still need to take? Please give me only the most likely explanation or if action is needed only that one action. Do not list alternatives.",
+      "answer": "need to click \"Update\" button to save the changes",
+      "image": "assets/screenshots/questions/285db8ec.png",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "025db8ef",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure",
+      "question": "I am working with our ServiceNow portal. My boss asked me to rebalance workload between several agents by reassigning problems with a specific tag. What are the two modules that our company's workflow typically use in order to accomplish this task? Tell me the first module's name and the second module's name in order, separated by a semicolon. Mark your final answer (should be two short phrases separated by a semicolon) in \\boxed{}.",
+      "answer": "Reports;Problems",
+      "image": null,
+      "eval_function": "norm_phrase_set_match_ordered|lower=true|normalize_hyphen=true|strip_punct=true|separators=;|require_non_empty=true"
+    },
+    {
+      "id": "059974dd",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure-abs",
+      "question": "I am working with our ServiceNow Portal. In our company's workflow, when we disperse change requests so they do not overlap, what field besides `risk level` do we also use to decide the time span length allocated to each change request?\n\nMark your final answer in \\boxed{}.",
+      "answer": "That scheduling workflow does not use a second duration-deciding field besides `risk level`.",
+      "image": null,
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "057a2d4d",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment",
+      "question": "I am working with our ServiceNow portal. When we order a Dell XPS as the developer laptop, what is the extra dollar amount if we choose the largest SSD option?\n\nMark your final answer (should be a single integer indicating the amount) in \\boxed{}.",
+      "answer": "300",
+      "image": null,
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "123b74fb",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment-abs",
+      "question": "I am working with a few forms in our ServiceNow portal. Create Change Request vs Incident. What is the additional button at the top right of the change-request page that does not appear in the incident form?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "answer": "There is no additional top-right button on the change-request form that the incident form lacks.",
+      "image": null,
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "00aa905a",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "dynamic-environment",
+      "question": "I am using our reddit-based custom forum website. I am on the home page of a forum. True or false: there is a textbox where I can directly enter a new post to submit. Your final answer should be wrapped in \\boxed{}.",
+      "answer": "false",
+      "image": null,
+      "eval_function": "mc_choice_match|require_non_empty=true"
+    },
+    {
+      "id": "0401f0c8",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am using our reddit-based custom forum website. I am on the home page of a forum. What is the placeholder text of the textbox where I can directly enter a new post to submit? Your final answer should be wrapped in \\boxed{}.",
+      "answer": "There is no such textbox on the forum home page.",
+      "image": null,
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    }
+  ],
+  "trajectories": [
+    {
+      "id": "dce5a79b",
+      "domain": "web",
+      "environment": "webarena",
+      "goal": "Preview the Magento Blank theme for my shop",
+      "outcome": "success",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "http://localhost:9083/admin/admin/dashboard/",
+          "action": null,
+          "thought": "I need to open the Content section to access Design \u2192 Themes (or Configuration) so I can preview the Magento Blank theme. From the dashboard I'll navigate by clicking the \"CONTENT\" menu item (bid '293').",
+          "screenshot": "assets/screenshots/trajectories/dce5a79b/0.png",
+          "observation_snippet": "RootWebArea 'Dashboard / Magento Admin', focused [148] link 'Magento Admin Panel', clickable, visible [149] image 'Magento Admin Panel', visible [150] navigation '', visible [151] menubar '', visible, orientation='horizontal' [153] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [156] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [189] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [207] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [226] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [293] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [339] link '\\ue60a REPORTS', clickable, visible Stat..."
+        },
+        {
+          "state_index": 2,
+          "step": 2,
+          "url": "http://localhost:9083/admin/admin/system_design_theme/",
+          "action": "click('333')",
+          "thought": "I opened Content \u2192 Themes and can see the \"Magento Blank\" row in the themes list. To preview that theme, I'll click the \"View\" link inside the Magento Blank row (bid '873').",
+          "screenshot": "assets/screenshots/trajectories/dce5a79b/2.png",
+          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [156] link 'Magento Admin Panel', clickable, visible [157] image 'Magento Admin Panel', visible [158] navigation '', visible [159] menubar '', visible, orientation='horizontal' [161] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [164] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [197] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [215] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [234] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [301] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [347] link '\\ue60a REPORTS', clickable, visib..."
+        },
+        {
+          "state_index": 3,
+          "step": 3,
+          "url": "http://localhost:9083/admin/admin/system_design_theme/edit/id/1/",
+          "action": "click('873')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/dce5a79b/3.png",
+          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [178] link 'Magento Admin Panel', clickable, visible [179] image 'Magento Admin Panel', visible [180] navigation '', visible [181] menubar '', visible, orientation='horizontal' [183] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [186] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [219] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [237] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [256] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [323] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [369] link '\\ue60a REPORTS', clickable, visib..."
+        }
+      ]
+    },
+    {
+      "id": "f224a4eb",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "Offboard user Sean-Michelle Morris-Martinez\n\nCreate a filter for the list to extract all entries where:\n    - \"Assigned to\" is \"Sean-Michelle Morris-Martinez\"\n\nEdit the hardware asset record by replacing the value of  field \"Assigned to\" with value \"\".\n\nDelete the record with Name=Sean-Michelle Morris-Martinez from the Users list.",
+      "outcome": "failure",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/home",
+          "action": null,
+          "thought": "I need to open the application navigator search to go to \"Portfolios > Hardware Assets\" in the Asset application. I'll click the main Search combobox (bid '113') so I can type the module name in the next step.",
+          "screenshot": "assets/screenshots/trajectories/f224a4eb/0.png",
+          "observation_snippet": "RootWebArea 'Home | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite',..."
+        },
+        {
+          "state_index": 5,
+          "step": 5,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/search/0f8b85d0c7922010099a308dc7c2606a/params/search-term/Hardware%20Assets/global-search-data-config-id/c861cea2c7022010099a308dc7c26041/back-button-label/Shared%20admin%20dashboard/search-context/now%2Fnav%2Fui",
+          "action": "fill('932', 'Hardware Assets', True)",
+          "thought": "I filtered the application navigator for \"Hardware Assets\" and the \"Portfolios > Hardware Assets\" module link is visible in the All menu (bid '1269'). I'll open that module by clicking the Hardware Assets link.",
+          "screenshot": "assets/screenshots/trajectories/f224a4eb/5.png",
+          "observation_snippet": "RootWebArea 'Search Results | Hardware Assets | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' [924] navigation '', visible [927] image '', visible [931] LabelText '', clickable StaticText 'Enter search term to filter All menu' [932] textbox 'Enter..."
+        },
+        {
+          "state_index": 9,
+          "step": 9,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_query%3D%26sysparm_first_row%3D1%26sysparm_view%3D",
+          "action": "select_option('a60', 'assigned_to')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/f224a4eb/9.png",
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+        }
+      ]
+    },
+    {
+      "id": "8b74ffaa",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "Filter the hardware asset list based on specific criteria.\nCreate a filter for the list to extract all entries where:\n    - \"Serial number\" is \"\" and\n    - \"Assigned to\" is \"\" and\n    - \"Substate\" is \"Vendor credit\" and\n    - \"Company\" is \"\" and\n    - \"Too suffer\" is \"But\"\n\nDon't forget to mark this task as \"Closed - complete\" once successfully completed.",
+      "outcome": "failure",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://workarenapublic18.service-now.com/now/nav/ui/classic/params/target/vtb_task.do%3Fsys_id%3D4f4d595693c776900f93fa95dd03d6dc",
+          "action": null,
+          "thought": "We need to begin the task by navigating to the \u201cAsset\u201d application and opening the \u201cPortfolios > Hardware Assets\u201d module. The next step is to open the ServiceNow \u201cAll\u201d application navigator menu.",
+          "screenshot": "assets/screenshots/trajectories/8b74ffaa/0.png",
+          "observation_snippet": "RootWebArea 'Filter the hardware asset list. | Private Task | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unp..."
+        },
+        {
+          "state_index": 6,
+          "step": 6,
+          "url": "https://workarenapublic18.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_userpref_module%3Dbfd7b20c37f3100044e0bfc8bcbe5d49",
+          "action": "send_msg_to_user('I\u2019m on the Hardware Assets list (alm_hardware). What exactly should I do next\u2014e.g., which asset (by tag/display name/serial/sys_id) to open, and what info to retrieve or field(s) to update (and to what values)?')",
+          "thought": "The page is on the Hardware Assets (alm_hardware) list, but the specific objective (which asset to locate/update and what to change/retrieve) is still not provided. The best next action is to wait for the user\u2019s instructions before interacting with any records...",
+          "screenshot": "assets/screenshots/trajectories/8b74ffaa/6.png",
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+        },
+        {
+          "state_index": 11,
+          "step": 11,
+          "url": "https://workarenapublic18.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_userpref_module%3Dbfd7b20c37f3100044e0bfc8bcbe5d49",
+          "action": "report_infeasible('I\u2019m on Asset > Portfolios > Hardware Assets (Hardware list), but the task instructions don\u2019t specify what to do (which asset/identifier to work on and what to retrieve or update). Please provide the asset tag/display name/serial (or sys_id) and the exact required action/field changes or info to report.')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/8b74ffaa/11.png",
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+        }
+      ]
+    }
+  ]
+}
