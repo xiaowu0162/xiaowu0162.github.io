@@ -1,5 +1,8 @@
 const state = {
   viewerData: null,
+  questionIndex: 0,
+  trajectoryIndex: 0,
+  trajectoryStateIndex: 0,
 };
 
 function setupToc() {
@@ -38,6 +41,13 @@ function compactText(value, limit = 360) {
   return `${text.slice(0, limit).trim()}...`;
 }
 
+function normalizeIndex(index, length) {
+  if (length <= 0) {
+    return 0;
+  }
+  return ((index % length) + length) % length;
+}
+
 function setupViewerSummary(dataset) {
   const summary = document.getElementById("viewer-summary");
   summary.innerHTML = [
@@ -66,7 +76,10 @@ function setupQuestionFilter(questions) {
     option.textContent = type;
     filter.appendChild(option);
   });
-  filter.addEventListener("change", () => renderQuestions());
+  filter.addEventListener("change", () => {
+    state.questionIndex = 0;
+    renderQuestions();
+  });
 }
 
 function renderQuestions() {
@@ -76,25 +89,47 @@ function renderQuestions() {
     return filter === "all" || question.question_type === filter;
   });
 
-  list.innerHTML = questions
-    .map((question) => {
-      const image = question.image
-        ? `<img src="./${escapeHtml(question.image)}" alt="Screenshot for question ${escapeHtml(question.id)}">`
-        : "";
-      return `
-        <article class="question-card">
-          <div class="question-meta">
-            <span class="meta-pill">${escapeHtml(question.id)}</span>
-            <span class="meta-pill">${escapeHtml(question.domain)}</span>
-            <span class="meta-pill">${escapeHtml(question.question_type)}</span>
-          </div>
-          <p>${escapeHtml(compactText(question.question, 460))}</p>
-          ${image}
-          <div class="answer-line"><strong>Answer:</strong> ${escapeHtml(compactText(question.answer, 240))}</div>
-        </article>
-      `;
-    })
-    .join("");
+  if (questions.length === 0) {
+    list.innerHTML = `<div class="viewer-empty">No questions match this filter.</div>`;
+    return;
+  }
+
+  state.questionIndex = normalizeIndex(state.questionIndex, questions.length);
+  const question = questions[state.questionIndex];
+  const image = question.image
+    ? `<img src="./${escapeHtml(question.image)}" alt="Screenshot for question ${escapeHtml(question.id)}">`
+    : "";
+
+  list.innerHTML = `
+    <article class="question-card">
+      <div class="question-meta">
+        <span class="meta-pill">${escapeHtml(question.id)}</span>
+        <span class="meta-pill">${escapeHtml(question.domain)}</span>
+        <span class="meta-pill">${escapeHtml(question.question_type)}</span>
+      </div>
+      <p>${escapeHtml(compactText(question.question, 540))}</p>
+      ${image}
+      <div class="answer-line"><strong>Answer:</strong> ${escapeHtml(compactText(question.answer, 280))}</div>
+      <div class="viewer-card-controls">
+        <button class="viewer-nav-button" id="question-prev" type="button">Previous</button>
+        <span class="viewer-counter">${state.questionIndex + 1} / ${questions.length}</span>
+        <button class="viewer-nav-button" id="question-next" type="button">Next</button>
+      </div>
+    </article>
+  `;
+
+  const prev = document.getElementById("question-prev");
+  const next = document.getElementById("question-next");
+  prev.disabled = questions.length < 2;
+  next.disabled = questions.length < 2;
+  prev.addEventListener("click", () => {
+    state.questionIndex -= 1;
+    renderQuestions();
+  });
+  next.addEventListener("click", () => {
+    state.questionIndex += 1;
+    renderQuestions();
+  });
 }
 
 function setupTrajectorySelect(trajectories) {
@@ -105,47 +140,99 @@ function setupTrajectorySelect(trajectories) {
     option.textContent = `${trajectory.id} (${trajectory.domain}, ${trajectory.outcome})`;
     select.appendChild(option);
   });
-  select.addEventListener("change", () => renderTrajectory());
+  select.addEventListener("change", () => {
+    const index = trajectories.findIndex((item) => item.id === select.value);
+    state.trajectoryIndex = index >= 0 ? index : 0;
+    state.trajectoryStateIndex = 0;
+    renderTrajectory();
+  });
 }
 
 function renderTrajectory() {
   const viewer = document.getElementById("trajectory-viewer");
-  const selected = document.getElementById("trajectory-select").value;
-  const trajectory = state.viewerData.trajectories.find((item) => item.id === selected);
+  const select = document.getElementById("trajectory-select");
+  const trajectories = state.viewerData.trajectories;
+  state.trajectoryIndex = normalizeIndex(state.trajectoryIndex, trajectories.length);
+  const trajectory = trajectories[state.trajectoryIndex];
   if (!trajectory) {
     viewer.innerHTML = "";
     return;
   }
 
-  const states = trajectory.states
-    .map(
-      (item) => `
-        <article class="trajectory-state">
-          <img src="./${escapeHtml(item.screenshot)}" alt="Trajectory ${escapeHtml(trajectory.id)} state ${escapeHtml(item.state_index)}">
-          <div class="state-text">
-            <div class="state-meta">
-              <span class="meta-pill">state ${escapeHtml(item.state_index)}</span>
-              <span class="meta-pill">step ${escapeHtml(item.step)}</span>
-              <span class="meta-pill">${escapeHtml(item.action || "start")}</span>
-            </div>
-            <p><code>${escapeHtml(item.url)}</code></p>
-            <p>${escapeHtml(item.thought || "No model thought recorded for this sampled state.")}</p>
-            <p>${escapeHtml(compactText(item.observation_snippet, 520))}</p>
+  select.value = trajectory.id;
+  const states = trajectory.states || [];
+  state.trajectoryStateIndex = normalizeIndex(state.trajectoryStateIndex, states.length);
+  const item = states[state.trajectoryStateIndex];
+
+  const stateCard = item
+    ? `
+      <article class="trajectory-state">
+        <img src="./${escapeHtml(item.screenshot)}" alt="Trajectory ${escapeHtml(trajectory.id)} state ${escapeHtml(item.state_index)}">
+        <div class="state-text">
+          <div class="state-meta">
+            <span class="meta-pill">state ${escapeHtml(item.state_index)}</span>
+            <span class="meta-pill">step ${escapeHtml(item.step)}</span>
+            <span class="meta-pill">${escapeHtml(item.action || "start")}</span>
           </div>
-        </article>
-      `,
-    )
-    .join("");
+          <p><code>${escapeHtml(item.url)}</code></p>
+          <p>${escapeHtml(item.thought || "No model thought recorded for this sampled state.")}</p>
+          <p>${escapeHtml(compactText(item.observation_snippet, 620))}</p>
+        </div>
+      </article>
+      <div class="viewer-card-controls">
+        <button class="viewer-nav-button" id="state-prev" type="button">Previous state</button>
+        <span class="viewer-counter">State ${state.trajectoryStateIndex + 1} / ${states.length}</span>
+        <button class="viewer-nav-button" id="state-next" type="button">Next state</button>
+      </div>
+    `
+    : `<div class="viewer-empty">No sampled states are available for this trajectory.</div>`;
 
   viewer.innerHTML = `
-    <div class="trajectory-title">${escapeHtml(trajectory.goal)}</div>
-    <div class="question-meta">
-      <span class="meta-pill">${escapeHtml(trajectory.id)}</span>
-      <span class="meta-pill">${escapeHtml(trajectory.environment)}</span>
-      <span class="meta-pill">${escapeHtml(trajectory.outcome)}</span>
+    <div class="trajectory-shell">
+      <div class="trajectory-title">${escapeHtml(trajectory.goal)}</div>
+      <div class="question-meta">
+        <span class="meta-pill">${escapeHtml(trajectory.id)}</span>
+        <span class="meta-pill">${escapeHtml(trajectory.environment)}</span>
+        <span class="meta-pill">${escapeHtml(trajectory.outcome)}</span>
+      </div>
+      <div class="viewer-card-controls">
+        <button class="viewer-nav-button" id="trajectory-prev" type="button">Previous trajectory</button>
+        <span class="viewer-counter">Trajectory ${state.trajectoryIndex + 1} / ${trajectories.length}</span>
+        <button class="viewer-nav-button" id="trajectory-next" type="button">Next trajectory</button>
+      </div>
+      ${stateCard}
     </div>
-    ${states}
   `;
+
+  const trajectoryPrev = document.getElementById("trajectory-prev");
+  const trajectoryNext = document.getElementById("trajectory-next");
+  trajectoryPrev.disabled = trajectories.length < 2;
+  trajectoryNext.disabled = trajectories.length < 2;
+  trajectoryPrev.addEventListener("click", () => {
+    state.trajectoryIndex -= 1;
+    state.trajectoryStateIndex = 0;
+    renderTrajectory();
+  });
+  trajectoryNext.addEventListener("click", () => {
+    state.trajectoryIndex += 1;
+    state.trajectoryStateIndex = 0;
+    renderTrajectory();
+  });
+
+  if (item) {
+    const statePrev = document.getElementById("state-prev");
+    const stateNext = document.getElementById("state-next");
+    statePrev.disabled = states.length < 2;
+    stateNext.disabled = states.length < 2;
+    statePrev.addEventListener("click", () => {
+      state.trajectoryStateIndex -= 1;
+      renderTrajectory();
+    });
+    stateNext.addEventListener("click", () => {
+      state.trajectoryStateIndex += 1;
+      renderTrajectory();
+    });
+  }
 }
 
 async function setupDataViewer() {

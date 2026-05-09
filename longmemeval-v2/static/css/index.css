@@ -118,9 +118,9 @@ a {
 .stat-strip {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(5, minmax(110px, 1fr));
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 820px;
 }
 
 .stat-chip {
@@ -134,7 +134,7 @@ a {
   color: var(--lme-navy);
   display: block;
   font-family: "Google Sans", "Noto Sans", sans-serif;
-  font-size: 1.55rem;
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
   line-height: 1.1;
 }
 
@@ -170,6 +170,19 @@ a {
   line-height: 1.72;
 }
 
+.section-highlight {
+  background: #fff8ea;
+  border: 1px solid #f1d39a;
+  border-radius: 8px;
+  color: #4c3f29;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0 auto 1.3rem;
+  max-width: 920px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
 .paper-figure {
   margin: 1.6rem auto 0;
 }
@@ -178,11 +191,13 @@ a {
   background: #fff;
   border: 1px solid var(--lme-line);
   border-radius: 8px;
+  box-sizing: border-box;
   box-shadow: none;
   display: block;
   height: auto;
   margin: 0 auto;
   max-width: 100%;
+  padding: clamp(0.7rem, 1.8vw, 1.15rem);
 }
 
 .hero-figure img {
@@ -244,31 +259,18 @@ a {
   font-size: 0.93rem;
 }
 
-.experience-line span,
-.construction-steps span {
+.experience-line span {
   color: #425466;
   font-size: 0.94rem;
   line-height: 1.5;
 }
 
-.construction-steps {
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.construction-flow {
+  margin-bottom: 0;
 }
 
-.construction-steps div {
-  background: #f8fbff;
-  border: 1px solid #e5edf5;
-  border-radius: 8px;
-  padding: 0.82rem;
-}
-
-.construction-steps strong {
-  color: var(--lme-navy);
-  display: block;
-  font-size: 0.92rem;
-  margin-bottom: 0.35rem;
+.construction-node {
+  background: #fff;
 }
 
 .distribution-figure {
@@ -342,9 +344,10 @@ a {
 }
 
 .flow-node {
-  background: #102f4c;
+  background: #f8fbff;
+  border: 1px solid #c7d9eb;
   border-radius: 8px;
-  color: #fff;
+  color: var(--lme-navy);
   min-width: 0;
   padding: 1rem 0.8rem;
   text-align: center;
@@ -352,7 +355,7 @@ a {
 
 .flow-node span {
   align-items: center;
-  background: rgba(255, 255, 255, 0.16);
+  background: #dcecfb;
   border-radius: 50%;
   display: inline-flex;
   font-weight: 800;
@@ -373,7 +376,7 @@ a {
 }
 
 .flow-node em {
-  color: #cfe2f5;
+  color: #486278;
   font-size: 0.8rem;
   font-style: normal;
   margin-top: 0.2rem;
@@ -442,38 +445,6 @@ a {
 
 .method-panel li + li {
   margin-top: 0.35rem;
-}
-
-.result-callout {
-  align-items: center;
-  background: #fff8ea;
-  border: 1px solid #f1d39a;
-  border-radius: 8px;
-  display: flex;
-  gap: 1.25rem;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
-  padding: 1rem 1.2rem;
-}
-
-.result-callout strong {
-  color: var(--lme-red);
-  display: block;
-  font-family: "Google Sans", "Noto Sans", sans-serif;
-  font-size: 2rem;
-}
-
-.callout-label {
-  color: #7c5b16;
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.result-callout p {
-  color: #4c3f29;
-  margin: 0;
 }
 
 .pilot-layout {
@@ -583,21 +554,67 @@ a {
   padding: 0.45rem 0.55rem;
 }
 
+.viewer-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
 .question-list {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 0.85rem;
+  grid-template-columns: 1fr;
+  padding: 1rem;
 }
 
 .question-card {
   border: 1px solid var(--lme-line);
   border-radius: 8px;
-  padding: 0.85rem;
+  min-height: 210px;
+  padding: 1rem;
 }
 
-.question-card:last-child {
-  margin-bottom: 0;
+.viewer-card-controls {
+  align-items: center;
+  border-top: 1px solid var(--lme-line);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+}
+
+.viewer-nav-button {
+  background: #fff;
+  border: 1px solid var(--lme-line);
+  border-radius: 999px;
+  color: var(--lme-navy);
+  cursor: pointer;
+  font-weight: 800;
+  min-width: 104px;
+  padding: 0.45rem 0.8rem;
+}
+
+.viewer-nav-button:hover {
+  background: #eef6ff;
+  border-color: #bcd5ee;
+}
+
+.viewer-nav-button:disabled {
+  color: #9aa7b4;
+  cursor: default;
+}
+
+.viewer-counter {
+  color: var(--lme-muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.viewer-empty {
+  color: var(--lme-muted);
+  padding: 1rem;
 }
 
 .question-meta,
@@ -627,11 +644,13 @@ a {
 .question-card img {
   border: 1px solid var(--lme-line);
   border-radius: 6px;
-  background: #f7fafc;
+  background: #fff;
+  box-sizing: border-box;
+  display: block;
   margin-top: 0.6rem;
   max-height: 280px;
   object-fit: contain;
-  padding: 0.25rem;
+  padding: 0.6rem;
   width: 100%;
 }
 
@@ -645,7 +664,13 @@ a {
 }
 
 #trajectory-viewer {
-  padding: 0.9rem;
+  padding: 1rem;
+}
+
+.trajectory-shell {
+  border: 1px solid var(--lme-line);
+  border-radius: 8px;
+  padding: 1rem;
 }
 
 .trajectory-title {
@@ -661,18 +686,20 @@ a {
   display: grid;
   gap: 0.8rem;
   grid-template-columns: minmax(260px, 0.45fr) minmax(0, 1fr);
-  padding: 0.95rem 0;
+  margin-top: 0.9rem;
+  padding: 0.95rem 0 0;
 }
 
 .trajectory-state img {
   border: 1px solid var(--lme-line);
   border-radius: 6px;
-  background: #f7fafc;
+  background: #fff;
+  box-sizing: border-box;
   height: auto;
   max-height: 330px;
   object-fit: contain;
   object-position: top left;
-  padding: 0.25rem;
+  padding: 0.6rem;
   width: 100%;
 }
 
@@ -893,12 +920,6 @@ a {
   pointer-events: all;
 }
 
-@media screen and (max-width: 1100px) {
-  .construction-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media screen and (max-width: 760px) {
   .project-hero .hero-body {
     padding: 4.2rem 1rem 2.4rem;
@@ -915,7 +936,6 @@ a {
   }
 
   .experience-line,
-  .construction-steps,
   .method-grid {
     grid-template-columns: 1fr;
   }
@@ -931,9 +951,17 @@ a {
     display: none;
   }
 
-  .result-callout,
   .todo-panel {
     display: block;
+  }
+
+  .viewer-card-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .viewer-nav-button {
+    width: 100%;
   }
 
   .trajectory-state {

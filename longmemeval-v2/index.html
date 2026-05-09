@@ -37,8 +37,8 @@
       <li><a href="#overview">Overview</a></li>
       <li><a href="#benchmark">Benchmark</a></li>
       <li><a href="#evaluation">Evaluation</a></li>
-      <li><a href="#agentrunbook">AgentRunbook</a></li>
       <li><a href="#pilot">Pilot Studies</a></li>
+      <li><a href="#agentrunbook">AgentRunbook</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#data-viewer">Data Viewer</a></li>
       <li><a href="#leaderboard">Leaderboard</a></li>
@@ -55,7 +55,7 @@
         </h1>
         <div class="publication-authors">
           <span class="author-block"><a href="https://xiaowu0162.github.io/">Di Wu</a></span>,
-          <span class="author-block"><a href="https://www.linkedin.com/pub/dir/Zixiang/Ji">Zixiang Ji</a></span>,
+          <span class="author-block"><a href="https://www.linkedin.com/in/zixiang-ji-56902624b/">Zixiang Ji</a></span>,
           <span class="author-block"><a href="https://www.linkedin.com/in/asmi-kawatkar">Asmi Kawatkar</a></span>,
           <span class="author-block"><a href="https://www.linkedin.com/in/kwan-bryan">Bryan Kwan</a></span>,
           <span class="author-block"><a href="https://jasonforjoy.github.io/index.html">Jia-Chen Gu</a></span>,
@@ -88,11 +88,10 @@
         </div>
 
         <div class="stat-strip" aria-label="Benchmark summary">
-          <div class="stat-chip"><strong>451</strong><span>questions</span></div>
-          <div class="stat-chip"><strong>1,870</strong><span>trajectories</span></div>
-          <div class="stat-chip"><strong>115M</strong><span>tokens</span></div>
           <div class="stat-chip"><strong>5</strong><span>memory abilities</span></div>
-          <div class="stat-chip"><strong>72.5%</strong><span>best avg. acc.</span></div>
+          <div class="stat-chip"><strong>451</strong><span>questions</span></div>
+          <div class="stat-chip"><strong>up to 500</strong><span>trajectories</span></div>
+          <div class="stat-chip"><strong>up to 115M</strong><span>tokens</span></div>
         </div>
       </div>
     </div>
@@ -102,6 +101,9 @@
     <section class="section" id="overview">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Overview</h2>
+        <div class="section-highlight">
+          LongMemEval-V2 tests whether memory systems can turn long web-agent histories into reusable environment experience.
+        </div>
         <div class="content project-copy">
           <p>
             Long-term memory is crucial for agents in specialized web environments, where success depends on recalling interface affordances,
@@ -126,6 +128,9 @@
     <section class="section section-band" id="benchmark">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Benchmark</h2>
+        <div class="section-highlight">
+          The benchmark is organized around five abilities that distinguish an experienced colleague from a stateless web agent.
+        </div>
         <div class="experience-block">
           <h3>What defines an experienced colleague?</h3>
           <div class="experience-line"><strong>Static state recall</strong><span>remembers important landmarks, page layouts, module affordances, and subtle state differences.</span></div>
@@ -137,11 +142,14 @@
 
         <div class="construction-block">
           <h3>Benchmark construction</h3>
-          <div class="construction-steps">
-            <div><strong>1. Collect trajectories</strong><span>Gather task-solving traces from WebArena, WorkArena, and WorkArena++ environments.</span></div>
-            <div><strong>2. Annotate questions</strong><span>Manually curate questions that target experienced-colleague memory abilities.</span></div>
-            <div><strong>3. Label evidence</strong><span>Identify answer-bearing trajectories and verify evidence coverage.</span></div>
-            <div><strong>4. Build haystacks</strong><span>Assemble sparse-answer histories for LME-V2-Small and LME-V2-Medium.</span></div>
+          <div class="evaluation-flow construction-flow" aria-label="Benchmark construction workflow">
+            <div class="flow-node construction-node"><span>1</span><strong>Collect</strong><em>web-agent trajectories</em></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-node construction-node"><span>2</span><strong>Annotate</strong><em>memory questions</em></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-node construction-node"><span>3</span><strong>Label</strong><em>answer evidence</em></div>
+            <div class="flow-arrow" aria-hidden="true"></div>
+            <div class="flow-node construction-node"><span>4</span><strong>Assemble</strong><em>sparse haystacks</em></div>
           </div>
         </div>
 
@@ -394,6 +402,9 @@
     <section class="section" id="evaluation">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Evaluation</h2>
+        <div class="section-highlight">
+          Memory systems are evaluated by the evidence they retrieve and the latency they add before the reader answers.
+        </div>
         <div class="evaluation-flow" aria-label="Context gathering evaluation workflow">
           <div class="flow-node"><span>1</span><strong>Insert</strong><em>stream trajectories</em></div>
           <div class="flow-arrow" aria-hidden="true"></div>
@@ -420,9 +431,37 @@
       </div>
     </section>
 
-    <section class="section section-band" id="agentrunbook">
+    <section class="section section-band" id="pilot">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Pilot Studies</h2>
+        <div class="section-highlight">
+          Pilot studies show that the questions depend on environment-specific evidence rather than parametric model knowledge.
+        </div>
+        <div class="pilot-layout">
+          <figure class="paper-figure pilot-figure">
+            <img src="./assets/figures/pilot_no_context.png" alt="No-context pilot study accuracy by model">
+            <figcaption>Frontier LLMs perform poorly without trajectory evidence; the best no-context result reaches 14.1% overall accuracy.</figcaption>
+          </figure>
+          <div class="pilot-cards">
+            <div class="pilot-card"><strong>14.1%</strong><span>best no-context accuracy</span></div>
+            <div class="pilot-card"><strong>65.3%</strong><span>GPT-5.4-mini with oracle trajectories</span></div>
+            <div class="pilot-card"><strong>86.3%</strong><span>oracle slices plus notes</span></div>
+            <div class="pilot-card"><strong>89.7%</strong><span>Codex with oracle trajectory files</span></div>
+          </div>
+        </div>
+        <p class="pilot-note">
+          The pilot studies show that LME-V2 questions require environment-specific experience, and that reading long multimodal trajectories is itself
+          difficult even when answer-bearing trajectories are known. This motivates the AgentRunbook designs evaluated below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="agentrunbook">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">AgentRunbook</h2>
+        <div class="section-highlight">
+          AgentRunbook provides two initial memory designs for turning trajectory histories into query-time evidence.
+        </div>
         <figure class="paper-figure">
           <img src="./assets/figures/agentrunbook_method_v1.png" alt="AgentRunbook memory module overview">
           <figcaption>
@@ -453,39 +492,11 @@
       </div>
     </section>
 
-    <section class="section" id="pilot">
-      <div class="container is-max-widescreen">
-        <h2 class="title section-title">Pilot Studies</h2>
-        <div class="pilot-layout">
-          <figure class="paper-figure pilot-figure">
-            <img src="./assets/figures/pilot_no_context.png" alt="No-context pilot study accuracy by model">
-            <figcaption>Frontier LLMs perform poorly without trajectory evidence; the best no-context result reaches 14.1% overall accuracy.</figcaption>
-          </figure>
-          <div class="pilot-cards">
-            <div class="pilot-card"><strong>14.1%</strong><span>best no-context accuracy</span></div>
-            <div class="pilot-card"><strong>65.3%</strong><span>GPT-5.4-mini with oracle trajectories</span></div>
-            <div class="pilot-card"><strong>86.3%</strong><span>oracle slices plus notes</span></div>
-            <div class="pilot-card"><strong>89.7%</strong><span>Codex with oracle trajectory files</span></div>
-          </div>
-        </div>
-        <p class="pilot-note">
-          The pilot studies show that LME-V2 questions require environment-specific experience, and that reading long multimodal trajectories is itself
-          difficult even when answer-bearing trajectories are known. This motivates the AgentRunbook designs evaluated below.
-        </p>
-      </div>
-    </section>
-
     <section class="section" id="results">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Results</h2>
-        <div class="result-callout">
-          <div>
-            <span class="callout-label">Best average accuracy</span>
-            <strong>72.5%</strong>
-          </div>
-          <p>
-            AgentRunbook-C outperforms the strongest RAG baseline and improves over vanilla Codex while reducing query latency.
-          </p>
+        <div class="section-highlight">
+          AgentRunbook-C currently gives the strongest average accuracy while improving the accuracy-latency frontier.
         </div>
         <div class="table-wrap">
           <table class="table is-fullwidth results-table">
@@ -561,25 +572,32 @@
     <section class="section section-band" id="data-viewer">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Data Viewer</h2>
+        <div class="section-highlight">
+          The viewer samples real benchmark questions and trajectory excerpts from the released dataset.
+        </div>
         <div class="viewer-summary" id="viewer-summary"></div>
 
         <div class="viewer-layout">
           <section class="viewer-panel" aria-labelledby="question-viewer-title">
             <div class="viewer-panel-header">
               <h3 id="question-viewer-title">Questions</h3>
-              <select id="question-filter" aria-label="Filter questions by type">
-                <option value="all">All types</option>
-              </select>
+              <div class="viewer-toolbar">
+                <select id="question-filter" aria-label="Filter questions by type">
+                  <option value="all">All types</option>
+                </select>
+              </div>
             </div>
-            <div class="question-list" id="question-list"></div>
+            <div class="question-list" id="question-list" aria-live="polite"></div>
           </section>
 
           <section class="viewer-panel" aria-labelledby="trajectory-viewer-title">
             <div class="viewer-panel-header">
               <h3 id="trajectory-viewer-title">Trajectory Excerpts</h3>
-              <select id="trajectory-select" aria-label="Select trajectory"></select>
+              <div class="viewer-toolbar">
+                <select id="trajectory-select" aria-label="Select trajectory"></select>
+              </div>
             </div>
-            <div id="trajectory-viewer"></div>
+            <div id="trajectory-viewer" aria-live="polite"></div>
           </section>
         </div>
       </div>
@@ -588,6 +606,9 @@
     <section class="section" id="leaderboard">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Leaderboard</h2>
+        <div class="section-highlight">
+          Leaderboard entries will summarize submitted memory systems across accuracy, latency, and benchmark tier.
+        </div>
         <div class="todo-panel">
           <div>
             <span class="todo-badge">TODO</span>
@@ -624,6 +645,9 @@
     <section class="section section-band" id="todo-links">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Release Links</h2>
+        <div class="section-highlight">
+          Public paper, code, and data links will be filled in after the release targets are finalized.
+        </div>
         <div class="release-grid">
           <div class="release-item">
             <span>Paper</span>
@@ -644,6 +668,9 @@
     <section class="section" id="citation">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Citation</h2>
+        <div class="section-highlight">
+          Use the citation below as a placeholder until the final preprint metadata is available.
+        </div>
         <pre class="citation-block"><code>@article{wu2026longmemevalv2,
   title = {LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues},
   author = {Wu, Di and Ji, Zixiang and Kawatkar, Asmi and Kwan, Bryan and Gu, Jia-Chen and Peng, Nanyun and Chang, Kai-Wei},
