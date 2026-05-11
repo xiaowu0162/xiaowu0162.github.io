@@ -20,18 +20,98 @@
       "static-environment-abs": 55,
       "errors-gotchas": 29
     },
-    "local_note": "This viewer uses the public Kaggle sample subset and selected screenshots; the full archive is not bundled in the website repo."
+    "local_note": "This viewer uses a balanced, diversified subset of 42 questions: six per question type, with three web and three enterprise examples when filtered by type."
   },
   "questions": [
+    {
+      "id": "11dac74b",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "dynamic-environment",
+      "question": "I am using our reddit-based custom forum website. After I reply to a nested comment, a blue banner appears above my reply. The banner contains a natural-language message with a link. What does that link say? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "View all comments",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "17d63ad8",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "dynamic-environment",
+      "question": "I am using our magento-based shopping admin dashboard. After I open the page-builder editor while editing a product description, what two buttons are shown in the top-right toolbar? Your final answer should be a comma-separated list wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "Apply Template, Save as Template",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "609acb91",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "dynamic-environment",
+      "question": "I am using our magento-based custom shopping website. I am now browsing the item list that appears after I click a specific item category from the home page. If I then narrow the display scope by selecting a specific price range in the left column, two new links will appear after the selected range. What are the names of the links? Your final answer should be a comma-separated list of two phrases wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "Remove This Item, Clear All",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
     {
       "id": "01307e07",
       "domain": "enterprise",
       "environment": "workarena",
       "question_type": "dynamic-environment",
       "question": "I am working with our ServiceNow portal. On the Incidents list page, when I open the \"Filters\" dropdown, excluding \"Edit personal filters\" and \"-- None --\", which filter option labels contain the substring \"Incident\"?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
-      "answer": "Incident Mobile, Incident Portal, My Open Incidents",
       "image": null,
+      "answer": "Incident Mobile, Incident Portal, My Open Incidents",
       "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "14a823df",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment",
+      "question": "I am working with our ServiceNow portal. I am filling out the form to create a new problem record. If I change the \"Impact\" field to \"Low\" and the \"Urgency\" field to \"Low\", what value does the \"Priority\" field automatically change to?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "5 - Planning",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "2d4e08b9",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment",
+      "question": "I am working with our ServiceNow portal. In `Personalize List Columns`, look at the default `Selected` pane for the Assets list, Users list, and Catalog Items list. What is the bottom-most selected label on each page? Give the three labels in this order: Assets, Users, Catalog Items. Put the three short phrases in \\boxed{} separated by semicolons.",
+      "image": null,
+      "answer": "Warranty expiration; Business phone; Fulfillment automation level",
+      "eval_function": "norm_phrase_set_match_ordered|lower=true|normalize_hyphen=true|strip_punct=true|separators=;|require_non_empty=true"
+    },
+    {
+      "id": "0401f0c8",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am using our reddit-based custom forum website. I am on the home page of a forum. What is the placeholder text of the textbox where I can directly enter a new post to submit? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "There is no such textbox on the forum home page.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "25dc1d7d",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am using our magento-based shopping admin dashboard. I am previewing themes. In the theme detail page that opens after clicking \"View\" for a theme entry, what is the name of the tab below \"General\"? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "There is no such tab. \"General\" is the only tab.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "d7c94023",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am using our magento-based custom shopping website. When you click the \"Next\" button on the checkout page to advance from the first stage to the second stage, what discount-related line appears in the \"Order Summary\" between \"Shipping\" and \"Order Total\"? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "No discount-related line appears there.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
     },
     {
       "id": "109b334c",
@@ -39,9 +119,59 @@
       "environment": "workarena",
       "question_type": "dynamic-environment-abs",
       "question": "I am working with our ServiceNow portal. After opening a Hardware Asset record and clicking \"Personalize Form\", the dialog shows many \"Form Fields\" checkboxes. Which checkbox labels contain the substring \"Amortiz\" (that is, amortization-related)?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
-      "answer": "There are no checkbox labels containing Amortiz in that Personalize Form dialog.",
       "image": null,
+      "answer": "There are no checkbox labels containing Amortiz in that Personalize Form dialog.",
       "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "2fab8b79",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am working with our ServiceNow portal. After you place an order for a MacBook, what is the name of the extra stage inserted before delivery?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "There is no extra stage inserted before delivery on that MacBook order timeline.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "50bfa714",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "dynamic-environment-abs",
+      "question": "I am working with our ServiceNow portal while sorting the All Assets list. Before selecting the target field, what default secondary sort field is initially shown in the second sort row?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "There is no second sort row shown by default in that sorting dialog.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "0574c69a",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "errors-gotchas",
+      "question": "I am using our reddit-based custom forum website. I am trying to search for all submissions from an author in a specific forum. Is searching for `author:{author_name}` a good approach?",
+      "image": "assets/screenshots/questions/0574c69a.png",
+      "answer": "Correct answers must explicitly say no: this forum does not support Reddit-style searches like `author:{author_name}` for finding an author's submissions within a forum. Answers that only say the search is happening in the wrong scope or on the wrong page, without saying that the `author:` query itself is invalid here, are not acceptable. Answers that say this is a good approach or imply that the query style works are wrong.",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "1d864942",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "errors-gotchas",
+      "question": "I am using our magento-based shopping admin dashboard. I am on this review editor and want to get back to the list of pending reviews. Should I click `Back`? Be concise please.",
+      "image": "assets/screenshots/questions/1d864942.png",
+      "answer": "Correct answers must explicitly say that clicking `Back` will not return you to `Pending Reviews`; it takes you to `All Reviews`. Answers that tell the user to click `Back`, or that claim `Back` returns to `Pending Reviews`, are wrong.",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "2cc1b9ca",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "errors-gotchas",
+      "question": "I am using our magento-based custom shopping website. I am trying to find the price range of wireless earphones and I am stuck on the search-results page shown below. Is switching the `Sort By` control to `Price` and toggling the sort direction my best option here, or is there a better way to unblock myself if that turns out to be hopeless? Give the single most likely next action to unblock myself, and wrap your final answer in \\boxed{}.",
+      "image": "assets/screenshots/questions/2cc1b9ca.png",
+      "answer": "Use the category selection on the left to narrow the results to the most relevant department first, rather than relying on the `Price` sort toggle alone.",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
     },
     {
       "id": "18b91103",
@@ -49,8 +179,8 @@
       "environment": "workarena",
       "question_type": "errors-gotchas",
       "question": "I am working in our ServiceNow portal. I need to order the same item as someone else did, and the instructions mention adding Adobe Photoshop, but in Service Catalog I only see Adobe Creative Cloud. The screenshot shows what I am seeing. What is the most likely issue or one action I should take? Please give me only the most likely explanation or if action is needed only that one action. Do not list alternatives.",
-      "answer": "you should not order the Adobe Creative Cloud bundle here. instead, you should proceed ordering the hardware and in the configuration page, select the Adobe Photoshop there to add to the hardware.",
       "image": "assets/screenshots/questions/18b91103.png",
+      "answer": "you should not order the Adobe Creative Cloud bundle here. instead, you should proceed ordering the hardware and in the configuration page, select the Adobe Photoshop there to add to the hardware.",
       "eval_function": "llm_gotchas_checker|require_non_empty=true"
     },
     {
@@ -59,9 +189,49 @@
       "environment": "workarena",
       "question_type": "errors-gotchas",
       "question": "I am working in our ServiceNow portal. I am trying to delete the incorrect investments after identifying the exact records I want to remove with Delete with Preview, but after I press \"Execute Now\", the deletion does not happen. The screenshot shows the page state when this occurs. What is the most likely issue or one action I still need to take? Please give me only the most likely explanation or if action is needed only that one action. Do not list alternatives.",
-      "answer": "need to click \"Update\" button to save the changes",
       "image": "assets/screenshots/questions/285db8ec.png",
+      "answer": "need to click \"Update\" button to save the changes",
       "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "302bf60e",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "errors-gotchas",
+      "question": "I am working in our ServiceNow portal. I need to assign incidents to agents with different capabilities, but when I open an incident from the Self Service incident list I do not see the \"Assigned to\" field. The screenshot shows the page I opened. What is the one page or view change I should use instead? Please give me only the most likely explanation or if action is needed only that one action. Do not list alternatives.",
+      "image": "assets/screenshots/questions/302bf60e.png",
+      "answer": "you should change the view to a view that exposes the Assigned to field, such as Default. you can change the view either in the list page or inside the record.",
+      "eval_function": "llm_gotchas_checker|require_non_empty=true"
+    },
+    {
+      "id": "18f9d965",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "procedure",
+      "question": "I am using our reddit-based custom forum website. I am on a regular site page and want to open the generic post composer instead of first entering a specific forum. Which exact top-nav link do I click? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "Submit",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "1b43f7df",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "procedure",
+      "question": "I am using our magento-based custom shopping admin website. I would like to update a product's configurations (specifically, sizes of a clothing item). Can you tell me how many stages are there in the create product configurations pipeline that we have to go through, not counting the summary stage? Say the number in English (e.g., one, two, three) and then list the stage names, separated by comma. Your final answers should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "three, Select Attributes, Attribute Values, Bulk Images & Price",
+      "eval_function": "norm_phrase_set_match_ordered|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "289aea4a",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "procedure",
+      "question": "I am using our magento-based custom shopping website and I am on the home page. I want to edit my address. How many button/links do I have to click and what are their names? Say the number in English (e.g., one, two, three) and then list the button names, separated by comma. Your final answers should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "three, My Account, Address Book, Edit Address",
+      "eval_function": "norm_phrase_set_match_ordered|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
     },
     {
       "id": "025db8ef",
@@ -69,19 +239,119 @@
       "environment": "workarena",
       "question_type": "procedure",
       "question": "I am working with our ServiceNow portal. My boss asked me to rebalance workload between several agents by reassigning problems with a specific tag. What are the two modules that our company's workflow typically use in order to accomplish this task? Tell me the first module's name and the second module's name in order, separated by a semicolon. Mark your final answer (should be two short phrases separated by a semicolon) in \\boxed{}.",
-      "answer": "Reports;Problems",
       "image": null,
+      "answer": "Reports;Problems",
       "eval_function": "norm_phrase_set_match_ordered|lower=true|normalize_hyphen=true|strip_punct=true|separators=;|require_non_empty=true"
     },
     {
-      "id": "059974dd",
+      "id": "25b00876",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure",
+      "question": "I am working with our ServiceNow portal. In our company's typical workflow, if I am told to allocate investments to maximize returns by managing the items in Expense Lines, which field can I find the returns of each item?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "short description",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "507a0fe8",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure",
+      "question": "I am working with our ServiceNow portal. When we create a user record, which option contains only important fields that are present in the form and typically required for manual entry in our workflow?\n\nA. Locked out, Mobile phone, Business phone\nB. Title, Department, Language\nC. Date format, Active, Password needs reset\nD. Photo, Active, Lock out\nE. Lock out, Active, Language\n\nPut your final answer into \\boxed{} format like \\boxed{A}.",
+      "image": null,
+      "answer": "A",
+      "eval_function": "mc_choice_match|require_non_empty=true"
+    },
+    {
+      "id": "5d6ecdeb",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "procedure-abs",
+      "question": "I am using our reddit-based custom forum website. I am on the home page and I would like to create a new private forum. Can you tell me what are the names of the links I should click to get me to the creation form? Your final answer should be several phrases separated by comma and wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "This is not achievable because there is no separate private-forum creation flow from those links.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "84238c8f",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "procedure-abs",
+      "question": "I am using our magento-based custom shopping admin website. I would like to add a site-wise discount for customers on checkout under a dedicated `Checkout Discounts` child module. Which module should I use? Give me the parent and child module in the format `Parent > Child`, wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "There is no dedicated `Checkout Discounts` child module in this admin menu.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "4a4aad22",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "procedure-abs",
+      "question": "I am using our magento-based custom shopping website and I am on the search result page. I have the following constrained action space and I wonder, what is the minimum number of actions I need to perform to filter out the items costing less than $100?\n\nAction Space:\nscroll(delta_x: float, delta_y: float), keyboard_press(key: str), click(bid: str, button='left', modifiers=[]), fill(bid: str, value: str, enable_autocomplete_menu: bool = False), hover(bid: str), tab_focus(index: int), new_tab(), go_back(), go_forward(), tab_close(), select_option(bid: str, options: str | list[str])\n\nYour final answer should be an English number (e.g., one, two, three, ...) wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "It is impossible to filter search results by price on this website.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "12f8cfd2",
       "domain": "enterprise",
       "environment": "workarena",
       "question_type": "procedure-abs",
-      "question": "I am working with our ServiceNow Portal. In our company's workflow, when we disperse change requests so they do not overlap, what field besides `risk level` do we also use to decide the time span length allocated to each change request?\n\nMark your final answer in \\boxed{}.",
-      "answer": "That scheduling workflow does not use a second duration-deciding field besides `risk level`.",
+      "question": "I am working with our ServiceNow Portal. I need to offboard a user. After I clear the `Assigned to` field on that user's hardware asset record, what value should I set the `State` field to before clicking `Update`?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
       "image": null,
+      "answer": "No `State` change is part of that hardware-asset step; the workflow only requires clearing `Assigned to` and updating the record.",
       "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "7351cbcc",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure-abs",
+      "question": "I am working with our ServiceNow Portal. If I am told to allocate investments to maximize returns, which module under \"Reports\" should I work in first?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "The module you need is not under `Reports`; the traced workflow starts from `Cost > Expense Lines`.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "9b34f55b",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "procedure-abs",
+      "question": "I am working with our ServiceNow portal. My manager asks me to onboard an employee to our company. Which intermediate traceability step happens between ordering the device and creating the hardware profile, where you return to the onboarding task to record the request number?\n\nPut your final answer into \\boxed{} format.",
+      "image": null,
+      "answer": "That onboarding workflow does not insert a return-to-task traceability step between ordering the device and creating the hardware profile.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "06e965cf",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "static-environment",
+      "question": "I am using our reddit-based custom forum website. Which option correctly lists the ways to sort posts on a subreddit, in the exact order shown in the dropdown?\nA. Hot, New, Top, Rising, Controversial\nB. Hot, New, Active, Top, Controversial, Most Commented\nC. Hot, New, Rising, Controversial, Top, Gilded\nD. Hot, New, Top, Rising\nYour final answer should be wrapped in \\boxed{} like \\boxed{A}.",
+      "image": null,
+      "answer": "B",
+      "eval_function": "mc_choice_match|require_non_empty=true"
+    },
+    {
+      "id": "0738c1ac",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "static-environment",
+      "question": "I am using our magento-based shopping admin dashboard. Which column appears immediately to the right of \"Quantity\" in the Low Stock Report table? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "Source Code",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "0c0fdcd7",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "static-environment",
+      "question": "I am using our magento-based custom shopping website. On the homepage, what heading labels the featured product area? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "Product Showcases",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
     },
     {
       "id": "057a2d4d",
@@ -89,9 +359,59 @@
       "environment": "workarena",
       "question_type": "static-environment",
       "question": "I am working with our ServiceNow portal. When we order a Dell XPS as the developer laptop, what is the extra dollar amount if we choose the largest SSD option?\n\nMark your final answer (should be a single integer indicating the amount) in \\boxed{}.",
-      "answer": "300",
       "image": null,
+      "answer": "300",
       "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "17a03f9b",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment",
+      "question": "I am working in our ServiceNow based portal. On the `Data Management Delete Job` form, what checkbox label appears directly above the `Run at` field?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "Run business rules and engines",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "229675cd",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment",
+      "question": "I am working with a few forms in our ServiceNow portal. Create Change Request vs Incident. What is the additional button at the top right of the incident page that does not appear in the change-request form?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
+      "image": null,
+      "answer": "Resolve",
+      "eval_function": "norm_phrase_set_match|lower=true|normalize_hyphen=true|strip_punct=true|separators=,;|require_non_empty=true"
+    },
+    {
+      "id": "01f6e679",
+      "domain": "web",
+      "environment": "webarena-reddit",
+      "question_type": "static-environment-abs",
+      "question": "I am using our reddit-based custom forum website. For the create submission form, what is the field name between \"body\" and \"forum\"? Mark your final answer in \\boxed{}.",
+      "image": null,
+      "answer": "there is no such field. body and forum are next to each other.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "0ace674b",
+      "domain": "web",
+      "environment": "webarena-cms",
+      "question_type": "static-environment-abs",
+      "question": "I am using our magento-based shopping admin dashboard. In the Search Terms Report grid, what is the metric column shown between `Store` and `Results`? Please answer with the exact column name. Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "There is no metric column between `Store` and `Results` in that grid.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
+    },
+    {
+      "id": "0af83ccc",
+      "domain": "web",
+      "environment": "webarena-onestopshop",
+      "question_type": "static-environment-abs",
+      "question": "I am using our magento-based custom shopping website. In the `My Orders` table on my account summary page, what column appears immediately to the left of the `Tracking Number` column? Your final answer should be wrapped in \\boxed{}.",
+      "image": null,
+      "answer": "There is no `Tracking Number` column in that table.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
     },
     {
       "id": "123b74fb",
@@ -99,28 +419,28 @@
       "environment": "workarena",
       "question_type": "static-environment-abs",
       "question": "I am working with a few forms in our ServiceNow portal. Create Change Request vs Incident. What is the additional button at the top right of the change-request page that does not appear in the incident form?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
-      "answer": "There is no additional top-right button on the change-request form that the incident form lacks.",
       "image": null,
+      "answer": "There is no additional top-right button on the change-request form that the incident form lacks.",
       "eval_function": "llm_abstention_checker|require_non_empty=true"
     },
     {
-      "id": "00aa905a",
-      "domain": "web",
-      "environment": "webarena-reddit",
-      "question_type": "dynamic-environment",
-      "question": "I am using our reddit-based custom forum website. I am on the home page of a forum. True or false: there is a textbox where I can directly enter a new post to submit. Your final answer should be wrapped in \\boxed{}.",
-      "answer": "false",
+      "id": "247bf724",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment-abs",
+      "question": "I am working with our ServiceNow portal. For the Hardware form, how many model-category options are there besides `Computer` and `Computer Peripheral`? Answer in English and wrap your final answer in \\boxed{}.",
       "image": null,
-      "eval_function": "mc_choice_match|require_non_empty=true"
+      "answer": "There are no additional model-category options besides those two.",
+      "eval_function": "llm_abstention_checker|require_non_empty=true"
     },
     {
-      "id": "0401f0c8",
-      "domain": "web",
-      "environment": "webarena-reddit",
-      "question_type": "dynamic-environment-abs",
-      "question": "I am using our reddit-based custom forum website. I am on the home page of a forum. What is the placeholder text of the textbox where I can directly enter a new post to submit? Your final answer should be wrapped in \\boxed{}.",
-      "answer": "There is no such textbox on the forum home page.",
+      "id": "5ca112bf",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "question_type": "static-environment-abs",
+      "question": "I am working with a few forms in our ServiceNow portal. Among these five forms (change request/problem/incident/hardware/user), do you remember a page that has two stacked reminder/system messages about how to fill the form?\n\nMark your final answer (should be one or more short phrases) in \\boxed{}.",
       "image": null,
+      "answer": "None of those five forms shows two stacked fill-the-form reminder messages.",
       "eval_function": "llm_abstention_checker|require_non_empty=true"
     }
   ],
