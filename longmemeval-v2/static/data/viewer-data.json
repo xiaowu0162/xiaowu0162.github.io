@@ -20,7 +20,7 @@
       "static-environment-abs": 55,
       "errors-gotchas": 29
     },
-    "local_note": "This viewer uses a balanced, diversified subset of 42 questions: six per question type, with three web and three enterprise examples when filtered by type."
+    "local_note": "This viewer uses a balanced, diversified subset of 42 questions and 8 trajectory excerpts from the public sample release."
   },
   "questions": [
     {
@@ -460,7 +460,7 @@
           "action": null,
           "thought": "I need to open the Content section to access Design \u2192 Themes (or Configuration) so I can preview the Magento Blank theme. From the dashboard I'll navigate by clicking the \"CONTENT\" menu item (bid '293').",
           "screenshot": "assets/screenshots/trajectories/dce5a79b/0.png",
-          "observation_snippet": "RootWebArea 'Dashboard / Magento Admin', focused [148] link 'Magento Admin Panel', clickable, visible [149] image 'Magento Admin Panel', visible [150] navigation '', visible [151] menubar '', visible, orientation='horizontal' [153] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [156] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [189] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [207] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [226] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [293] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [339] link '\\ue60a REPORTS', clickable, visible Stat..."
+          "observation_snippet": "RootWebArea 'Dashboard / Magento Admin', focused [148] link 'Magento Admin Panel', clickable, visible [149] image 'Magento Admin Panel', visible [150] navigation '', visible [151] menubar '', visible, orientation='horizontal' [153] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [156] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [189] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [207] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [226] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [293] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [339] link '\\ue60a REPORTS', clickable, visible StaticText '\\ue60a' StaticText 'REPORTS' [464] link '\\ue60d STORES', clickable, visi..."
         },
         {
           "state_index": 2,
@@ -469,7 +469,7 @@
           "action": "click('333')",
           "thought": "I opened Content \u2192 Themes and can see the \"Magento Blank\" row in the themes list. To preview that theme, I'll click the \"View\" link inside the Magento Blank row (bid '873').",
           "screenshot": "assets/screenshots/trajectories/dce5a79b/2.png",
-          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [156] link 'Magento Admin Panel', clickable, visible [157] image 'Magento Admin Panel', visible [158] navigation '', visible [159] menubar '', visible, orientation='horizontal' [161] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [164] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [197] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [215] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [234] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [301] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [347] link '\\ue60a REPORTS', clickable, visib..."
+          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [156] link 'Magento Admin Panel', clickable, visible [157] image 'Magento Admin Panel', visible [158] navigation '', visible [159] menubar '', visible, orientation='horizontal' [161] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [164] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [197] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [215] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [234] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [301] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [347] link '\\ue60a REPORTS', clickable, visible StaticText '\\ue60a' StaticText 'REPORTS' [472] link '\\ue60d STORES', clickabl..."
         },
         {
           "state_index": 3,
@@ -478,7 +478,44 @@
           "action": "click('873')",
           "thought": "",
           "screenshot": "assets/screenshots/trajectories/dce5a79b/3.png",
-          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [178] link 'Magento Admin Panel', clickable, visible [179] image 'Magento Admin Panel', visible [180] navigation '', visible [181] menubar '', visible, orientation='horizontal' [183] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [186] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [219] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [237] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [256] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [323] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [369] link '\\ue60a REPORTS', clickable, visib..."
+          "observation_snippet": "RootWebArea 'Design / Content / Magento Admin', focused [178] link 'Magento Admin Panel', clickable, visible [179] image 'Magento Admin Panel', visible [180] navigation '', visible [181] menubar '', visible, orientation='horizontal' [183] link '\\ue604 DASHBOARD', clickable, visible StaticText '\\ue604' StaticText 'DASHBOARD' [186] link '\\ue60b SALES', clickable, visible StaticText '\\ue60b' StaticText 'SALES' [219] link '\\ue608 CATALOG', clickable, visible StaticText '\\ue608' StaticText 'CATALOG' [237] link '\\ue603 CUSTOMERS', clickable, visible StaticText '\\ue603' StaticText 'CUSTOMERS' [256] link '\\ue609 MARKETING', clickable, visible StaticText '\\ue609' StaticText 'MARKETING' [323] link '\\ue602 CONTENT', clickable, visible StaticText '\\ue602' StaticText 'CONTENT' [369] link '\\ue60a REPORTS', clickable, visible StaticText '\\ue60a' StaticText 'REPORTS' [494] link '\\ue60d STORES', clickabl..."
+        }
+      ]
+    },
+    {
+      "id": "8a6653c8",
+      "domain": "web",
+      "environment": "webarena",
+      "goal": "What are the main criticisms of this product? Please extract the relevant sentences.",
+      "outcome": "success",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "http://localhost:9082/mineralogie-all-natural-lip-gloss-ruby-rose.html",
+          "action": null,
+          "thought": "The page currently shows the product details tab. The main criticisms will be in the Reviews section, which is collapsed. I'll open the \"Reviews (3)\" tab to reveal the customer review text so I can extract the critical sentences.",
+          "screenshot": "assets/screenshots/trajectories/8a6653c8/0.png",
+          "observation_snippet": "RootWebArea 'Mineralogie All Natural Lip Gloss, Ruby Rose', focused [256] banner '', visible [259] list '', visible [260] listitem '', visible [261] link 'My Account', clickable, visible [262] listitem '', visible [263] link 'My Wish List', clickable, visible [264] listitem '', visible [265] link 'Sign Out', clickable, visible [266] listitem '', visible [269] listitem '', visible StaticText 'Welcome, Emma Lopez!' [271] link 'Skip to Content', clickable StaticText 'Skip to Content' [276] link 'store logo', clickable, visible [277] image 'one_stop_market_logo', visible [279] link '\\ue611 My Cart 3 3items', clickable, visible StaticText '\\ue611' StaticText 'My Cart' StaticText '3' StaticText '3' StaticText 'items' [415] Section '', visible [417] LabelText '', clickable StaticText '\\ue615' StaticText 'Search' [420] combobox '\\ue615 Search', clickable, visible, autocomplete='both', hasPopup='..."
+        },
+        {
+          "state_index": 1,
+          "step": 1,
+          "url": "http://localhost:9082/mineralogie-all-natural-lip-gloss-ruby-rose.html",
+          "action": "click('1667')",
+          "thought": "The Reviews tab is open and the visible customer reviews show the critical comments. I'll extract the sentences that express criticisms from the visible reviews and send them to the user.",
+          "screenshot": "assets/screenshots/trajectories/8a6653c8/1.png",
+          "observation_snippet": "RootWebArea 'Mineralogie All Natural Lip Gloss, Ruby Rose', focused [256] banner '' [259] list '' [260] listitem '' [261] link 'My Account', clickable [262] listitem '' [263] link 'My Wish List', clickable [264] listitem '' [265] link 'Sign Out', clickable [266] listitem '' [269] listitem '' StaticText 'Welcome, Emma Lopez!' [271] link 'Skip to Content', clickable StaticText 'Skip to Content' [276] link 'store logo', clickable [277] image 'one_stop_market_logo' [279] link '\\ue611 My Cart 3 3items', clickable StaticText '\\ue611' StaticText 'My Cart' StaticText '3' StaticText '3' StaticText 'items' [415] Section '' [417] LabelText '', clickable StaticText '\\ue615' StaticText 'Search' [420] combobox '\\ue615 Search', clickable, autocomplete='both', hasPopup='listbox', expanded=False [423] link 'Advanced Search', clickable [425] button 'Search', disabled=True StaticText '\\ue615' StaticText 'S..."
+        },
+        {
+          "state_index": 2,
+          "step": 2,
+          "url": "http://localhost:9082/mineralogie-all-natural-lip-gloss-ruby-rose.html",
+          "action": "send_msg_to_user(\"Those labial never came to me and I would like them again because I paid for them\\nDryUneven color\")",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/8a6653c8/2.png",
+          "observation_snippet": "RootWebArea 'Mineralogie All Natural Lip Gloss, Ruby Rose', focused [256] banner '' [259] list '' [260] listitem '' [261] link 'My Account', clickable [262] listitem '' [263] link 'My Wish List', clickable [264] listitem '' [265] link 'Sign Out', clickable [266] listitem '' [269] listitem '' StaticText 'Welcome, Emma Lopez!' [271] link 'Skip to Content', clickable StaticText 'Skip to Content' [276] link 'store logo', clickable [277] image 'one_stop_market_logo' [279] link '\\ue611 My Cart 3 3items', clickable StaticText '\\ue611' StaticText 'My Cart' StaticText '3' StaticText '3' StaticText 'items' [415] Section '' [417] LabelText '', clickable StaticText '\\ue615' StaticText 'Search' [420] combobox '\\ue615 Search', clickable, autocomplete='both', hasPopup='listbox', expanded=False [423] link 'Advanced Search', clickable [425] button 'Search', disabled=True StaticText '\\ue615' StaticText 'S..."
         }
       ]
     },
@@ -497,7 +534,7 @@
           "action": null,
           "thought": "I need to open the application navigator search to go to \"Portfolios > Hardware Assets\" in the Asset application. I'll click the main Search combobox (bid '113') so I can type the module name in the next step.",
           "screenshot": "assets/screenshots/trajectories/f224a4eb/0.png",
-          "observation_snippet": "RootWebArea 'Home | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite',..."
+          "observation_snippet": "RootWebArea 'Home | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation 'More menus', live='polite', relevant='add..."
         },
         {
           "state_index": 5,
@@ -506,7 +543,7 @@
           "action": "fill('932', 'Hardware Assets', True)",
           "thought": "I filtered the application navigator for \"Hardware Assets\" and the \"Portfolios > Hardware Assets\" module link is visible in the All menu (bid '1269'). I'll open that module by clicking the Hardware Assets link.",
           "screenshot": "assets/screenshots/trajectories/f224a4eb/5.png",
-          "observation_snippet": "RootWebArea 'Search Results | Hardware Assets | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' [924] navigation '', visible [927] image '', visible [931] LabelText '', clickable StaticText 'Enter search term to filter All menu' [932] textbox 'Enter..."
+          "observation_snippet": "RootWebArea 'Search Results | Hardware Assets | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' [924] navigation '', visible [927] image '', visible [931] LabelText '', clickable StaticText 'Enter search term to filter All menu' [932] textbox 'Enter search term to filter All menu' value='Hardware Assets', clickable, visible, foc..."
         },
         {
           "state_index": 9,
@@ -515,7 +552,118 @@
           "action": "select_option('a60', 'assigned_to')",
           "thought": "",
           "screenshot": "assets/screenshots/trajectories/f224a4eb/9.png",
-          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu..."
+        }
+      ]
+    },
+    {
+      "id": "1f2793bd",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "What is the minimum value in the \"Top 20 Tables Size\" chart? Give me both the label and the count. If there are many, pick one.",
+      "outcome": "success",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/%24pa_dashboard.do%3Fsysparm_dashboard%3D6b706f448f231110953ddffc9071a4f3",
+          "action": null,
+          "thought": "The \"Top 20 Tables Size\" widget is present but its chart details aren't visible in the current AXTree snapshot. I should scroll down to reveal the chart contents (labels and counts) so the page exposes the chart elements in the tree for extraction.",
+          "screenshot": "assets/screenshots/trajectories/1f2793bd/0.png",
+          "observation_snippet": "RootWebArea 'Telemetry - Table Growth | ServiceNow', focused [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation 'More menus', live='po..."
+        },
+        {
+          "state_index": 1,
+          "step": 1,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/%24pa_dashboard.do%3Fsysparm_dashboard%3D6b706f448f231110953ddffc9071a4f3",
+          "action": "scroll(0, 1000)",
+          "thought": "I inspected the \"Top 20 Tables Size\" chart in the page tree (the SvgRoot entries). The chart lists 20 table labels with values; the smallest value shown is 0.04 for \"sys_ui_element\".",
+          "screenshot": "assets/screenshots/trajectories/1f2793bd/1.png",
+          "observation_snippet": "RootWebArea 'Telemetry - Table Growth | ServiceNow', focused [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [234] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' naviga..."
+        },
+        {
+          "state_index": 2,
+          "step": 2,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/%24pa_dashboard.do%3Fsysparm_dashboard%3D6b706f448f231110953ddffc9071a4f3",
+          "action": "send_msg_to_user('Label: sys_ui_element, Count: 0.04')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/1f2793bd/2.png",
+          "observation_snippet": "RootWebArea 'Telemetry - Table Growth | ServiceNow', focused [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [234] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' naviga..."
+        }
+      ]
+    },
+    {
+      "id": "1c29cf20",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "Retrieve information from the chart with title #INC069411424 and perform the mentioned task.\n For calculations, please round off to the next highest integer if required. If the required calculation has multiple possible answers (for example, 'mode' or 'most frequently' occuring value), please consider the highest value.\n\nGiven the title of the report, search for it. The report shows the number of 'incidents' assigned to an 'agent'.\n\nFind the agent with the minimum assigned incidents.\n\nUsing the field assigned_to for the agent/ agents that fit the critera above, filter the list.",
+      "outcome": "failure",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/home",
+          "action": null,
+          "thought": "I need to open the application navigator to find Reports > View/Run. The \"All\" menu button (bid '79') in the primary navigation should expand the menu so I can locate Reports. I'll click that button.",
+          "screenshot": "assets/screenshots/trajectories/1c29cf20/0.png",
+          "observation_snippet": "RootWebArea 'Home | ServiceNow', focused [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation 'More menus', live='polite', relevant='add..."
+        },
+        {
+          "state_index": 12,
+          "step": 12,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_userpref_module%3Dbfd7b20c37f3100044e0bfc8bcbe5d49",
+          "action": "fill('a74', 'Jerry-Joy Blevins-Harris', True)",
+          "thought": "The \"Assigned to\" field is selected and I entered \"Jerry-Joy Blevins-Harris\" into the Hardware list search box. To apply this filter and show hardware assets assigned to that agent, I'll press Enter in the search box.",
+          "screenshot": "assets/screenshots/trajectories/1c29cf20/12.png",
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu..."
+        },
+        {
+          "state_index": 24,
+          "step": 24,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_first_row%3D1%26sysparm_query%3DGOTO123TEXTQUERY321%253dJerry-Joy%2BBlevins-Harris%26sysparm_query_encoded%3DGOTO123TEXTQUERY321%253dJerry-Joy%2BBlevins-Harris%26sysparm_view%3D",
+          "action": "send_msg_to_user(\"Task complete. Report #INC069411424 \u2014 agent with minimum incidents: Jerry-Joy Blevins-Harris (1 incident). I navigated to Portfolios > Hardware Assets and filtered by Assigned to = Jerry-Joy Blevins-Harris. The Hardware list shows 1 asset: CONSUMABLE249 - Iris 5875. Would you like me to open the asset record or export the list?\")",
+          "thought": "The Hardware list is filtered to Assigned to = Jerry-Joy Blevins-Harris and shows a single asset: CONSUMABLE249 - Iris 5875 (link bid 'a336'). To view the asset details (useful next step after filtering), I'll open that asset record by clicking its link.",
+          "screenshot": "assets/screenshots/trajectories/1c29cf20/24.png",
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [47] generic, live='assertive', atomic, relevant='additions text' [48] generic, live='polite', atomic, relevant='additions text' [53] generic, live='polite', atomic, relevant='all' [56] navigation 'Global skip links', visible [57] link 'Skip to main content', clickable [58] link 'Open accessibility preferences', clickable [233] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [59] generic, live='polite', atomic, relevant='additions text' [62] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu..."
+        }
+      ]
+    },
+    {
+      "id": "276f9dff",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "Filter the change request list based on specific criteria.\nCreate a filter for the list to extract all entries where:\n    - \"Number\" is \"CHG0000095\" or\n    - \"For out\" is \"Whether\"\n\nDon't forget to mark this task as \"Closed - complete\" once successfully completed.",
+      "outcome": "failure",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://workarenapublic15.service-now.com/now/nav/ui/classic/params/target/vtb_task.do%3Fsys_id%3D2840ffcf938bbe10d6ddf23cdd03d634",
+          "action": null,
+          "thought": "To start filtering the Change Request list, I need to open the Application Navigator. The visible \u201cAll\u201d button in the top-left header will expand the menu so I can find the Change application and its \u201cAll\u201d module.",
+          "screenshot": "assets/screenshots/trajectories/276f9dff/0.png",
+          "observation_snippet": "RootWebArea 'Filter the change request list. | Private Task | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation 'More men..."
+        },
+        {
+          "state_index": 3,
+          "step": 3,
+          "url": "https://workarenapublic15.service-now.com/now/nav/ui/classic/params/target/change_request_list.do%3Fsysparm_userpref_module%3D3264ded3c611227a019523c8448d2d91",
+          "action": "click('612')",
+          "thought": "The page is currently on the ServiceNow \u201cChange Requests\u201d list view (showing rows 1\u201320 of 111) with a visible \u201cNew\u201d button and a list search box, but the specific task goal (e.g., which change request to open/update, or what data to create) is not provided in the prompt. The best next step is to ask the user for the exact target/change request number or required changes so I can take the correct action.",
+          "screenshot": "assets/screenshots/trajectories/276f9dff/3.png",
+          "observation_snippet": "RootWebArea 'Change Requests | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [234] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Adm..."
+        },
+        {
+          "state_index": 5,
+          "step": 5,
+          "url": "https://workarenapublic15.service-now.com/now/nav/ui/classic/params/target/change_request_list.do%3Fsysparm_userpref_module%3D3264ded3c611227a019523c8448d2d91",
+          "action": "report_infeasible('The task goal is missing/unspecified (no CHG number or requested action/updates provided). Please provide the exact change request to work on and what to do (create/open/update + required field values).')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/276f9dff/5.png",
+          "observation_snippet": "RootWebArea 'Change Requests | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [234] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Adm..."
         }
       ]
     },
@@ -534,16 +682,16 @@
           "action": null,
           "thought": "We need to begin the task by navigating to the \u201cAsset\u201d application and opening the \u201cPortfolios > Hardware Assets\u201d module. The next step is to open the ServiceNow \u201cAll\u201d application navigator menu.",
           "screenshot": "assets/screenshots/trajectories/8b74ffaa/0.png",
-          "observation_snippet": "RootWebArea 'Filter the hardware asset list. | Private Task | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unp..."
+          "observation_snippet": "RootWebArea 'Filter the hardware asset list. | Private Task | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation 'More men..."
         },
         {
           "state_index": 6,
           "step": 6,
           "url": "https://workarenapublic18.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_userpref_module%3Dbfd7b20c37f3100044e0bfc8bcbe5d49",
           "action": "send_msg_to_user('I\u2019m on the Hardware Assets list (alm_hardware). What exactly should I do next\u2014e.g., which asset (by tag/display name/serial/sys_id) to open, and what info to retrieve or field(s) to update (and to what values)?')",
-          "thought": "The page is on the Hardware Assets (alm_hardware) list, but the specific objective (which asset to locate/update and what to change/retrieve) is still not provided. The best next action is to wait for the user\u2019s instructions before interacting with any records...",
+          "thought": "The page is on the Hardware Assets (alm_hardware) list, but the specific objective (which asset to locate/update and what to change/retrieve) is still not provided. The best next action is to wait for the user\u2019s instructions before interacting with any records.",
           "screenshot": "assets/screenshots/trajectories/8b74ffaa/6.png",
-          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu..."
         },
         {
           "state_index": 11,
@@ -552,7 +700,44 @@
           "action": "report_infeasible('I\u2019m on Asset > Portfolios > Hardware Assets (Hardware list), but the task instructions don\u2019t specify what to do (which asset/identifier to work on and what to retrieve or update). Please provide the asset tag/display name/serial (or sys_id) and the exact required action/field changes or info to report.')",
           "thought": "",
           "screenshot": "assets/screenshots/trajectories/8b74ffaa/11.png",
-          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces..."
+          "observation_snippet": "RootWebArea 'Hardware | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [230] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu..."
+        }
+      ]
+    },
+    {
+      "id": "8c4e76a3",
+      "domain": "enterprise",
+      "environment": "workarena",
+      "goal": "Follow protocol \"Maximizing total investment return\" to allocate investments to the expenses with short description containing #32a59d85-d to maximize returns while fitting inside the budget of 150000$. Give selected investments and total return.\n\nDon't forget to mark this task as \"Closed - complete\" once successfully completed.",
+      "outcome": "failure",
+      "sample_note": "Excerpt only: first, middle, and final states for direct screenshot preview.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://workarenapublic14.service-now.com/now/nav/ui/classic/params/target/vtb_task.do%3Fsys_id%3Da5f277362b4ff290de74f462fe91bfc1",
+          "action": null,
+          "thought": "To follow the required protocol (\u201cMaximizing total investment return\u201d) and correctly allocate investments, I first need to open the referenced knowledge article in the \u201cCompany Protocols\u201d knowledge base. The form provides a \u201cSearch Knowledge\u201d link that should open the KB search in a new window/tab.",
+          "screenshot": "assets/screenshots/trajectories/8c4e76a3/0.png",
+          "observation_snippet": "RootWebArea 'Allocate investments to maximize returns | Private Task | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin menu', live='polite', relevant='additions text' navigation..."
+        },
+        {
+          "state_index": 25,
+          "step": 25,
+          "url": "https://workarenapublic14.service-now.com/now/nav/ui/classic/params/target/fm_expense_line_list.do%3Fsysparm_query%3D%26sysparm_first_row%3D1%26sysparm_view%3D",
+          "action": "click('b1202')",
+          "thought": "The filter condition is set to field \u201cShort description\u201d with operator \u201cstarts with\u201d. To correctly find records where the identifier appears anywhere in the text, the next step is to change the operator to \u201ccontains\u201d, starting by opening the operator dropdown.",
+          "screenshot": "assets/screenshots/trajectories/8c4e76a3/25.png",
+          "observation_snippet": "RootWebArea 'Expense Lines | ServiceNow' [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [235] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' navigation 'Unpinned Workspaces menu', live='polite', relevant='additions text' navigation 'Unpinned Admin..."
+        },
+        {
+          "state_index": 49,
+          "step": 49,
+          "url": "https://workarenapublic14.service-now.com/now/nav/ui/classic/params/target/fm_expense_line_list.do%3Fsysparm_query%3Dshort_descriptionLIKE%252332a59d85-d%26sysparm_clear_stack%3Dtrue%26sysparm_first_row%3D1",
+          "action": "click('80')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/8c4e76a3/49.png",
+          "observation_snippet": "RootWebArea 'Expense Lines | ServiceNow', focused [46] generic, live='assertive', atomic, relevant='additions text' [47] generic, live='polite', atomic, relevant='additions text' [52] generic, live='polite', atomic, relevant='all' [55] navigation 'Global skip links', visible [56] link 'Skip to main content', clickable [57] link 'Open accessibility preferences', clickable [235] region 'There are 0 announcements displayed', visible, live='polite', relevant='additions text' [58] generic, live='polite', atomic, relevant='additions text' [61] navigation 'Primary', visible navigation 'Unpinned All menu', live='polite', relevant='additions text' navigation 'Unpinned Favorites menu', live='polite', relevant='additions text' navigation 'Unpinned History menu', live='polite', relevant='additions text' [627] navigation '', visible [630] image '', visible [634] LabelText '', clickable StaticText 'En..."
         }
       ]
     }

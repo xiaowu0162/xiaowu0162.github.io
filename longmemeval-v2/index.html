@@ -69,13 +69,13 @@
             <span class="icon"><i class="fas fa-file-pdf"></i></span>
             <span>Paper TODO</span>
           </a>
-          <a class="button is-dark link-button todo-link" href="#todo-links" aria-label="Code link todo">
+          <a class="button is-dark link-button" href="https://github.com/xiaowu0162/LongMemEval-V2/" aria-label="Code link">
             <span class="icon"><i class="fab fa-github"></i></span>
-            <span>Code TODO</span>
+            <span>Code</span>
           </a>
-          <a class="button is-dark link-button todo-link" href="#todo-links" aria-label="Data link todo">
+          <a class="button is-dark link-button" href="https://huggingface.co/datasets/xiaowu0162/longmemeval-v2" aria-label="Data link">
             <span class="icon"><i class="fas fa-database"></i></span>
-            <span>Data TODO</span>
+            <span>Data</span>
           </a>
           <a class="button is-dark link-button" href="#leaderboard">
             <span class="icon"><i class="fas fa-table"></i></span>
@@ -102,7 +102,7 @@
       <div class="container is-max-desktop">
         <h2 class="title section-title">Overview</h2>
         <div class="section-highlight">
-          LongMemEval-V2 tests whether memory systems can turn long web-agent histories into reusable environment experience.
+          Can memory systems turn long web-agent histories into reusable environment experience?
         </div>
         <div class="content project-copy">
           <p>
@@ -118,9 +118,9 @@
 
         <figure class="paper-figure hero-figure">
           <img src="./assets/figures/main_figure.png" alt="Examples of LongMemEval-V2 questions across memory abilities">
-          <figcaption>
+          <!-- <figcaption>
             LongMemEval-V2 questions cover static state recall, dynamic state tracking, workflow knowledge, environment gotchas, and premise awareness.
-          </figcaption>
+          </figcaption> -->
         </figure>
       </div>
     </section>
@@ -129,10 +129,10 @@
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Benchmark</h2>
         <div class="section-highlight">
-          The benchmark is organized around five abilities that distinguish an experienced colleague from a stateless web agent.
+          What memory abilities distinguish an experienced colleague from a stateless web agent?
         </div>
         <div class="experience-block">
-          <h3>What defines an experienced colleague?</h3>
+          <h3>LongMemEval-V2: Core Memory Abilities</h3>
           <div class="experience-line"><strong>Static state recall</strong><span>remembers important landmarks, page layouts, module affordances, and subtle state differences.</span></div>
           <div class="experience-line"><strong>Dynamic state tracking</strong><span>understands how states and actions change the environment over time.</span></div>
           <div class="experience-line"><strong>Workflow knowledge</strong><span>knows the steps needed to complete recurring tasks in customized environments.</span></div>
@@ -155,12 +155,12 @@
 
         <figure class="paper-figure distribution-figure">
           <img src="./assets/figures/question_stats.png" alt="Question distribution statistics">
-          <figcaption>Questions span domains, types, and answer formats.</figcaption>
+          <figcaption>LME-V2 questions span domains, types, and answer formats.</figcaption>
         </figure>
 
         <figure class="paper-figure distribution-figure">
           <img src="./assets/figures/haystack_stats.png" alt="Haystack trajectory and token statistics">
-          <figcaption>History haystacks are large, while answer-bearing trajectories remain sparse.</figcaption>
+          <figcaption>LME-V2 history haystacks are large, while answer-bearing trajectories remain sparse.</figcaption>
         </figure>
 
         <div class="table-wrap comparison-wrap">
@@ -399,11 +399,45 @@
       </div>
     </section>
 
+    <section class="section section-band" id="data-viewer">
+      <div class="container is-max-widescreen">
+        <h2 class="title section-title">Data Viewer</h2>
+        <div class="section-highlight">
+          The viewer samples real benchmark questions and trajectory excerpts from the released dataset.
+        </div>
+        <div class="viewer-summary" id="viewer-summary"></div>
+
+        <div class="viewer-layout">
+          <section class="viewer-panel" aria-labelledby="question-viewer-title">
+            <div class="viewer-panel-header">
+              <h3 id="question-viewer-title">Questions</h3>
+              <div class="viewer-toolbar">
+                <select id="question-filter" aria-label="Filter questions by type">
+                  <option value="all">All types</option>
+                </select>
+              </div>
+            </div>
+            <div class="question-list" id="question-list" aria-live="polite"></div>
+          </section>
+
+          <section class="viewer-panel" aria-labelledby="trajectory-viewer-title">
+            <div class="viewer-panel-header">
+              <h3 id="trajectory-viewer-title">Trajectory Excerpts</h3>
+              <div class="viewer-toolbar">
+                <select id="trajectory-select" aria-label="Select trajectory"></select>
+              </div>
+            </div>
+            <div id="trajectory-viewer" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="evaluation">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Evaluation</h2>
         <div class="section-highlight">
-          Memory systems are evaluated by the evidence they retrieve and the latency they add before the reader answers.
+          LME-V2 evaluates memory systems on context gathering.
         </div>
         <div class="evaluation-flow" aria-label="Context gathering evaluation workflow">
           <div class="flow-node"><span>1</span><strong>Insert</strong><em>stream trajectories</em></div>
@@ -416,8 +450,10 @@
         </div>
         <div class="content project-copy evaluation-copy">
           <p>
-            LME-V2 uses a context gathering formulation. A memory system sequentially inserts trajectories, then returns a bounded multimodal
-            memory context for a question. A fixed reader answers from that context.
+            A memory system implements the Insert and Query API.
+            </p><p>
+            We sequentially insert trajectories, then query for a length-bounded multimodal
+            memory context per question. A fixed reader answers from that context.
           </p>
           <div class="formula-strip">
             <code>Insert(h)</code>
@@ -425,13 +461,13 @@
             <code>Reader(q, context) &rarr; answer</code>
           </div>
           <p>
-            The evaluation reports answer accuracy and query latency, so memory modules are measured by both evidence quality and operational cost.
+            The evaluation reports answer accuracy and query latency.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section-band" id="pilot">
+    <!-- <section class="section section-band" id="pilot">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Pilot Studies</h2>
         <div class="section-highlight">
@@ -454,20 +490,14 @@
           difficult even when answer-bearing trajectories are known. This motivates the AgentRunbook designs evaluated below.
         </p>
       </div>
-    </section>
+    </section> -->
 
     <section class="section" id="agentrunbook">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">AgentRunbook</h2>
         <div class="section-highlight">
-          AgentRunbook provides two initial memory designs for turning trajectory histories into query-time evidence.
+          We design two strong memory baselines: a RAG pipeline and a file-based coding agent memory controller.
         </div>
-        <figure class="paper-figure">
-          <img src="./assets/figures/agentrunbook_method_v1.png" alt="AgentRunbook memory module overview">
-          <figcaption>
-            AgentRunbook explores two memory designs: a structured retrieval pipeline and a file-based coding-agent memory controller.
-          </figcaption>
-        </figure>
 
         <div class="method-grid">
           <article class="method-panel">
@@ -489,6 +519,12 @@
             </ul>
           </article>
         </div>
+        <figure class="paper-figure">
+          <img src="./assets/figures/agentrunbook_method_v1.png" alt="AgentRunbook memory module overview">
+          <!-- <figcaption>
+            AgentRunbook explores two memory designs: .
+          </figcaption> -->
+        </figure>
       </div>
     </section>
 
@@ -566,40 +602,6 @@
           <img src="./assets/figures/accuracy_vs_latency.png" alt="Accuracy and latency tradeoff for memory methods">
           <figcaption>AgentRunbook improves the accuracy-latency frontier for long-term agent memory.</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <section class="section section-band" id="data-viewer">
-      <div class="container is-max-widescreen">
-        <h2 class="title section-title">Data Viewer</h2>
-        <div class="section-highlight">
-          The viewer samples real benchmark questions and trajectory excerpts from the released dataset.
-        </div>
-        <div class="viewer-summary" id="viewer-summary"></div>
-
-        <div class="viewer-layout">
-          <section class="viewer-panel" aria-labelledby="question-viewer-title">
-            <div class="viewer-panel-header">
-              <h3 id="question-viewer-title">Questions</h3>
-              <div class="viewer-toolbar">
-                <select id="question-filter" aria-label="Filter questions by type">
-                  <option value="all">All types</option>
-                </select>
-              </div>
-            </div>
-            <div class="question-list" id="question-list" aria-live="polite"></div>
-          </section>
-
-          <section class="viewer-panel" aria-labelledby="trajectory-viewer-title">
-            <div class="viewer-panel-header">
-              <h3 id="trajectory-viewer-title">Trajectory Excerpts</h3>
-              <div class="viewer-toolbar">
-                <select id="trajectory-select" aria-label="Select trajectory"></select>
-              </div>
-            </div>
-            <div id="trajectory-viewer" aria-live="polite"></div>
-          </section>
-        </div>
       </div>
     </section>
 
