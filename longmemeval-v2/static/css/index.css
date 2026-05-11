@@ -347,7 +347,7 @@ a {
   content: "↓";
 }
 
-.leaderboard-sort.active[data-sort="latency"] span::before {
+.leaderboard-sort.active[data-direction="asc"] span::before {
   content: "↑";
 }
 
@@ -377,25 +377,25 @@ a {
 }
 
 .leaderboard-table {
-  min-width: 760px;
+  min-width: 1120px;
   table-layout: fixed;
 }
 
 .leaderboard-table th:first-child,
 .leaderboard-table td:first-child {
-  width: 42%;
+  width: 30%;
 }
 
 .leaderboard-table th:nth-child(2),
 .leaderboard-table td:nth-child(2) {
-  width: 20%;
+  width: 12%;
   white-space: nowrap;
 }
 
 .leaderboard-table th:nth-child(n+3),
 .leaderboard-table td:nth-child(n+3) {
   text-align: center;
-  width: 12.6%;
+  width: 8.25%;
 }
 
 .leaderboard-table th:nth-child(n+3) .leaderboard-sort {
