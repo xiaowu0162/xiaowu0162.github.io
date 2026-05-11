@@ -118,13 +118,8 @@
         </div>
         <div class="content project-copy">
           <p>
-            Long-term memory is crucial for agents in specialized web environments, where success depends on recalling interface affordances,
-            state dynamics, workflows, and recurring failure modes. LongMemEval-V2 evaluates whether memory systems can help agents acquire
-            the experience needed to become knowledgeable colleagues in customized environments.
-          </p>
-          <p>
-            The benchmark pairs manually curated questions with long histories of multimodal web-agent trajectories. Memory systems consume
-            the trajectory history and return compact evidence for downstream question answering, making accuracy and query latency both central outcomes.
+            LongMemEval-V2 evaluates whether memory systems can help agents acquire
+            the experience needed to become knowledgeable colleagues in customized environments. The benchmark pairs manually curated questions with long histories of multimodal web-agent trajectories. Memory systems consume the trajectory history and return compact evidence for downstream question answering. Both accuracy and query latency are targeted metrics.
           </p>
         </div>
 
@@ -414,9 +409,9 @@
     <section class="section section-band" id="data-viewer">
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Data Viewer</h2>
-        <div class="section-highlight">
+        <!-- <div class="section-highlight">
           The viewer samples real benchmark questions and trajectory excerpts from the released dataset.
-        </div>
+        </div> -->
         <div class="viewer-summary" id="viewer-summary"></div>
 
         <div class="viewer-layout">
@@ -621,19 +616,16 @@
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Leaderboard</h2>
         <div class="section-highlight">
-          Leaderboard entries will be scored by LAFS Gain: the improvement over the fixed baseline + AgentRunbook reference frontier.
+          Leaderboard entries measure how much a memory system improves the released baseline + AgentRunbook accuracy-latency frontier.
         </div>
-        <div class="todo-panel">
-          <div>
-            <span class="todo-badge">TODO</span>
-            <h3>Leaderboard shell</h3>
-          </div>
-          <div class="leaderboard-shell-copy">
+        <div class="leaderboard-intro">
+          <div class="leaderboard-goal">
+            <h3>Goal: accurate and efficient memory</h3>
             <p>
-              The public leaderboard sorts by LAFS Gain by default because accuracy alone can favor slow systems, while latency alone can favor weak
-              recall. Frontier gain rewards a submission only when it improves the best known accuracy available at some latency budget. For a
-              submitted system \(S\), with fixed reference frontier
-              \(F_{\mathrm{ref}}=\{\text{RAG slice+notes},\text{Codex},\text{AgentRunbook-R},\text{AgentRunbook-C}\}\), we report:
+              LongMemEval-V2 rewards memory systems that retrieve useful experience without making downstream agents wait. The leaderboard therefore
+              reports both answer quality and query cost, and sorts by LAFS Gain by default because it measures whether a submitted system improves the
+              best known accuracy-latency tradeoff. With fixed reference frontier
+              \(F_{\mathrm{ref}}=\{\text{RAG slice+notes},\text{Codex},\text{AgentRunbook-R},\text{AgentRunbook-C}\}\), we score a submission \(S\) as:
             </p>
             <div class="leaderboard-equation">
               \[
@@ -645,6 +637,20 @@
             <p>
               A score of 0 means the method does not beat the released reference frontier at any latency budget.
             </p>
+          </div>
+          <div class="leaderboard-metrics" aria-label="Leaderboard metrics">
+            <div class="leaderboard-metric">
+              <span>LAFS Gain</span>
+              <strong>frontier improvement</strong>
+            </div>
+            <div class="leaderboard-metric">
+              <span>Accuracy</span>
+              <strong>answer quality</strong>
+            </div>
+            <div class="leaderboard-metric">
+              <span>Query Latency</span>
+              <strong>retrieval cost</strong>
+            </div>
           </div>
         </div>
         <div class="leaderboard-tiers">
@@ -729,9 +735,9 @@
     <section class="section" id="citation">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Citation</h2>
-        <div class="section-highlight">
+        <!-- <div class="section-highlight">
           Use the citation below as a placeholder until the final preprint metadata is available.
-        </div>
+        </div> -->
         <pre class="citation-block"><code>@article{wu2026longmemevalv2,
   title = {LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues},
   author = {Wu, Di and Ji, Zixiang and Kawatkar, Asmi and Kwan, Bryan and Gu, Jia-Chen and Peng, Nanyun and Chang, Kai-Wei},

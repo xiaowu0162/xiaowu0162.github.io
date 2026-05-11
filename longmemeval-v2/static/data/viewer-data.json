@@ -3,7 +3,7 @@
     "title": "LongMemEval-V2",
     "version": 1,
     "kaggle_ref": "lmev2anonymous/longmemeval-v2",
-    "license": "CC BY-NC 4.0",
+    "license": "Apache 2.0",
     "questions": 451,
     "trajectories": 1870,
     "question_images": 29,
