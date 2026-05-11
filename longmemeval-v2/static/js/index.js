@@ -226,6 +226,27 @@ function compactText(value, limit = 360) {
   return `${text.slice(0, limit).trim()}...`;
 }
 
+function formatTrajectoryUrl(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) {
+    return "";
+  }
+
+  try {
+    const url = new URL(raw);
+    const originLabels = {
+      "http://localhost:9082": "SHOPPING_ROOT",
+      "http://localhost:9083": "SHOPPING_ADMIN_ROOT",
+    };
+    const rootLabel =
+      originLabels[url.origin] ||
+      (url.hostname.endsWith(".service-now.com") ? "WORKARENA_ROOT" : "SITE_ROOT");
+    return `${rootLabel}${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return raw;
+  }
+}
+
 function normalizeIndex(index, length) {
   if (length <= 0) {
     return 0;
@@ -362,6 +383,7 @@ function renderTrajectory() {
   const states = trajectory.states || [];
   state.trajectoryStateIndex = normalizeIndex(state.trajectoryStateIndex, states.length);
   const item = states[state.trajectoryStateIndex];
+  const displayUrl = item ? formatTrajectoryUrl(item.url) : "";
 
   const stateCard = item
     ? `
@@ -373,7 +395,7 @@ function renderTrajectory() {
             <span class="meta-pill">step ${escapeHtml(item.step)}</span>
             <span class="meta-pill">${escapeHtml(item.action || "start")}</span>
           </div>
-          <p><code>${escapeHtml(item.url)}</code></p>
+          ${displayUrl ? `<p><code>${escapeHtml(displayUrl)}</code></p>` : ""}
           <p>${escapeHtml(item.thought || "No model thought recorded for this sampled state.")}</p>
           <p>${escapeHtml(compactText(item.observation_snippet, 620))}</p>
         </div>
