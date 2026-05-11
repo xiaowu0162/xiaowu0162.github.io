@@ -823,11 +823,8 @@ a {
   border: 1px solid var(--lme-line);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(16, 55, 86, 0.06);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: minmax(0, 1fr) 280px;
   margin: 0 auto;
-  max-width: 1040px;
+  max-width: 900px;
   padding: 1.2rem;
 }
 
@@ -855,37 +852,6 @@ a {
 
 .leaderboard-equation mjx-container {
   margin: 0 !important;
-}
-
-.leaderboard-metrics {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.leaderboard-metric {
-  background: #f8fbff;
-  border: 1px solid #d7e4f0;
-  border-radius: 8px;
-  padding: 0.75rem 0.8rem;
-}
-
-.leaderboard-metric span,
-.leaderboard-metric strong {
-  display: block;
-}
-
-.leaderboard-metric span {
-  color: var(--lme-red);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.leaderboard-metric strong {
-  color: var(--lme-navy);
-  font-size: 0.94rem;
-  margin-top: 0.18rem;
 }
 
 .todo-badge {
@@ -1108,10 +1074,6 @@ a {
 
   .todo-panel {
     display: block;
-  }
-
-  .leaderboard-intro {
-    grid-template-columns: 1fr;
   }
 
   .viewer-card-controls {
