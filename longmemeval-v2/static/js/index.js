@@ -3,7 +3,93 @@ const state = {
   questionIndex: 0,
   trajectoryIndex: 0,
   trajectoryStateIndex: 0,
+  leaderboardSort: "lafsGain",
 };
+
+const leaderboardEntries = [
+  {
+    system: "No retrieval",
+    family: "Reader only",
+    smallAccuracy: "1.3%",
+    mediumAccuracy: "1.3%",
+    smallLatency: "0s",
+    mediumLatency: "0s",
+    smallAccuracyValue: 1.3,
+    mediumAccuracyValue: 1.3,
+    smallLatencyValue: 0,
+    mediumLatencyValue: 0,
+    lafsGain: null,
+  },
+  {
+    system: "RAG: query to slice",
+    family: "RAG",
+    smallAccuracy: "42.8%",
+    mediumAccuracy: "38.1%",
+    smallLatency: "0.1s",
+    mediumLatency: "0.1s",
+    smallAccuracyValue: 42.8,
+    mediumAccuracyValue: 38.1,
+    smallLatencyValue: 0.1,
+    mediumLatencyValue: 0.1,
+    lafsGain: null,
+  },
+  {
+    system: "RAG: query to slice + notes",
+    family: "RAG",
+    smallAccuracy: "51.0%",
+    mediumAccuracy: "45.9%",
+    smallLatency: "0.2s",
+    mediumLatency: "0.3s",
+    smallAccuracyValue: 51.0,
+    mediumAccuracyValue: 45.9,
+    smallLatencyValue: 0.2,
+    mediumLatencyValue: 0.3,
+    lafsGain: null,
+  },
+  {
+    system: "AgentRunbook-R",
+    family: "RAG",
+    smallAccuracy: "58.6%",
+    mediumAccuracy: "57.0%",
+    smallLatency: "26.9s",
+    mediumLatency: "25.8s",
+    smallAccuracyValue: 58.6,
+    mediumAccuracyValue: 57.0,
+    smallLatencyValue: 26.9,
+    mediumLatencyValue: 25.8,
+    lafsGain: null,
+  },
+  {
+    system: "Codex",
+    family: "Coding agent",
+    smallAccuracy: "69.9%",
+    mediumAccuracy: "68.7%",
+    smallLatency: "177.2s",
+    mediumLatency: "185.8s",
+    smallAccuracyValue: 69.9,
+    mediumAccuracyValue: 68.7,
+    smallLatencyValue: 177.2,
+    mediumLatencyValue: 185.8,
+    lafsGain: null,
+  },
+  {
+    system: "AgentRunbook-C",
+    family: "Coding agent",
+    smallAccuracy: "74.9%",
+    mediumAccuracy: "70.1%",
+    smallLatency: "108.3s",
+    mediumLatency: "139.9s",
+    smallAccuracyValue: 74.9,
+    mediumAccuracyValue: 70.1,
+    smallLatencyValue: 108.3,
+    mediumLatencyValue: 139.9,
+    lafsGain: null,
+  },
+];
+
+leaderboardEntries.forEach((entry, index) => {
+  entry.order = index;
+});
 
 function setupToc() {
   const burger = document.getElementById("toc-burger");
@@ -46,6 +132,20 @@ function normalizeIndex(index, length) {
     return 0;
   }
   return ((index % length) + length) % length;
+}
+
+function formatMetric(value, suffix = "") {
+  if (value === null || value === undefined || value === "") {
+    return "-";
+  }
+  return `${Number(value).toLocaleString(undefined, {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+  })}${suffix}`;
+}
+
+function currentPageLink() {
+  return `${window.location.pathname}${window.location.search}#leaderboard`;
 }
 
 function setupViewerSummary(dataset) {
@@ -245,8 +345,64 @@ async function setupDataViewer() {
   renderTrajectory();
 }
 
+function renderLeaderboard() {
+  const body = document.getElementById("leaderboard-body");
+  if (!body) {
+    return;
+  }
+
+  if (leaderboardEntries.length === 0) {
+    body.innerHTML = `<tr><td colspan="7">Leaderboard entries coming soon.</td></tr>`;
+    return;
+  }
+
+  const sortKey = state.leaderboardSort;
+  const sorted = [...leaderboardEntries].sort((left, right) => {
+    let diff;
+    if (sortKey.includes("Latency")) {
+      diff = (left[sortKey] ?? Infinity) - (right[sortKey] ?? Infinity);
+    } else {
+      diff = (right[sortKey] ?? -Infinity) - (left[sortKey] ?? -Infinity);
+    }
+    return Number.isFinite(diff) && diff !== 0 ? diff : left.order - right.order;
+  });
+
+  body.innerHTML = sorted
+    .map(
+      (entry) => `
+        <tr>
+          <td><a href="${escapeHtml(entry.url || currentPageLink())}">${escapeHtml(entry.system)}</a></td>
+          <td>${escapeHtml(entry.family)}</td>
+          <td>${escapeHtml(formatMetric(entry.lafsGain))}</td>
+          <td>${escapeHtml(entry.smallAccuracy)}</td>
+          <td>${escapeHtml(entry.mediumAccuracy)}</td>
+          <td>${escapeHtml(entry.smallLatency)}</td>
+          <td>${escapeHtml(entry.mediumLatency)}</td>
+        </tr>
+      `,
+    )
+    .join("");
+}
+
+function setupLeaderboard() {
+  const buttons = document.querySelectorAll(".leaderboard-sort");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.leaderboardSort = button.dataset.sort;
+      buttons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+      renderLeaderboard();
+    });
+  });
+  renderLeaderboard();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupToc();
+  setupLeaderboard();
   setupDataViewer().catch((error) => {
     const summary = document.getElementById("viewer-summary");
     summary.innerHTML = `<div class="viewer-stat"><strong>Data unavailable</strong><span>${escapeHtml(error.message)}</span></div>`;

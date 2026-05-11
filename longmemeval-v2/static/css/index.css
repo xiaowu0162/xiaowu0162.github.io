@@ -318,6 +318,69 @@ a {
   vertical-align: middle;
 }
 
+.leaderboard-sort {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--lme-navy);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 800;
+  gap: 0.28rem;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.leaderboard-sort:hover {
+  color: var(--lme-blue);
+}
+
+.leaderboard-sort span::before {
+  color: #8b98a5;
+  content: "↕";
+  font-size: 0.74rem;
+}
+
+.leaderboard-sort.active span::before {
+  color: var(--lme-red);
+  content: "↓";
+}
+
+.leaderboard-sort.active[data-sort*="Latency"] span::before {
+  content: "↑";
+}
+
+.leaderboard-table td:first-child a {
+  font-weight: 800;
+}
+
+.leaderboard-table {
+  min-width: 980px;
+  table-layout: fixed;
+}
+
+.leaderboard-table th:first-child,
+.leaderboard-table td:first-child {
+  width: 28%;
+}
+
+.leaderboard-table th:nth-child(2),
+.leaderboard-table td:nth-child(2) {
+  width: 18%;
+}
+
+.leaderboard-table th:nth-child(n+3),
+.leaderboard-table td:nth-child(n+3) {
+  text-align: center;
+  width: 9%;
+}
+
+.leaderboard-table th:nth-child(n+3) .leaderboard-sort {
+  justify-content: center;
+  width: 100%;
+}
+
 .comparison-wrap .table th,
 .comparison-wrap .table td {
   font-size: 0.78rem;
@@ -731,6 +794,26 @@ a {
 
 .todo-panel p {
   max-width: 760px;
+}
+
+.leaderboard-shell-copy {
+  flex: 1;
+  max-width: 880px;
+}
+
+.leaderboard-shell-copy p {
+  max-width: none;
+}
+
+.leaderboard-equation {
+  color: var(--lme-navy);
+  margin: 0.45rem auto 0.55rem;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.leaderboard-equation mjx-container {
+  margin: 0 !important;
 }
 
 .todo-badge {

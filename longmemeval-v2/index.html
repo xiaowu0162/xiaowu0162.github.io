@@ -15,6 +15,18 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+      },
+      svg: {
+        fontCache: "global",
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script>
     if (window.location.hostname === "xiaowu0162.github.io" && window.location.pathname.startsWith("/longmemeval-v2-website")) {
       window.location.replace("https://xiaowu0162.github.io/longmemeval-v2/" + window.location.search + window.location.hash);
     }
@@ -609,32 +621,46 @@
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Leaderboard</h2>
         <div class="section-highlight">
-          Leaderboard entries will summarize submitted memory systems across accuracy, latency, and benchmark tier.
+          Leaderboard entries will be scored by LAFS Gain: the improvement over the fixed baseline + AgentRunbook reference frontier.
         </div>
         <div class="todo-panel">
           <div>
             <span class="todo-badge">TODO</span>
             <h3>Leaderboard shell</h3>
           </div>
-          <p>
-            The public leaderboard will use a sortable table with filters for method family, model, memory setting, tier, accuracy, and query latency.
-            Entries and submission instructions will be added after the leaderboard schema is finalized.
-          </p>
+          <div class="leaderboard-shell-copy">
+            <p>
+              The public leaderboard sorts by LAFS Gain by default because accuracy alone can favor slow systems, while latency alone can favor weak
+              recall. Frontier gain rewards a submission only when it improves the best known accuracy available at some latency budget. For a
+              submitted system \(S\), with fixed reference frontier
+              \(F_{\mathrm{ref}}=\{\text{RAG slice+notes},\text{Codex},\text{AgentRunbook-R},\text{AgentRunbook-C}\}\), we report:
+            </p>
+            <div class="leaderboard-equation">
+              \[
+              \Delta\mathrm{LAFS}(S\mid F_{\mathrm{ref}})
+              =
+              \mathrm{LAFS}(F_{\mathrm{ref}}\cup S)-\mathrm{LAFS}(F_{\mathrm{ref}})
+              \]
+            </div>
+            <p>
+              A score of 0 means the method does not beat the released reference frontier at any latency budget.
+            </p>
+          </div>
         </div>
         <div class="table-wrap">
           <table class="table is-fullwidth leaderboard-table">
             <thead>
               <tr>
-                <th>Rank</th>
                 <th>System</th>
-                <th>Memory Type</th>
-                <th>Small Acc.</th>
-                <th>Medium Acc.</th>
-                <th>Avg. Latency</th>
-                <th>Status</th>
+                <th>Method Family</th>
+                <th><button class="leaderboard-sort active" type="button" data-sort="lafsGain" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
+                <th><button class="leaderboard-sort" type="button" data-sort="smallAccuracyValue" aria-pressed="false">Small Acc. <span aria-hidden="true"></span></button></th>
+                <th><button class="leaderboard-sort" type="button" data-sort="mediumAccuracyValue" aria-pressed="false">Medium Acc. <span aria-hidden="true"></span></button></th>
+                <th><button class="leaderboard-sort" type="button" data-sort="smallLatencyValue" aria-pressed="false">Small Latency <span aria-hidden="true"></span></button></th>
+                <th><button class="leaderboard-sort" type="button" data-sort="mediumLatencyValue" aria-pressed="false">Medium Latency <span aria-hidden="true"></span></button></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="leaderboard-body">
               <tr>
                 <td colspan="7">Leaderboard entries coming soon.</td>
               </tr>
@@ -644,7 +670,7 @@
       </div>
     </section>
 
-    <section class="section section-band" id="todo-links">
+    <!-- <section class="section section-band" id="todo-links">
       <div class="container is-max-desktop">
         <h2 class="title section-title">Release Links</h2>
         <div class="section-highlight">
@@ -665,7 +691,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="section" id="citation">
       <div class="container is-max-desktop">
@@ -682,15 +708,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container is-max-desktop has-text-centered">
-      <p>
-        Website prototype for LongMemEval-V2. Layout and interaction patterns are adapted from the IneqMath project website style.
-      </p>
-    </div>
-  </footer>
-
   <script src="./static/js/index.js"></script>
 </body>
 
