@@ -622,9 +622,7 @@
           <div class="leaderboard-goal">
             <h3>Goal: accurate and efficient memory</h3>
             <p>
-              LongMemEval-V2 rewards memory systems that retrieve useful experience without making downstream agents wait. The leaderboard therefore
-              reports both answer quality and query cost, and sorts by LAFS Gain by default because it measures whether a submitted system improves the
-              best known accuracy-latency tradeoff. For a set of operating points \(F\), let \(A_F(T)\) be the best accuracy available with query
+              LongMemEval-V2 rewards memory systems that retrieve useful experience without making downstream agents wait. The leaderboard therefore uses a metric called LAFS Gain that captures how much a submitted system improves the accuracy-latency frontier formed by the released baselines and AgentRunbook.  </p><p> For a set of operating points \(F\), let \(A_F(T)\) be the best accuracy available with query
               latency at most \(T\). We calculate LAFS as average reachable accuracy over log-scaled latency budgets:
             </p>
             <div class="leaderboard-equation">

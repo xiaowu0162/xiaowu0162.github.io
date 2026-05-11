@@ -733,7 +733,7 @@ a {
   box-sizing: border-box;
   display: block;
   margin-top: 0.6rem;
-  max-height: 280px;
+  max-height: 460px;
   object-fit: contain;
   padding: 0.6rem;
   width: 100%;
@@ -770,7 +770,7 @@ a {
   border-top: 1px solid var(--lme-line);
   display: grid;
   gap: 0.8rem;
-  grid-template-columns: minmax(260px, 0.45fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   margin-top: 0.9rem;
   padding: 0.95rem 0 0;
 }
@@ -781,9 +781,9 @@ a {
   background: #fff;
   box-sizing: border-box;
   height: auto;
-  max-height: 330px;
+  max-height: 560px;
   object-fit: contain;
-  object-position: top left;
+  object-position: top center;
   padding: 0.6rem;
   width: 100%;
 }
@@ -1091,7 +1091,7 @@ a {
 
   .trajectory-state img {
     height: auto;
-    max-height: 260px;
+    max-height: 420px;
     width: 100%;
   }
 
