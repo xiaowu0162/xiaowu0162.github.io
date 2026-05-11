@@ -3,7 +3,10 @@ const state = {
   questionIndex: 0,
   trajectoryIndex: 0,
   trajectoryStateIndex: 0,
-  leaderboardSort: "lafsGain",
+  leaderboardSort: {
+    small: "lafsGain",
+    medium: "lafsGain",
+  },
 };
 
 const leaderboardEntries = [
@@ -345,24 +348,35 @@ async function setupDataViewer() {
   renderTrajectory();
 }
 
-function renderLeaderboard() {
-  const body = document.getElementById("leaderboard-body");
+function leaderboardMetricKey(tier, sortKey) {
+  if (sortKey === "accuracy") {
+    return `${tier}AccuracyValue`;
+  }
+  if (sortKey === "latency") {
+    return `${tier}LatencyValue`;
+  }
+  return sortKey;
+}
+
+function renderLeaderboardTier(tier) {
+  const body = document.getElementById(`leaderboard-${tier}-body`);
   if (!body) {
     return;
   }
 
   if (leaderboardEntries.length === 0) {
-    body.innerHTML = `<tr><td colspan="7">Leaderboard entries coming soon.</td></tr>`;
+    body.innerHTML = `<tr><td colspan="5">Leaderboard entries coming soon.</td></tr>`;
     return;
   }
 
-  const sortKey = state.leaderboardSort;
+  const sortKey = state.leaderboardSort[tier];
+  const metricKey = leaderboardMetricKey(tier, sortKey);
   const sorted = [...leaderboardEntries].sort((left, right) => {
     let diff;
-    if (sortKey.includes("Latency")) {
-      diff = (left[sortKey] ?? Infinity) - (right[sortKey] ?? Infinity);
+    if (sortKey === "latency") {
+      diff = (left[metricKey] ?? Infinity) - (right[metricKey] ?? Infinity);
     } else {
-      diff = (right[sortKey] ?? -Infinity) - (left[sortKey] ?? -Infinity);
+      diff = (right[metricKey] ?? -Infinity) - (left[metricKey] ?? -Infinity);
     }
     return Number.isFinite(diff) && diff !== 0 ? diff : left.order - right.order;
   });
@@ -374,27 +388,31 @@ function renderLeaderboard() {
           <td><a href="${escapeHtml(entry.url || currentPageLink())}">${escapeHtml(entry.system)}</a></td>
           <td>${escapeHtml(entry.family)}</td>
           <td>${escapeHtml(formatMetric(entry.lafsGain))}</td>
-          <td>${escapeHtml(entry.smallAccuracy)}</td>
-          <td>${escapeHtml(entry.mediumAccuracy)}</td>
-          <td>${escapeHtml(entry.smallLatency)}</td>
-          <td>${escapeHtml(entry.mediumLatency)}</td>
+          <td>${escapeHtml(entry[`${tier}Accuracy`])}</td>
+          <td>${escapeHtml(entry[`${tier}Latency`])}</td>
         </tr>
       `,
     )
     .join("");
 }
 
+function renderLeaderboard() {
+  renderLeaderboardTier("small");
+  renderLeaderboardTier("medium");
+}
+
 function setupLeaderboard() {
   const buttons = document.querySelectorAll(".leaderboard-sort");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      state.leaderboardSort = button.dataset.sort;
-      buttons.forEach((item) => {
+      const tier = button.dataset.tier;
+      state.leaderboardSort[tier] = button.dataset.sort;
+      document.querySelectorAll(`.leaderboard-sort[data-tier="${tier}"]`).forEach((item) => {
         const active = item === button;
         item.classList.toggle("active", active);
         item.setAttribute("aria-pressed", String(active));
       });
-      renderLeaderboard();
+      renderLeaderboardTier(tier);
     });
   });
   renderLeaderboard();

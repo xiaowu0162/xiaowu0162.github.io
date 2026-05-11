@@ -647,25 +647,50 @@
             </p>
           </div>
         </div>
-        <div class="table-wrap">
-          <table class="table is-fullwidth leaderboard-table">
-            <thead>
-              <tr>
-                <th>System</th>
-                <th>Method Family</th>
-                <th><button class="leaderboard-sort active" type="button" data-sort="lafsGain" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
-                <th><button class="leaderboard-sort" type="button" data-sort="smallAccuracyValue" aria-pressed="false">Small Acc. <span aria-hidden="true"></span></button></th>
-                <th><button class="leaderboard-sort" type="button" data-sort="mediumAccuracyValue" aria-pressed="false">Medium Acc. <span aria-hidden="true"></span></button></th>
-                <th><button class="leaderboard-sort" type="button" data-sort="smallLatencyValue" aria-pressed="false">Small Latency <span aria-hidden="true"></span></button></th>
-                <th><button class="leaderboard-sort" type="button" data-sort="mediumLatencyValue" aria-pressed="false">Medium Latency <span aria-hidden="true"></span></button></th>
-              </tr>
-            </thead>
-            <tbody id="leaderboard-body">
-              <tr>
-                <td colspan="7">Leaderboard entries coming soon.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="leaderboard-tiers">
+          <div class="leaderboard-tier" role="group" aria-labelledby="leaderboard-small-title">
+            <h3 id="leaderboard-small-title">LME-V2-Small</h3>
+            <div class="table-wrap">
+              <table class="table is-fullwidth leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>System</th>
+                    <th>Method Family</th>
+                    <th><button class="leaderboard-sort active" type="button" data-tier="small" data-sort="lafsGain" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
+                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="accuracy" aria-pressed="false">Accuracy <span aria-hidden="true"></span></button></th>
+                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="latency" aria-pressed="false">Latency <span aria-hidden="true"></span></button></th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboard-small-body">
+                  <tr>
+                    <td colspan="5">Leaderboard entries coming soon.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-tier" role="group" aria-labelledby="leaderboard-medium-title">
+            <h3 id="leaderboard-medium-title">LME-V2-Medium</h3>
+            <div class="table-wrap">
+              <table class="table is-fullwidth leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>System</th>
+                    <th>Method Family</th>
+                    <th><button class="leaderboard-sort active" type="button" data-tier="medium" data-sort="lafsGain" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
+                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="accuracy" aria-pressed="false">Accuracy <span aria-hidden="true"></span></button></th>
+                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="latency" aria-pressed="false">Latency <span aria-hidden="true"></span></button></th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboard-medium-body">
+                  <tr>
+                    <td colspan="5">Leaderboard entries coming soon.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>
