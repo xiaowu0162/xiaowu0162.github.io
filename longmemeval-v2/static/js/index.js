@@ -235,6 +235,7 @@ function formatTrajectoryUrl(value) {
   try {
     const url = new URL(raw);
     const originLabels = {
+      "http://localhost:9080": "REDDIT_ROOT",
       "http://localhost:9082": "SHOPPING_ROOT",
       "http://localhost:9083": "SHOPPING_ADMIN_ROOT",
     };
@@ -266,6 +267,10 @@ function formatMetric(value, suffix = "") {
 
 function currentPageLink() {
   return `${window.location.pathname}${window.location.search}#leaderboard`;
+}
+
+function trajectoryDomainLabel(trajectory) {
+  return trajectory.subdomain || trajectory.environment || trajectory.domain || "trajectory";
 }
 
 function setupViewerSummary(dataset) {
@@ -357,7 +362,8 @@ function setupTrajectorySelect(trajectories) {
   trajectories.forEach((trajectory) => {
     const option = document.createElement("option");
     option.value = trajectory.id;
-    option.textContent = `${trajectory.id} (${trajectory.domain}, ${trajectory.outcome})`;
+    const stateCount = trajectory.state_count || (trajectory.states || []).length;
+    option.textContent = `${trajectory.id} (${trajectoryDomainLabel(trajectory)}, ${trajectory.outcome}, ${stateCount} states)`;
     select.appendChild(option);
   });
   select.addEventListener("change", () => {
@@ -384,6 +390,8 @@ function renderTrajectory() {
   state.trajectoryStateIndex = normalizeIndex(state.trajectoryStateIndex, states.length);
   const item = states[state.trajectoryStateIndex];
   const displayUrl = item ? formatTrajectoryUrl(item.url) : "";
+  const stateCount = trajectory.state_count || states.length;
+  const domainLabel = trajectoryDomainLabel(trajectory);
 
   const stateCard = item
     ? `
@@ -393,7 +401,7 @@ function renderTrajectory() {
           <div class="state-meta">
             <span class="meta-pill">state ${escapeHtml(item.state_index)}</span>
             <span class="meta-pill">step ${escapeHtml(item.step)}</span>
-            <span class="meta-pill">${escapeHtml(item.action || "start")}</span>
+            <span class="meta-pill">${escapeHtml(compactText(item.action || "start", 80))}</span>
           </div>
           ${displayUrl ? `<p><code>${escapeHtml(displayUrl)}</code></p>` : ""}
           <p>${escapeHtml(item.thought || "No model thought recorded for this sampled state.")}</p>
@@ -402,7 +410,7 @@ function renderTrajectory() {
       </article>
       <div class="viewer-card-controls">
         <button class="viewer-nav-button" id="state-prev" type="button">Previous state</button>
-        <span class="viewer-counter">State ${state.trajectoryStateIndex + 1} / ${states.length}</span>
+        <span class="viewer-counter">Sample ${state.trajectoryStateIndex + 1} / ${states.length} &middot; full run: ${stateCount} states</span>
         <button class="viewer-nav-button" id="state-next" type="button">Next state</button>
       </div>
     `
@@ -413,6 +421,7 @@ function renderTrajectory() {
       <div class="trajectory-title">${escapeHtml(trajectory.goal)}</div>
       <div class="question-meta">
         <span class="meta-pill">${escapeHtml(trajectory.id)}</span>
+        <span class="meta-pill">${escapeHtml(domainLabel)}</span>
         <span class="meta-pill">${escapeHtml(trajectory.environment)}</span>
         <span class="meta-pill">${escapeHtml(trajectory.outcome)}</span>
       </div>
