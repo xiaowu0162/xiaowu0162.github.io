@@ -669,6 +669,12 @@ a {
   padding-top: 0.9rem;
 }
 
+.trajectory-controls {
+  border-top: 0;
+  margin: 0 0 0.9rem;
+  padding-top: 0;
+}
+
 .viewer-nav-button {
   background: #fff;
   border: 1px solid var(--lme-line);
@@ -763,7 +769,7 @@ a {
 
 .trajectory-goal span,
 .state-field strong,
-.trajectory-observation figcaption {
+.trajectory-observation span {
   color: var(--lme-red);
   display: block;
   font-size: 0.72rem;
@@ -792,6 +798,14 @@ a {
 
 .trajectory-observation {
   margin: 0;
+}
+
+.trajectory-observation h4 {
+  color: var(--lme-navy);
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  margin: 0 0 0.18rem;
 }
 
 .trajectory-state img {

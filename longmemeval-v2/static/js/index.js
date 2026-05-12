@@ -226,6 +226,15 @@ function compactText(value, limit = 360) {
   return `${text.slice(0, limit).trim()}...`;
 }
 
+function formatTrajectoryAction(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) {
+    return "";
+  }
+  const actionMatch = raw.match(/<action>\s*([\s\S]*?)(?:<\/action>|$)/i);
+  return actionMatch ? actionMatch[1].trim() : raw;
+}
+
 function formatTrajectoryUrl(value) {
   const raw = String(value ?? "").trim();
   if (!raw) {
@@ -390,37 +399,44 @@ function renderTrajectory() {
   state.trajectoryStateIndex = normalizeIndex(state.trajectoryStateIndex, states.length);
   const item = states[state.trajectoryStateIndex];
   const displayUrl = item ? formatTrajectoryUrl(item.url) : "";
+  const displayAction = item ? formatTrajectoryAction(item.action) : "";
   const stateCount = trajectory.state_count || states.length;
   const domainLabel = trajectoryDomainLabel(trajectory);
 
   const stateCard = item
     ? `
       <article class="trajectory-state">
+        ${displayUrl ? `<div class="state-field"><strong>URL</strong><code>${escapeHtml(displayUrl)}</code></div>` : ""}
         <figure class="trajectory-observation">
+          <h4>Step ${escapeHtml(item.step)}</h4>
+          <span>Observation:</span>
           <img src="./${escapeHtml(item.screenshot)}" alt="Trajectory ${escapeHtml(trajectory.id)} state ${escapeHtml(item.state_index)} observation screenshot">
-          <figcaption>Observation screenshot</figcaption>
         </figure>
         <div class="state-text">
-          ${displayUrl ? `<div class="state-field"><strong>URL</strong><code>${escapeHtml(displayUrl)}</code></div>` : ""}
           <div class="state-field">
             <strong>Thought</strong>
             <p>${escapeHtml(item.thought || "No model thought recorded for this state.")}</p>
           </div>
           <div class="state-field">
             <strong>Action</strong>
-            <code>${escapeHtml(item.action || "Start state")}</code>
+            <code>${escapeHtml(displayAction || "Start state")}</code>
           </div>
+          ${
+            item.action_annotation
+              ? `<div class="state-field"><strong>Action Annotation</strong><p>${escapeHtml(item.action_annotation)}</p></div>`
+              : ""
+          }
         </div>
       </article>
-      <div class="viewer-card-controls">
-        <button class="viewer-nav-button" id="state-prev" type="button">Previous state</button>
-        <span class="viewer-counter">State ${state.trajectoryStateIndex + 1} / ${states.length}</span>
-        <button class="viewer-nav-button" id="state-next" type="button">Next state</button>
-      </div>
     `
     : `<div class="viewer-empty">No states are available for this trajectory.</div>`;
 
   viewer.innerHTML = `
+    <div class="viewer-card-controls trajectory-controls">
+      <button class="viewer-nav-button" id="trajectory-prev" type="button">Previous trajectory</button>
+      <span class="viewer-counter">Trajectory ${state.trajectoryIndex + 1} / ${trajectories.length}</span>
+      <button class="viewer-nav-button" id="trajectory-next" type="button">Next trajectory</button>
+    </div>
     <div class="trajectory-shell">
       <div class="trajectory-goal">
         <span>Goal</span>
@@ -433,9 +449,9 @@ function renderTrajectory() {
         <span class="meta-pill">${stateCount} states</span>
       </div>
       <div class="viewer-card-controls">
-        <button class="viewer-nav-button" id="trajectory-prev" type="button">Previous trajectory</button>
-        <span class="viewer-counter">Trajectory ${state.trajectoryIndex + 1} / ${trajectories.length}</span>
-        <button class="viewer-nav-button" id="trajectory-next" type="button">Next trajectory</button>
+        <button class="viewer-nav-button" id="state-prev" type="button">Previous state</button>
+        <span class="viewer-counter">State ${state.trajectoryStateIndex + 1} / ${states.length}</span>
+        <button class="viewer-nav-button" id="state-next" type="button">Next state</button>
       </div>
       ${stateCard}
     </div>

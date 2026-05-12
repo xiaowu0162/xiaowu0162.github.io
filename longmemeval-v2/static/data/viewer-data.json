@@ -468,7 +468,8 @@
           "url": "http://localhost:9082/customer/account/",
           "action": "click('227')",
           "thought": "I will open the most recent order (Order #000000196) by clicking its \"View Order\" link (bid 1515) so I can edit the delivery address.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/1.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/1.png",
+          "action_annotation": "[227] link 'My Account', clickable, visible"
         },
         {
           "state_index": 2,
@@ -476,7 +477,8 @@
           "url": "http://localhost:9082/sales/order/view/order_id/196/",
           "action": "click('1515')",
           "thought": "The order view shows the current shipping address but no direct \"Edit\" on this page. To change the delivery address for the order I should update the account's Address Book (add/edit the address and then apply it to the order). I'll open the Address Book by clicking the \"Address Book\" link (bid 1522).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/2.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/2.png",
+          "action_annotation": "[1515] listitem '', visible"
         },
         {
           "state_index": 3,
@@ -484,7 +486,8 @@
           "url": "http://localhost:9082/customer/address/",
           "action": "click('1522')",
           "thought": "The address 4000 Forbes Ave is already present in Additional Address Entries. To apply it as the shipping address for the most recent order, I'll open the shipping address changer by clicking the \"Change Shipping Address\" link so I can select the 4000 Forbes Ave entry.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/3.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/3.png",
+          "action_annotation": "[1522] listitem '', visible"
         },
         {
           "state_index": 4,
@@ -492,7 +495,8 @@
           "url": "http://localhost:9082/customer/address/edit/id/26/",
           "action": "click('1437')",
           "thought": "I'm on the Edit Address page for an address (77 Massachusetts Ave). To set the most recent order's delivery address to the existing 4000 Forbes Ave entry, I need to open My Orders, open the most recent order, and use its \"Change Shipping Address\" control to select the 4000 Forbes Ave address. I'll navigate to the My Orders page by clicking the \"My Orders\" link (bid 1815).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/4.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/4.png",
+          "action_annotation": "[1437] textbox 'Phone Number *' value='6505551212', clickable, visible, required"
         },
         {
           "state_index": 5,
@@ -500,7 +504,8 @@
           "url": "http://localhost:9082/sales/order/history/",
           "action": "click('1815')",
           "thought": "I'll open the most recent order (Order #000000196) by clicking its \"View Order\" link (bid 1426) so I can change the shipping address to 4000 Forbes Ave.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/5.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/5.png",
+          "action_annotation": "[1815] link 'My Orders', clickable, visible"
         },
         {
           "state_index": 6,
@@ -508,7 +513,8 @@
           "url": "http://localhost:9082/sales/order/view/order_id/196/",
           "action": "click('1426')",
           "thought": "The order view doesn't show a direct control to change the shipping address. The account's Address Book should contain the 4000 Forbes Ave entry (per earlier steps), so I'll open the Address Book to set or select that address for the order.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/6.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/6.png",
+          "action_annotation": "[1426] columnheader 'SKU', visible"
         },
         {
           "state_index": 7,
@@ -516,7 +522,8 @@
           "url": "http://localhost:9082/customer/address/",
           "action": "click('1522')",
           "thought": "The Address Book page shows the 4000 Forbes Ave entry in Additional Address Entries. To change the delivery address for the most recent order I need to open My Orders and edit that order. I'll navigate to the My Orders page by clicking the \"My Orders\" link (bid 1513).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/7.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/7.png",
+          "action_annotation": "[1522] listitem '', visible"
         },
         {
           "state_index": 8,
@@ -524,7 +531,8 @@
           "url": "http://localhost:9082/sales/order/history/",
           "action": "click('1513')",
           "thought": "The most recent order (000000196) is in the first row of the Orders table. To change its delivery address I need to open the order details first. I'll click the \"View Order\" link for that first row (bid 1426) to open the order page and then look for the shipping address change option.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/8.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/8.png",
+          "action_annotation": "[1513] gridcell 'View OrderReorder', visible"
         },
         {
           "state_index": 9,
@@ -532,7 +540,8 @@
           "url": "http://localhost:9082/sales/order/view/order_id/196/",
           "action": "click('1426')",
           "thought": "I will open the Address Book so I can locate the existing 4000 Forbes Ave entry and set it as the shipping address for the order. I'll click the \"Address Book\" link (bid 1522).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/9.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/9.png",
+          "action_annotation": "[1426] columnheader 'SKU', visible"
         },
         {
           "state_index": 10,
@@ -540,7 +549,8 @@
           "url": "http://localhost:9082/customer/address/",
           "action": "click('1522')",
           "thought": "The Address Book page shows the 4000 Forbes Ave entry in Additional Address Entries. To set that as the delivery address for the most recent order I need to open the orders list and edit the most recent order. I'll open \"My Orders\" by clicking its link (bid '1513').",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/10.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/10.png",
+          "action_annotation": "[1522] listitem '', visible"
         },
         {
           "state_index": 11,
@@ -548,7 +558,8 @@
           "url": "http://localhost:9082/sales/order/history/",
           "action": "click('1513')",
           "thought": "I'm on the My Orders page and need to open the most recent order (000000196) to change its shipping address. The \"View Order\" link for that order is available and clickable (bid 1426), so I'll open the order details by clicking it.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/11.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/11.png",
+          "action_annotation": "[1513] gridcell 'View OrderReorder', visible"
         },
         {
           "state_index": 12,
@@ -556,7 +567,8 @@
           "url": "http://localhost:9082/sales/order/view/order_id/196/",
           "action": "click('1426')",
           "thought": "The order page shows the current shipping address but no visible \"Change Shipping Address\" control. To set the order to the existing 4000 Forbes Ave entry I should open the Address Book (where the 4000 Forbes Ave entry is present) and then use the address options to apply it to the order. I'll open the Address Book by clicking its link (bid 1522).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/12.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/12.png",
+          "action_annotation": "[1426] columnheader 'SKU', visible"
         },
         {
           "state_index": 13,
@@ -564,7 +576,8 @@
           "url": "http://localhost:9082/customer/address/",
           "action": "click('1522')",
           "thought": "The Address Book shows an Additional Address entry for \"4000 Forbes Ave\" with an \"Edit\" link (bid 1482). I'll open that edit page so I can mark it as the shipping address (or save it as the default shipping address) for the most recent order.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/13.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/13.png",
+          "action_annotation": "[1522] listitem '', visible"
         },
         {
           "state_index": 14,
@@ -572,7 +585,8 @@
           "url": "http://localhost:9082/customer/address/edit/id/27/",
           "action": "click('1482')",
           "thought": "I'm on the Edit Address page for 4000 Forbes Ave. To ensure this address can be applied as the shipping address for the order, I'll mark it as the default shipping address first (so it can be selected/applied on the order). My next action is to check the \"Use as my default shipping address\" checkbox.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/14.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/14.png",
+          "action_annotation": "[1482] option 'Belgium', selected=False"
         },
         {
           "state_index": 15,
@@ -580,7 +594,8 @@
           "url": "http://localhost:9082/customer/address/edit/id/27/",
           "action": "click('1800')",
           "thought": "The Edit Address form already contains \"4000 Forbes Ave\" and the \"Use as my default shipping address\" checkbox is checked. To persist this change so the address is available as the default shipping address for orders, I'll save the address by clicking the \"Save Address\" button.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/15.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/15.png",
+          "action_annotation": "[1800] checkbox 'Use as my default shipping address', clickable, visible, focused, checked='true'"
         },
         {
           "state_index": 16,
@@ -588,7 +603,8 @@
           "url": "http://localhost:9082/customer/address/index/",
           "action": "click('1805')",
           "thought": "The account's Address Book shows 4000 Forbes Ave as the default shipping address, but I need to apply it to the most recent order. I'll open the My Orders page to view the most recent order and change its delivery address. I'll click the \"My Orders\" link (bid 1502).",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/16.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/16.png",
+          "action_annotation": "[1805] button 'Save Address', clickable, visible"
         },
         {
           "state_index": 17,
@@ -596,7 +612,8 @@
           "url": "http://localhost:9082/sales/order/history/",
           "action": "click('1502')",
           "thought": "I'll open the most recent order (Order #000000196) by clicking its \"View Order\" link so I can change the shipping address to the saved 4000 Forbes Ave address.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/17.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/17.png",
+          "action_annotation": "[1502] gridcell 'View OrderReorder', visible"
         },
         {
           "state_index": 18,
@@ -604,7 +621,8 @@
           "url": "http://localhost:9082/sales/order/view/order_id/196/",
           "action": "click('1426')",
           "thought": "I inspected Order #000000196 and the Address Book. The order page shows the original shipping address (101 S San Mateo Dr) and there is no visible \"Change Shipping Address\" or \"Edit\" control on the order view. Marking 4000 Forbes Ave as the default shipping address in the Address Book does not retroactively change addresses on already-placed orders in this storefront UI. Therefore I cannot directly update the delivery address for the existing order from the current site interface. Options I can take for you: - Place a new order using \"Reorder\" and set the shipping address to 4000 Forbes Ave during checkout. - Open the Address Book to confirm/edit the 4000 Forbes Ave entry. - Help prepare a message/contact to store support asking them to update the order (admins can change orders). Tell me which option you prefer and I'll proceed.",
-          "screenshot": "assets/screenshots/trajectories/19a5655c/18.png"
+          "screenshot": "assets/screenshots/trajectories/19a5655c/18.png",
+          "action_annotation": "[1426] columnheader 'SKU', visible"
         },
         {
           "state_index": 19,
@@ -639,7 +657,8 @@
           "url": "http://localhost:9082/",
           "action": "fill('386', 'Anker charger', True)",
           "thought": "I filled the search box (combobox bid=386) with \"Anker charger\". To find the Anker charger products and their prices I will run the search by clicking the Search button (bid=391).",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/1.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/1.png",
+          "action_annotation": "[386] combobox '\\ue615 Search' value='Anker charger', clickable, visible, focused, autocomplete='both', hasPopup='listbox', expanded=True"
         },
         {
           "state_index": 2,
@@ -647,7 +666,8 @@
           "url": "http://localhost:9082/catalogsearch/result/?q=Anker+charger",
           "action": "click('391')",
           "thought": "The search results page lists Anker charger items and their prices. To get the exact full product name and price details I should open a product detail page. I'll open the first listed Anker charger (link bid=1518) so I can extract its full name and price on the product page; I'll repeat for other items afterward.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/2.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/2.png",
+          "action_annotation": "[391] button 'Search', clickable, visible"
         },
         {
           "state_index": 3,
@@ -655,7 +675,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "click('1518')",
           "thought": "I need the full product names and the price range for Anker chargers. The product page includes \"Visit the Store\" links for the ANKER brand which should list other Anker charger models and their prices. I'll open the brand store by clicking the \"Visit the Store\" link (bid 1694) to view the available Anker charger listings.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/3.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/3.png",
+          "action_annotation": "[1518] link 'Anker USB C Charger 30W, 711 Charger, Compact Fast Charger (Not Foldable) for MacBook Air/iPhone 13/13 Mini/ 13 Pro/ 13 Pro Max/ 12, Galaxy S21, Note 20, iPad Pro, Pixel, and More', clickable"
         },
         {
           "state_index": 4,
@@ -663,7 +684,8 @@
           "url": "http://localhost:9082/stores/page/D24FDA17-DECF-46BB-AF47-AF4647D2B1F8?store_ref=storeRecs_dp_aplus",
           "action": "click('1694')",
           "thought": "The active tab shows a 404 page (the \"Visit the Store\" link failed). The product page for the Anker charger is still open in Tab 0 and likely contains product names and prices. I'll switch to Tab 0 to inspect the Anker product page and gather full product names and prices.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/4.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/4.png",
+          "action_annotation": "[1694] link 'Visit the Store', clickable"
         },
         {
           "state_index": 5,
@@ -695,7 +717,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "fill('420', 'Anker charger', True)",
           "thought": "The search box is already filled with \"Anker charger\" (focused element bid=420). I'll run the site search to load the Anker charger listings so I can collect full product names and their prices.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/8.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/8.png",
+          "action_annotation": "[420] combobox '\\ue615 Search' value='Anker charger', clickable, visible, focused, autocomplete='both', hasPopup='menu', expanded=True"
         },
         {
           "state_index": 9,
@@ -703,7 +726,8 @@
           "url": "http://localhost:9082/catalogsearch/result/?q=Anker+charger",
           "action": "click('425')",
           "thought": "The search-results page lists many Anker charger items but I need the full product title and exact price from the product page to produce a complete list and compute the price range. I'll open the first listed Anker product by clicking its product link (bid '1519') so I can extract its full name and price next.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/9.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/9.png",
+          "action_annotation": "[425] button 'Search', clickable, visible"
         },
         {
           "state_index": 10,
@@ -711,7 +735,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "click('1519')",
           "thought": "The product page I'm on shows one Anker charger ($29.99), but I need the full names and prices for all Anker charger listings. The search-results page (previous page) contains multiple Anker charger items and their prices, so I'll navigate back to the search results to collect the other product links and price info.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/10.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/10.png",
+          "action_annotation": "[1519] link 'Anker USB C Charger 30W, 711 Charger, Compact Fast Charger (Not Foldable) for MacBook Air/iPhone 13/13 Mini/ 13 Pro/ 13 Pro Max/ 12, Galaxy S21, Note 20, iPad Pro, Pixel, and More', clickable"
         },
         {
           "state_index": 11,
@@ -727,7 +752,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "click('1519')",
           "thought": "The current page shows one Anker product. The search-results page (previous page) contained multiple Anker charger listings I need to extract names/prices from. I'll go back to the search results so I can open each product and collect full titles and prices to compute the price range.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/12.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/12.png",
+          "action_annotation": "[1519] link 'Anker USB C Charger 30W, 711 Charger, Compact Fast Charger (Not Foldable) for MacBook Air/iPhone 13/13 Mini/ 13 Pro/ 13 Pro Max/ 12, Galaxy S21, Note 20, iPad Pro, Pixel, and More', clickable, visible"
         },
         {
           "state_index": 13,
@@ -759,7 +785,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "click('1519')",
           "thought": "I'll run a site search for \"Anker charger\" using the page search combobox (bid 420) so I can get the list of Anker charger products and gather their full names and prices to compute the price range.",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/16.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/16.png",
+          "action_annotation": "[1519] link 'Anker USB C Charger 30W, 711 Charger, Compact Fast Charger (Not Foldable) for MacBook Air/iPhone 13/13 Mini/ 13 Pro/ 13 Pro Max/ 12, Galaxy S21, Note 20, iPad Pro, Pixel, and More', clickable, visible"
         },
         {
           "state_index": 17,
@@ -767,7 +794,8 @@
           "url": "http://localhost:9082/anker-usb-c-charger-30w-711-charger-compact-fast-charger-not-foldable-for-macbook-air-iphone-13-13-mini-13-pro-13-pro-max-12-galaxy-s21-note-20-ipad-pro-pixel-and-more.html",
           "action": "fill('420', 'Anker charger', True)",
           "thought": "I filled the search box with \"Anker charger\" (combobox bid=420). To load the search results so I can collect all Anker charger product names and their prices (and then compute the price range), I'll click the Search button (bid=425).",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/17.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/17.png",
+          "action_annotation": "[420] combobox '\\ue615 Search' value='Anker charger', clickable, visible, focused, autocomplete='both', hasPopup='menu', expanded=True"
         },
         {
           "state_index": 18,
@@ -775,7 +803,8 @@
           "url": "http://localhost:9082/catalogsearch/result/?q=Anker+charger",
           "action": "click('425')",
           "thought": "",
-          "screenshot": "assets/screenshots/trajectories/b37592ae/18.png"
+          "screenshot": "assets/screenshots/trajectories/b37592ae/18.png",
+          "action_annotation": "[425] button 'Search', clickable, visible"
         }
       ]
     },
@@ -802,7 +831,8 @@
           "url": "http://localhost:9083/admin/admin/dashboard/",
           "action": "click('189')",
           "thought": "The Catalog top menu is open and shows options including \u201cProducts\u201d. To add a color option to a specific product, the next step is to open the Products grid.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/1.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/1.png",
+          "action_annotation": "[189] link '\\ue608 CATALOG', clickable, visible, focused"
         },
         {
           "state_index": 2,
@@ -810,7 +840,8 @@
           "url": "http://localhost:9083/admin/catalog/product/",
           "action": "click('201')",
           "thought": "The Products grid is currently filtered by the keyword \u201cRocco Gym Tank\u201d, so \u201cPhoebe Zipper Sweatshirt\u201d won\u2019t appear. The next step is to remove the active filter so we can search for the correct product.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/2.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/2.png",
+          "action_annotation": "[201] link 'Products', clickable, visible"
         },
         {
           "state_index": 3,
@@ -818,7 +849,8 @@
           "url": "http://localhost:9083/admin/catalog/product/",
           "action": "click('902')",
           "thought": "We need to locate the specific configurable product (\u201cPhoebe Zipper Sweatshirt\u201d) in the Products grid before we can edit its configurations (size/color). The fastest next step is to use the \u201cSearch by keyword\u201d field to filter the grid for that product name.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/3.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/3.png",
+          "action_annotation": "[902] button 'Clear all', clickable, visible"
         },
         {
           "state_index": 4,
@@ -826,7 +858,8 @@
           "url": "http://localhost:9083/admin/catalog/product/",
           "action": "fill('1385', 'Phoebe Zipper Sweatshirt')",
           "thought": "The keyword field now contains \u201cPhoebe Zipper Sweatshirt\u201d. Next, apply this search to filter the products grid so we can open the correct product for editing its size/color configurations.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/4.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/4.png",
+          "action_annotation": "[1385] textbox 'Search by keyword' value='Phoebe Zipper Sweatshirt', clickable, visible, focused"
         },
         {
           "state_index": 5,
@@ -834,7 +867,8 @@
           "url": "http://localhost:9083/admin/catalog/product/",
           "action": "click('1386')",
           "thought": "We have located the configurable product \u201cPhoebe Zipper Sweatshirt\u201d (ID 1130). To add a new color option (Brown) for size S, the next step is to open the configurable product in edit mode.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/5.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/5.png",
+          "action_annotation": "[1386] button 'Search', clickable, visible, focused"
         },
         {
           "state_index": 6,
@@ -842,7 +876,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('1811')",
           "thought": "We\u2019re already on the configurable product edit page and can see the \u201cConfigurations\u201d section with current variations. To add a single new variation for Size = S and Color = Brown (without generating all Brown combinations), the next step is to use \u201cAdd Products Manually\u201d.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/6.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/6.png",
+          "action_annotation": "[1811] row ''"
         },
         {
           "state_index": 7,
@@ -850,7 +885,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('1783')",
           "thought": "A modal dialog \u201cSelect Associated Product\u201d is open, which is meant for replacing an existing associated product configuration, not adding a new Size/Color variation. To proceed with adding a new Brown option for size S, the best next step is to close this dialog.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/7.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/7.png",
+          "action_annotation": "[1783] button 'Add Products Manually', clickable, visible"
         },
         {
           "state_index": 8,
@@ -858,7 +894,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('3324')",
           "thought": "We\u2019re on the configurable product edit page in the \u201cConfigurations\u201d section showing existing Size S variations (Gray/Purple/White) but no Brown. The best next step is to open the configuration wizard so we can add a new variation by selecting only Size = S and Color = Brown.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/8.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/8.png",
+          "action_annotation": "[3324] button '\\ue62f', clickable, visible, focused"
         },
         {
           "state_index": 9,
@@ -866,7 +903,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('1785')",
           "thought": "The \u201cCreate Product Configurations\u201d wizard is open at Step 1 (Select Attributes) with both Size and Color already selected. To add the Brown color variation for size S, the next step is to proceed to Step 2 (Attribute Values) where we can choose Size = S and Color = Brown.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/9.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/9.png",
+          "action_annotation": "[1785] button 'Edit Configurations', clickable, visible"
         },
         {
           "state_index": 10,
@@ -874,7 +912,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4435')",
           "thought": "We are in the \u201cCreate Product Configurations\u201d wizard (Step 2: Attribute Values). Size S is already selected, but Color = Brown is currently unchecked. To add a Brown option (so we can create/associate the S + Brown variation), the next required step is to select the Brown color value.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/10.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/10.png",
+          "action_annotation": "[4435] button 'Next', clickable, visible, focused"
         },
         {
           "state_index": 11,
@@ -882,7 +921,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('5173')",
           "thought": "Brown is already selected under Color. Next we should ensure only Size = S is selected so we create just one new variation (S + Brown) instead of Brown across all sizes. The best next action is to deselect all Size values first.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/11.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/11.png",
+          "action_annotation": "[5173] checkbox '\\ue62d Brown', clickable, visible, focused, checked='true'"
         },
         {
           "state_index": 12,
@@ -890,7 +930,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4905')",
           "thought": "We just clicked \u201cDeselect All\u201d for the Size attribute in Step 2, which should clear any selected Size values. To create only the Size S + Color Brown variation (instead of Brown for multiple sizes), the next step is to select only the Size = S checkbox.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/12.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/12.png",
+          "action_annotation": "[4905] button 'Deselect All', clickable, visible, focused"
         },
         {
           "state_index": 13,
@@ -898,7 +939,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4946')",
           "thought": "Size has been cleared and we re-selected only Size = S. To ensure we create just the new S + Brown variation (and don\u2019t try to regenerate existing S+Gray/Purple/White variations), the next step is to deselect all currently selected Color values, then we\u2019ll re-select only Brown.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/13.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/13.png",
+          "action_annotation": "[4946] checkbox '\\ue62d S', clickable, visible, focused, checked='true'"
         },
         {
           "state_index": 14,
@@ -906,7 +948,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('5143')",
           "thought": "We deselected all Color values, so we now need to select only the Color value \"Brown\" to create just the S + Brown variation.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/14.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/14.png",
+          "action_annotation": "[5143] button 'Deselect All', clickable, visible, focused"
         },
         {
           "state_index": 15,
@@ -914,7 +957,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('5173')",
           "thought": "Size is set to only \u201cS\u201d and Color is set to only \u201cBrown\u201d in Step 2 (Attribute Values). The next step to create the new S + Brown variation is to proceed to Step 3 by clicking \u201cNext\u201d.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/15.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/15.png",
+          "action_annotation": "[5173] checkbox '\\ue62d Brown', clickable, visible, focused, checked='true'"
         },
         {
           "state_index": 16,
@@ -922,7 +966,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4435')",
           "thought": "We are in the \u201cCreate Product Configurations\u201d wizard at Step 3 (Bulk Images, Price and Quantity) with 1 new product to be created (Size=S and Color=Brown). The next step toward adding the new S+Brown variation is to proceed to Step 4 (Summary) by clicking \u201cNext\u201d.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/16.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/16.png",
+          "action_annotation": "[4435] button 'Next', clickable, visible, focused"
         },
         {
           "state_index": 17,
@@ -930,7 +975,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4435')",
           "thought": "The configuration wizard is at Step 4 (Summary) and shows the new variation to be created: SKU WH07-S-Brown with Size = S and Color = Brown. To add this new color option for size S, the next step is to generate the product/variation by clicking \u201cGenerate Products\u201d.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/17.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/17.png",
+          "action_annotation": "[4435] button 'Generate Products', clickable, visible, focused"
         },
         {
           "state_index": 18,
@@ -938,7 +984,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/",
           "action": "click('4435')",
           "thought": "The new variation \u201cSize: S, Color: Brown\u201d is now visible in the Current Variations grid, but the Configurations section indicates unsaved changes. The next step to actually add/commit this new color option is to save the product.",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/18.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/18.png",
+          "action_annotation": "[4435] button 'Generate Products', clickable, visible, focused"
         },
         {
           "state_index": 19,
@@ -946,7 +993,8 @@
           "url": "http://localhost:9083/admin/catalog/product/edit/id/1130/set/9/type/configurable/store/0/back/edit/",
           "action": "click('892')",
           "thought": "",
-          "screenshot": "assets/screenshots/trajectories/248f93c8/19.png"
+          "screenshot": "assets/screenshots/trajectories/248f93c8/19.png",
+          "action_annotation": "[892] button 'Save', clickable, visible"
         }
       ]
     },
@@ -973,7 +1021,8 @@
           "url": "http://localhost:9083/admin/admin/dashboard/",
           "action": "click('226')",
           "thought": "I opened the Marketing menu and can see the \"User Content\" links, including \"All Reviews\". To find the most unhappy customer for the \"Olivia zip jacket\", I'll open the All Reviews page to view reviews and identify the lowest-rated review for that product.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/1.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/1.png",
+          "action_annotation": "[226] link '\\ue609 MARKETING', clickable, visible, focused"
         },
         {
           "state_index": 2,
@@ -981,7 +1030,8 @@
           "url": "http://localhost:9083/admin/review/product/index/",
           "action": "click('287')",
           "thought": "I'll open the Olivia review details to see the customer's email. There's an \"Edit\" link for the Olivia 1/4 Zip Light Jacket review in row with ID 347 (bid 900). I'll click that to view the full review page.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/2.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/2.png",
+          "action_annotation": "[287] link 'All Reviews', clickable, visible"
         },
         {
           "state_index": 3,
@@ -989,7 +1039,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('900')",
           "thought": "I'll go back to the reviews list to find all reviews for the Olivia product so I can identify the lowest-rated (most unhappy) reviewer and view their email.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/3.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/3.png",
+          "action_annotation": "[900] link 'Edit', clickable, visible"
         },
         {
           "state_index": 4,
@@ -997,7 +1048,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "click('704')",
           "thought": "To find the most unhappy reviewer for the Olivia jacket I should filter the reviews list to only that product so I can open each review and compare ratings. I'll enter the product name into the Product filter field.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/4.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/4.png",
+          "action_annotation": "[704] button '\\ue626 Back', clickable, visible"
         },
         {
           "state_index": 5,
@@ -1005,7 +1057,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "fill('856', 'Olivia 1/4 Zip Light Jacket')",
           "thought": "I filled the Product filter with \"Olivia 1/4 Zip Light Jacket\". To apply the filter and list only reviews for that product so I can find the most unhappy reviewer, I'll click the \"Search\" button.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/5.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/5.png",
+          "action_annotation": "[856] textbox '' value='Olivia 1/4 Zip Light Jacket', clickable, visible, focused"
         },
         {
           "state_index": 6,
@@ -1013,7 +1066,8 @@
           "url": "http://localhost:9083/admin/review/product/index/filter/Y3JlYXRlZF9hdCU1QmxvY2FsZSU1RD1lbl9VUyZuYW1lPU9saXZpYSsxJTJGNCtaaXArTGlnaHQrSmFja2V0/internal_reviews//form_key/69yNWpjKPnDU4BKn/",
           "action": "click('717')",
           "thought": "The list is filtered to \"Olivia 1/4 Zip Light Jacket\" and shows a single review (ID 347) by \"Jane Smith\" (Guest). The email isn't shown in the list, so I need to open the review's Edit/details page to view the reviewer's email. I'll click the \"Edit\" link for that row.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/6.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/6.png",
+          "action_annotation": "[717] button 'Search', clickable, visible"
         },
         {
           "state_index": 7,
@@ -1021,7 +1075,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('879')",
           "thought": "The review currently open is for \"Jane Smith\" (Guest) and shows a positive review text; there is no email visible on this Edit Review page. To find the most unhappy customer for the Olivia jacket I need to return to the Reviews list so I can filter/sort reviews for that product and identify the lowest-rated reviewer (and then open their review to see their email). I'll click the Back button to go back to the reviews list.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/7.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/7.png",
+          "action_annotation": "[879] link 'Edit', clickable, visible"
         },
         {
           "state_index": 8,
@@ -1029,7 +1084,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "click('704')",
           "thought": "The reviews list is already filtered to \"Olivia 1/4 Zip Light Jacket\" and shows only one record (ID 347). That single review is therefore the most unhappy reviewer by default if no other reviews exist. The email is not shown in the list, so I need to open the review's detail page to look for the reviewer's email. I will click the \"Edit\" link for the review (bid '879') to view the full review details.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/8.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/8.png",
+          "action_annotation": "[704] button '\\ue626 Back', clickable, visible"
         },
         {
           "state_index": 9,
@@ -1037,7 +1093,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('879')",
           "thought": "The edit page for review ID 347 doesn't show an email address. To find the most unhappy reviewer for the Olivia zip jacket, I should return to the reviews list, widen the product filter to capture all \"Olivia\" products, sort or find the lowest-rated review, and open that review to view the email. First step: go back to the reviews list.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/9.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/9.png",
+          "action_annotation": "[879] link 'Edit', clickable, visible"
         },
         {
           "state_index": 10,
@@ -1045,7 +1102,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "click('704')",
           "thought": "There may be reviews for other Olivia products (e.g., different Olivia jackets). I'll broaden the Product filter from the exact \"Olivia 1/4 Zip Light Jacket\" to just \"Olivia\" so I can find all Olivia-related reviews, then I will run the search (in the next step) to identify the lowest-rated reviewer and view their email.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/10.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/10.png",
+          "action_annotation": "[704] button '\\ue626 Back', clickable, visible"
         },
         {
           "state_index": 11,
@@ -1053,7 +1111,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "fill('855', 'Olivia')",
           "thought": "I filled the Product filter with \"Olivia\" to list all reviews for Olivia products. To apply the filter and show those reviews (so I can identify the most unhappy reviewer and view their email), I'll click the Search button.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/11.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/11.png",
+          "action_annotation": "[855] textbox '' value='Olivia', clickable, visible, focused"
         },
         {
           "state_index": 12,
@@ -1061,7 +1120,8 @@
           "url": "http://localhost:9083/admin/review/product/index/filter/Y3JlYXRlZF9hdCU1QmxvY2FsZSU1RD1lbl9VUyZuYW1lPU9saXZpYQ==/internal_reviews//form_key/69yNWpjKPnDU4BKn/",
           "action": "click('717')",
           "thought": "Open the review details for the Olivia review (ID 347) to look for the reviewer's email. The reviewer appears to be a Guest, so the email may not be available on the edit page, but I'll open it to confirm.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/12.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/12.png",
+          "action_annotation": "[717] button 'Search', clickable, visible"
         },
         {
           "state_index": 13,
@@ -1069,7 +1129,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('879')",
           "thought": "The Edit Review page for review ID 347 (Olivia 1/4 Zip Light Jacket) is open and I don't see an email field on this page (author is \"Guest\"). To find the most unhappy reviewer for the Olivia zip jacket I need to return to the reviews list so I can filter/sort all Olivia reviews, open the lowest-rated one, and check its details (which may include an email if the reviewer is a registered customer). I'll click the \"Back\" button to go back to the reviews list.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/13.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/13.png",
+          "action_annotation": "[879] link 'Edit', clickable, visible"
         },
         {
           "state_index": 14,
@@ -1077,7 +1138,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "click('704')",
           "thought": "The reviews list for Olivia products shows only one review (ID 347 by Jane Smith \u2014 Guest), so that is the most-unhappy reviewer by default. The list doesn't show an email, so I will open the review's Edit page to look for an email field or any contact info. I'll click the \"Edit\" link for the review (bid 879).",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/14.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/14.png",
+          "action_annotation": "[704] button '\\ue626 Back', clickable, visible"
         },
         {
           "state_index": 15,
@@ -1085,7 +1147,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('879')",
           "thought": "This review is for \"Olivia 1/4 Zip Light Jacket\" and the author is \"Guest\" (no email shown on this Edit page). To find the email of the most unhappy customer I need to return to the Reviews list so I can filter across all Olivia products and sort/find the lowest-rated review (then open that review to view the email). I'll click the Back button to go back to the reviews list.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/15.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/15.png",
+          "action_annotation": "[879] link 'Edit', clickable, visible"
         },
         {
           "state_index": 16,
@@ -1093,7 +1156,8 @@
           "url": "http://localhost:9083/admin/review/product/",
           "action": "click('704')",
           "thought": "Open the review details for ID 347 (Olivia 1/4 Zip Light Jacket) by clicking its \"Edit\" link so I can look for the reviewer's email address (note: this reviewer is shown as \"Guest\", so an email may not be available).",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/16.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/16.png",
+          "action_annotation": "[704] button '\\ue626 Back', clickable, visible"
         },
         {
           "state_index": 17,
@@ -1101,7 +1165,8 @@
           "url": "http://localhost:9083/admin/review/product/edit/id/347/",
           "action": "click('879')",
           "thought": "I'm on the Edit Review page for review ID 347 (Product: \"Olivia 1/4 Zip Light Jacket\"). The review author is shown as \"Guest\" and there is no email field visible on this page. The reviews list filtered for \"Olivia\" previously returned only this single review, so this is the most-unhappy reviewer by default \u2014 but because it's a guest review there is no email address stored here to show. I'll inform you that no email is available and offer next steps.",
-          "screenshot": "assets/screenshots/trajectories/d86c7d0d/17.png"
+          "screenshot": "assets/screenshots/trajectories/d86c7d0d/17.png",
+          "action_annotation": "[879] link 'Edit', clickable, visible"
         },
         {
           "state_index": 18,
@@ -1136,7 +1201,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('138')",
           "thought": "The top posts list shows an item titled \"Friendly reminder bookshop.org exists.\" which likely discusses supporting local bookstores (bookshop.org). I'll open that post to confirm and see which organizations are mentioned.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/1.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/1.png",
+          "action_annotation": "[138] link 'books', clickable, visible"
         },
         {
           "state_index": 2,
@@ -1144,7 +1210,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I'll go back to the \"books\" forum listing so I can view the top posts (top 10) and check whether any mention supporting local bookstores and which organizations are involved. I'll click the '/f/books' link (bid '120').",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/2.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/2.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 3,
@@ -1152,7 +1219,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "The listing shows a post titled \"Friendly reminder bookshop.org exists.\" which likely discusses supporting local bookstores. I'll open that post (bid 190) to confirm and extract the organizations mentioned.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/3.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/3.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 4,
@@ -1160,7 +1228,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I need to check the top posts list for the /f/books forum to inspect the top 10 threads for mentions of supporting local bookstores. I'll go back to the books forum listing by clicking the '/f/books' link (bid 120).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/4.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/4.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 5,
@@ -1168,7 +1237,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "I'll open the \"Friendly reminder bookshop.org exists.\" post (bid 190) to confirm it discusses supporting local bookstores and to extract the organizations mentioned.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/5.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/5.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 6,
@@ -1176,7 +1246,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I'll go back to the books forum listing so I can view the top posts (top 10) and check which mention supporting local bookstores. I'll click the '/f/books' link (bid 120).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/6.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/6.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 7,
@@ -1184,7 +1255,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "The listing shows a top-10 post titled \"Friendly reminder bookshop.org exists.\" which likely discusses supporting local bookstores. I'll open that post to confirm and extract the organizations mentioned (e.g., Bookshop.org or others).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/7.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/7.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 8,
@@ -1192,7 +1264,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I'll go back to the /f/books forum listing so I can view the top posts (top 10) and check which mention supporting local bookstores and what organizations they mention.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/8.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/8.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 9,
@@ -1200,7 +1273,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "I counted the top 10 posts on the /f/books listing. The one most likely to be about supporting local bookstores is \"Friendly reminder bookshop.org exists.\" (and \"What Is It That Makes Used Bookstores So Wonderful?\" may discuss bookstores generally). I'll open the \"Friendly reminder bookshop.org exists.\" post to confirm it discusses supporting local bookstores and to extract the organizations mentioned (e.g., Bookshop.org).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/9.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/9.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 10,
@@ -1208,7 +1282,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I'll go back to the /f/books forum listing so I can inspect the top posts (top 10) and check which mention supporting local bookstores and what organizations are involved.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/10.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/10.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 11,
@@ -1216,7 +1291,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "I'll open the \"Friendly reminder bookshop.org exists.\" post (bid 190) to confirm it discusses supporting local bookstores and to extract the organizations mentioned (e.g., Bookshop.org).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/11.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/11.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 12,
@@ -1224,7 +1300,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "This post (\"Friendly reminder bookshop.org exists.\") mentions supporting local bookstores (Bookshop.org and commenters reference Libro.fm, Libro, etc.), but to answer whether any of the top 10 posts in the books forum discuss supporting local bookstores I need the forum listing to inspect the top 10 threads. I'll go back to the /f/books forum page by clicking the 'books' link (bid 120).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/12.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/12.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 13,
@@ -1232,7 +1309,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "The forum listing shows a top-10 post titled \"Friendly reminder bookshop.org exists.\" (bid 190) which likely discusses supporting local bookstores. I'll open that post to confirm and extract the organizations mentioned (e.g., Bookshop.org and any others).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/13.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/13.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 14,
@@ -1240,7 +1318,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I need to see the forum's top-post listing (top 10) so I can check which threads mention supporting local bookstores and which organizations they name. I'll go back to the /f/books forum page by clicking the 'books' link (bid 120).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/14.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/14.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 15,
@@ -1248,7 +1327,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "From the top-10 listing I see \"Friendly reminder bookshop.org exists.\" and \"What Is It That Makes Used Bookstores So Wonderful?\" as likely posts about supporting local bookstores. I'll open the \"Friendly reminder bookshop.org exists.\" post to confirm and extract the organizations mentioned (e.g., Bookshop.org).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/15.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/15.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 16,
@@ -1256,7 +1336,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I need to view the /f/books forum listing to inspect the top 10 posts and find any that discuss supporting local bookstores. I'll go back to the books forum by clicking the '/f/books' link (bid '120').",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/16.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/16.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 17,
@@ -1264,7 +1345,8 @@
           "url": "http://localhost:9080/f/books",
           "action": "click('120')",
           "thought": "The forum listing shows the top 10 posts; the one most likely about supporting local bookstores is \"Friendly reminder bookshop.org exists.\" I'll open that post to confirm and extract the organizations mentioned (e.g., Bookshop.org).",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/17.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/17.png",
+          "action_annotation": "[120] navigation '', visible"
         },
         {
           "state_index": 18,
@@ -1272,7 +1354,8 @@
           "url": "http://localhost:9080/f/books/59421/friendly-reminder-bookshop-org-exists",
           "action": "click('190')",
           "thought": "I will send the user a corrected reply (including the missing <action>) summarizing whether any of the top-10 posts discuss supporting local bookstores and listing the organizations mentioned in that thread.",
-          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/18.png"
+          "screenshot": "assets/screenshots/trajectories/2fc2fd0d/18.png",
+          "action_annotation": "[190] link 'Friendly reminder bookshop.org exists.', clickable, visible"
         },
         {
           "state_index": 19,
@@ -1307,7 +1390,8 @@
           "url": "http://localhost:9080/f/consoles",
           "action": "click('157')",
           "thought": "I'm on the consoles subreddit and logged in (MarvelsGrantMan136). To create a new post there, I'll click the \"Submit\" link (bid=65) to open the submission form.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/1.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/1.png",
+          "action_annotation": "[157] strong '', visible"
         },
         {
           "state_index": 2,
@@ -1315,7 +1399,8 @@
           "url": "http://localhost:9080/submit/consoles",
           "action": "click('65')",
           "thought": "I'm on the consoles subreddit submission form and the Title field (required) is empty (bid=138). To create the post with the user's question, I'll fill the Title textbox with \"what is the recommended console to buy these days\". After this, I'll fill the body and submit in the next steps.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/2.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/2.png",
+          "action_annotation": "[65] link 'Submit', clickable, visible"
         },
         {
           "state_index": 3,
@@ -1323,7 +1408,8 @@
           "url": "http://localhost:9080/submit/consoles",
           "action": "fill('138', 'what is the recommended console to buy these days', True)",
           "thought": "The Title is filled with the user's question and the forum \"consoles\" is already selected. To post the question to that subreddit, I'll submit the form by clicking the \"Create submission\" button (bid=403).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/3.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/3.png",
+          "action_annotation": "[138] textbox 'Title This field is required.' value='what is the recommended console to buy these days', visible, focused, required"
         },
         {
           "state_index": 4,
@@ -1331,7 +1417,8 @@
           "url": "http://localhost:9080/submit/consoles",
           "action": "click('403')",
           "thought": "The submission form is open for the consoles subreddit and the Title is already filled with \"what is the recommended console to buy these days\". However there's a visible notice saying \"You cannot post more. Wait a while before trying again.\" I'll still attempt to submit to confirm the site response by clicking the \"Create submission\" button (bid=406).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/4.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/4.png",
+          "action_annotation": "[403] button 'Create submission', clickable, visible"
         },
         {
           "state_index": 5,
@@ -1339,7 +1426,8 @@
           "url": "http://localhost:9080/submit/consoles",
           "action": "click('406')",
           "thought": "The consoles forum is selected but there's a visible notice: \"You cannot post more. Wait a while before trying again.\" Since I can't submit here right now, I'll open the Forums directory to find another subreddit focused on gaming consoles (e.g., gaming, videogames, NintendoSwitch, or similar) and attempt to post there instead. I'll click the \"Forums\" link (bid=42).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/5.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/5.png",
+          "action_annotation": "[406] button 'Create submission', clickable"
         },
         {
           "state_index": 6,
@@ -1347,7 +1435,8 @@
           "url": "http://localhost:9080/forums",
           "action": "click('42')",
           "thought": "I'm back on the forums directory and the \"consoles\" subreddit I tried earlier is currently rate-limited for posting. I'll open the broader but console-relevant \"gaming\" subreddit to post the question there. I'll click the \"gaming \u2014 gaming\" link (bid=284) to open that subreddit.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/6.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/6.png",
+          "action_annotation": "[42] link 'Forums', clickable, visible"
         },
         {
           "state_index": 7,
@@ -1355,7 +1444,8 @@
           "url": "http://localhost:9080/f/gaming",
           "action": "click('284')",
           "thought": "I'm on the /f/gaming page. To find a subreddit focused on gaming consoles (for example \"consoles\" or other console-specific subs) I'll open the Forums directory so I can locate a console-focused forum and attempt to submit the question there. I'll click the \"Forums\" link (bid=45).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/7.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/7.png",
+          "action_annotation": "[284] link 'gaming \u2014 gaming', clickable"
         },
         {
           "state_index": 8,
@@ -1363,7 +1453,8 @@
           "url": "http://localhost:9080/forums",
           "action": "click('45')",
           "thought": "I'm back on the forums directory page and need to locate a subreddit focused on gaming consoles. I'll use the visible search box (bid=50) to search for \"consoles\" so I can find a consoles-focused subreddit to post the question.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/8.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/8.png",
+          "action_annotation": "[45] link 'Forums', clickable, visible"
         },
         {
           "state_index": 9,
@@ -1371,7 +1462,8 @@
           "url": "http://localhost:9080/forums",
           "action": "fill('50', 'consoles', True)",
           "thought": "The search box (bid=50) is focused and filled with \"consoles\". I'll press Enter to submit the search and show results for console-focused subreddits so I can pick an appropriate forum to post the question.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/9.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/9.png",
+          "action_annotation": "[50] searchbox 'Search query' value='consoles', clickable, visible, focused"
         },
         {
           "state_index": 10,
@@ -1387,7 +1479,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('56')",
           "thought": "I'm on the submission form with the \"Forum\" combobox visible (value \"Choose one\u2026\"). To pick a subreddit focused on gaming consoles, I'll open that combobox to view and select an appropriate forum.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/11.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/11.png",
+          "action_annotation": "[56] link 'Submit', clickable, visible"
         },
         {
           "state_index": 12,
@@ -1395,7 +1488,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('383')",
           "thought": "The forum dropdown is open and I can see the specific \"consoles\" option (bid=439). To post the question to a subreddit focused on gaming consoles, I'll select that \"consoles\" option from the Forum combobox.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/12.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/12.png",
+          "action_annotation": "[383] combobox 'Choose one\u2026' value='Choose one\u2026 Choose one\u2026', clickable, visible, hasPopup='menu', expanded=True, owns='select2-submission_forum-results'"
         },
         {
           "state_index": 13,
@@ -1403,7 +1497,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('439')",
           "thought": "The Title field is already filled with \"what is the recommended console to buy these days\" and the Forum combobox is set to the console-focused subreddit. To post the question there, I'll submit the form by clicking the \"Create submission\" button (bid=400).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/13.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/13.png",
+          "action_annotation": "[439] option 'consoles', visible, selected=False"
         },
         {
           "state_index": 14,
@@ -1411,7 +1506,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('400')",
           "thought": "The form currently has the \"URL\" radio selected, which is why the page shows \"Please fill out this field.\" The Title is already filled with the user's question and the Forum is set to \"consoles\". To satisfy the required URL field so the submission can be created, I'll fill the URL textbox (bid=127) with a harmless placeholder URL. I'll submit the post in the next step.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/14.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/14.png",
+          "action_annotation": "[400] button 'Create submission', clickable, visible"
         },
         {
           "state_index": 15,
@@ -1419,7 +1515,8 @@
           "url": "http://localhost:9080/submit",
           "action": "fill('127', 'https://example.com', True)",
           "thought": "The Title is filled with \"what is the recommended console to buy these days\", the Forum combobox is set to \"consoles\", and I just filled the required URL field with a placeholder. I'll submit the form to create the post by clicking the \"Create submission\" button (bid=400).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/15.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/15.png",
+          "action_annotation": "[127] textbox '' value='https://example.com', clickable, visible, focused"
         },
         {
           "state_index": 16,
@@ -1427,7 +1524,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('400')",
           "thought": "The Forum is already set to the consoles subreddit and the URL field has a placeholder, so the remaining required field is the Title. I'll fill the Title textbox (bid=137) with the user's question so the post is ready to submit.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/16.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/16.png",
+          "action_annotation": "[400] button 'Create submission', clickable, visible"
         },
         {
           "state_index": 17,
@@ -1435,7 +1533,8 @@
           "url": "http://localhost:9080/submit",
           "action": "fill('137', 'what is the recommended console to buy these days', True)",
           "thought": "The Title is filled with \"what is the recommended console to buy these days\", the Forum is set to the consoles subreddit, and the required URL field was previously filled with a placeholder. I'll attempt to submit the post by clicking the \"Create submission\" button (bid=400).",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/17.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/17.png",
+          "action_annotation": "[137] textbox 'Title This field is required.' value='what is the recommended console to buy these days', visible, focused, required"
         },
         {
           "state_index": 18,
@@ -1443,7 +1542,8 @@
           "url": "http://localhost:9080/submit",
           "action": "click('400')",
           "thought": "The submission form is open with the \"consoles\" forum selected and the Title filled, but the page displays a rate-limit notice: \"You cannot post more. Wait a while before trying again.\" I already attempted to submit and it failed due to that message. Because the account is temporarily blocked from posting, I cannot create the requested submission in any subreddit right now. I will report the task as infeasible and recommend waiting or using a different account.",
-          "screenshot": "assets/screenshots/trajectories/ebb98ef6/18.png"
+          "screenshot": "assets/screenshots/trajectories/ebb98ef6/18.png",
+          "action_annotation": "[400] button 'Create submission', clickable, visible"
         },
         {
           "state_index": 19,
