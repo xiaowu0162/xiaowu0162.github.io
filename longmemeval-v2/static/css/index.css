@@ -702,8 +702,7 @@ a {
   padding: 1rem;
 }
 
-.question-meta,
-.state-meta {
+.question-meta {
   color: var(--lme-muted);
   display: flex;
   flex-wrap: wrap;
@@ -758,12 +757,28 @@ a {
   padding: 1rem;
 }
 
-.trajectory-title {
+.trajectory-goal {
+  margin-bottom: 0.45rem;
+}
+
+.trajectory-goal span,
+.state-field strong,
+.trajectory-observation figcaption {
+  color: var(--lme-red);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin-bottom: 0.22rem;
+  text-transform: uppercase;
+}
+
+.trajectory-goal p {
   color: var(--lme-navy);
   font-size: 1rem;
   font-weight: 800;
   line-height: 1.35;
-  margin-bottom: 0.45rem;
+  margin: 0;
 }
 
 .trajectory-state {
@@ -773,6 +788,10 @@ a {
   grid-template-columns: 1fr;
   margin-top: 0.9rem;
   padding: 0.95rem 0 0;
+}
+
+.trajectory-observation {
+  margin: 0;
 }
 
 .trajectory-state img {
@@ -788,22 +807,29 @@ a {
   width: 100%;
 }
 
-.state-text p {
+.state-text {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.state-text p,
+.state-field code {
   color: #33475b;
   font-size: 0.86rem;
   line-height: 1.5;
-  margin-bottom: 0.45rem;
+  margin: 0;
 }
 
-.state-text code {
+.state-field code {
   background: #f1f5f9;
   border-radius: 4px;
   color: #24425f;
   display: inline-block;
   font-size: 0.78rem;
+  line-height: 1.45;
   max-width: 100%;
   overflow-wrap: anywhere;
-  padding: 0.15rem 0.32rem;
+  padding: 0.28rem 0.42rem;
 }
 
 .todo-panel {

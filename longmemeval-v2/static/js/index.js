@@ -396,34 +396,41 @@ function renderTrajectory() {
   const stateCard = item
     ? `
       <article class="trajectory-state">
-        <img src="./${escapeHtml(item.screenshot)}" alt="Trajectory ${escapeHtml(trajectory.id)} state ${escapeHtml(item.state_index)}">
+        <figure class="trajectory-observation">
+          <img src="./${escapeHtml(item.screenshot)}" alt="Trajectory ${escapeHtml(trajectory.id)} state ${escapeHtml(item.state_index)} observation screenshot">
+          <figcaption>Observation screenshot</figcaption>
+        </figure>
         <div class="state-text">
-          <div class="state-meta">
-            <span class="meta-pill">state ${escapeHtml(item.state_index)}</span>
-            <span class="meta-pill">step ${escapeHtml(item.step)}</span>
-            <span class="meta-pill">${escapeHtml(compactText(item.action || "start", 80))}</span>
+          ${displayUrl ? `<div class="state-field"><strong>URL</strong><code>${escapeHtml(displayUrl)}</code></div>` : ""}
+          <div class="state-field">
+            <strong>Thought</strong>
+            <p>${escapeHtml(item.thought || "No model thought recorded for this state.")}</p>
           </div>
-          ${displayUrl ? `<p><code>${escapeHtml(displayUrl)}</code></p>` : ""}
-          <p>${escapeHtml(item.thought || "No model thought recorded for this sampled state.")}</p>
-          <p>${escapeHtml(compactText(item.observation_snippet, 620))}</p>
+          <div class="state-field">
+            <strong>Action</strong>
+            <code>${escapeHtml(item.action || "Start state")}</code>
+          </div>
         </div>
       </article>
       <div class="viewer-card-controls">
         <button class="viewer-nav-button" id="state-prev" type="button">Previous state</button>
-        <span class="viewer-counter">Sample ${state.trajectoryStateIndex + 1} / ${states.length} &middot; full run: ${stateCount} states</span>
+        <span class="viewer-counter">State ${state.trajectoryStateIndex + 1} / ${states.length}</span>
         <button class="viewer-nav-button" id="state-next" type="button">Next state</button>
       </div>
     `
-    : `<div class="viewer-empty">No sampled states are available for this trajectory.</div>`;
+    : `<div class="viewer-empty">No states are available for this trajectory.</div>`;
 
   viewer.innerHTML = `
     <div class="trajectory-shell">
-      <div class="trajectory-title">${escapeHtml(trajectory.goal)}</div>
+      <div class="trajectory-goal">
+        <span>Goal</span>
+        <p>${escapeHtml(trajectory.goal)}</p>
+      </div>
       <div class="question-meta">
         <span class="meta-pill">${escapeHtml(trajectory.id)}</span>
         <span class="meta-pill">${escapeHtml(domainLabel)}</span>
-        <span class="meta-pill">${escapeHtml(trajectory.environment)}</span>
         <span class="meta-pill">${escapeHtml(trajectory.outcome)}</span>
+        <span class="meta-pill">${stateCount} states</span>
       </div>
       <div class="viewer-card-controls">
         <button class="viewer-nav-button" id="trajectory-prev" type="button">Previous trajectory</button>
