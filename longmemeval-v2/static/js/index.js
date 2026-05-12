@@ -235,6 +235,12 @@ function formatTrajectoryAction(value) {
   return actionMatch ? actionMatch[1].trim() : raw;
 }
 
+function formatActionComment(value) {
+  return String(value ?? "")
+    .trim()
+    .replace(/^\[[^\]]+\]\s*/, "");
+}
+
 function formatTrajectoryUrl(value) {
   const raw = String(value ?? "").trim();
   if (!raw) {
@@ -398,8 +404,17 @@ function renderTrajectory() {
   const states = trajectory.states || [];
   state.trajectoryStateIndex = normalizeIndex(state.trajectoryStateIndex, states.length);
   const item = states[state.trajectoryStateIndex];
+  const transition = states[state.trajectoryStateIndex + 1];
   const displayUrl = item ? formatTrajectoryUrl(item.url) : "";
-  const displayAction = item ? formatTrajectoryAction(item.action) : "";
+  const displayAction = transition ? formatTrajectoryAction(transition.action) : "";
+  const displayActionComment = transition ? formatActionComment(transition.action_annotation) : "";
+  const displayActionLine = displayAction
+    ? `${escapeHtml(displayAction)}${
+        displayActionComment
+          ? `<span class="action-comment">    # ${escapeHtml(displayActionComment)}</span>`
+          : ""
+      }`
+    : "End of trajectory";
   const stateCount = trajectory.state_count || states.length;
   const domainLabel = trajectoryDomainLabel(trajectory);
 
@@ -419,13 +434,8 @@ function renderTrajectory() {
           </div>
           <div class="state-field">
             <strong>Action</strong>
-            <code>${escapeHtml(displayAction || "Start state")}</code>
+            <code>${displayActionLine}</code>
           </div>
-          ${
-            item.action_annotation
-              ? `<div class="state-field"><strong>Action Annotation</strong><p>${escapeHtml(item.action_annotation)}</p></div>`
-              : ""
-          }
         </div>
       </article>
     `

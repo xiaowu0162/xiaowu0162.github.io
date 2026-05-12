@@ -844,6 +844,11 @@ a {
   max-width: 100%;
   overflow-wrap: anywhere;
   padding: 0.28rem 0.42rem;
+  white-space: pre-wrap;
+}
+
+.action-comment {
+  color: #64748b;
 }
 
 .todo-panel {
