@@ -238,7 +238,9 @@ function formatTrajectoryAction(value) {
 function formatActionComment(value) {
   return String(value ?? "")
     .trim()
-    .replace(/^\[[^\]]+\]\s*/, "");
+    .replace(/^\[[^\]]+\]\s*/, "")
+    .replace(/'[\uE000-\uF8FF]\s*/g, "'")
+    .replace(/\s+/g, " ");
 }
 
 function formatTrajectoryUrl(value) {

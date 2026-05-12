@@ -20,7 +20,7 @@
       "static-environment-abs": 55,
       "errors-gotchas": 29
     },
-    "local_note": "This viewer uses a balanced, diversified subset of 42 questions and 6 full WebArena trajectories from the public release, with one success and one failure for shopping, shopping admin, and reddit."
+    "local_note": "This viewer uses a balanced, diversified subset of 42 questions and 8 full trajectories from the public release: one success and one failure for shopping, shopping admin, reddit, and WorkArena enterprise."
   },
   "questions": [
     {
@@ -1552,6 +1552,305 @@
           "action": "report_infeasible(\"Account is rate-limited: the page shows 'You cannot post more. Wait a while before trying again.' Cannot submit the post to any subreddit now. Please wait or use another account.\")",
           "thought": "",
           "screenshot": "assets/screenshots/trajectories/ebb98ef6/19.png"
+        }
+      ]
+    },
+    {
+      "id": "0db80092",
+      "domain": "enterprise",
+      "subdomain": "workarena",
+      "outcome": "success",
+      "goal": "Create a filter for the list to extract all entries where:\n    - \"Assigned to\" is \"Elisa Gracely\" and \n    - \"State\" is \"Consumed\" and \n    - \"Serial number\" is \"\"",
+      "state_count": 15,
+      "sample_note": "Full WorkArena trajectory: all states from this run are shown.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "",
+          "thought": "To add the filter conditions I need to open the filter pane. The \"Show / hide filter\" button (bid='a46') is currently collapsed (expanded=False), so clicking it should reveal the filter controls where I can add conditions for Assigned to, State, and Serial number.",
+          "screenshot": "assets/screenshots/trajectories/0db80092/0.png"
+        },
+        {
+          "state_index": 1,
+          "step": 1,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a46')",
+          "thought": "I need to add the three AND filter conditions. The first step is to choose the field for the first condition. I'll open the first condition field combobox (bid='a1088') so I can select \"Assigned to\".",
+          "screenshot": "assets/screenshots/trajectories/0db80092/1.png",
+          "action_annotation": "[a46] button '\\uf18a Show / hide filter', clickable, visible, focused, expanded=True, describedby='tooltip962926', controls='alm_assetfilterdiv'"
+        },
+        {
+          "state_index": 2,
+          "step": 2,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1088')",
+          "thought": "The \"Choose option\" combobox is open (a1097) showing the list of fields. To set the first filter condition to \"Assigned to\" I will select the \"Assigned to\" option (bid a1220) from the list.",
+          "screenshot": "assets/screenshots/trajectories/0db80092/2.png",
+          "action_annotation": "[a1088] combobox 'All of these conditions must be met. -- choose field --', disabled=True, hasPopup='listbox', expanded=True, controls='select2-drop'"
+        },
+        {
+          "state_index": 3,
+          "step": 3,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1220')",
+          "thought": "The \"Assigned to\" field is present (textbox a1453). I'll fill it with \"Elisa Gracely\" so the first condition is set. After this I will add the next AND condition in a subsequent step.",
+          "screenshot": "assets/screenshots/trajectories/0db80092/3.png",
+          "action_annotation": "[a1220] option 'Assigned to', visible, selected=False"
+        },
+        {
+          "state_index": 4,
+          "step": 4,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "fill('a1453', 'Elisa Gracely', True)",
+          "thought": "The \"Assigned to\" condition is set to \"Elisa Gracely\". To add the next condition (State = Consumed), I will add a new AND filter condition using the \"Add a new AND filter condition\" button (bid='a1027').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/4.png",
+          "action_annotation": "[a1453] combobox 'Assigned to' value='Elisa Gracely', clickable, visible, focused, autocomplete='list', hasPopup='listbox', expanded=True, describedby='tooltip719738', owns='AC.alm_asset.assigned_to.5f94a2a05f940c805f946ec05f94a770', controls=''"
+        },
+        {
+          "state_index": 5,
+          "step": 5,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1027')",
+          "thought": "I just added a second AND condition (the page shows a new condition row). I'll open the field selector for Condition 2 so I can set it to \"State\".",
+          "screenshot": "assets/screenshots/trajectories/0db80092/5.png",
+          "action_annotation": "[a1027] button 'Add a new AND filter condition', clickable, visible, focused, describedby='tooltip848953'"
+        },
+        {
+          "state_index": 6,
+          "step": 6,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1473')",
+          "thought": "The field selector for Condition 2 is open (the options list is visible). I will choose the \"State\" field for the second condition by selecting the \"State\" option (bid='a1774').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/6.png",
+          "action_annotation": "[a1473] combobox 'All of these conditions must be met. -- choose field --', disabled=True, hasPopup='listbox', expanded=True, controls='select2-drop'"
+        },
+        {
+          "state_index": 7,
+          "step": 7,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1774')",
+          "thought": "The State field's options are visible; I will set Condition 2 to \"Consumed\" by selecting that option (bid='a1842'). After that I'll add a third AND condition to set Serial number to an empty string (next steps).",
+          "screenshot": "assets/screenshots/trajectories/0db80092/7.png",
+          "action_annotation": "[a1774] option 'State', selected=False"
+        },
+        {
+          "state_index": 8,
+          "step": 8,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1842')",
+          "thought": "The \"State\" field options are in a select combobox (bid='a1836') and my previous direct click on the option failed due to visibility. I'll use select_option on the State combobox to choose \"Consumed\" reliably.",
+          "screenshot": "assets/screenshots/trajectories/0db80092/8.png",
+          "action_annotation": "[a1842] option 'Consumed', selected=False"
+        },
+        {
+          "state_index": 9,
+          "step": 9,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "select_option('a1836', 'Consumed')",
+          "thought": "I already have two conditions (Assigned to = Elisa Gracely, State = Consumed). To add the third AND condition for \"Serial number\", I'll add another AND filter row by clicking the \"Add a new AND filter condition\" button (bid='a1027').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/9.png",
+          "action_annotation": "[a1836] combobox 'Choose option for field: State' value='Consumed', visible, hasPopup='menu', expanded=False"
+        },
+        {
+          "state_index": 10,
+          "step": 10,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1027')",
+          "thought": "I need to set the third AND condition's field to \"Serial number\". The third condition row is the one shown with '-- choose field --' and its field combobox is a1859. I'll open that field selector so I can choose \"Serial number\" and then set the operator/value to an empty string in following steps.",
+          "screenshot": "assets/screenshots/trajectories/0db80092/10.png",
+          "action_annotation": "[a1027] button 'Add a new AND filter condition', clickable, visible, focused"
+        },
+        {
+          "state_index": 11,
+          "step": 11,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a1859')",
+          "thought": "I need to set the third condition's field to \"Serial number\" so I can then set its operator/value to match an empty string. The \"Choose option\" list is open; I'll select the \"Serial number\" option (bid='a2151').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/11.png",
+          "action_annotation": "[a1859] combobox 'All of these conditions must be met. -- choose field --', disabled=True, hasPopup='listbox', expanded=True, controls='select2-drop'"
+        },
+        {
+          "state_index": 12,
+          "step": 12,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "click('a2151')",
+          "thought": "The third condition is set to the Serial number field and its operator is currently \"starts with\". To match records where Serial number is an empty string, I'll change the operator to \"is empty string\" using the operator combobox (bid='a2204').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/12.png",
+          "action_annotation": "[a2151] option 'Serial number', selected=False"
+        },
+        {
+          "state_index": 13,
+          "step": 13,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do",
+          "action": "select_option('a2204', 'is empty string')",
+          "thought": "All three filter conditions are now configured:\n- Assigned to = Elisa Gracely\n- State = Consumed\n- Serial number is empty string\n\nI will apply the filter by clicking the \"Run filter\" button (bid='a1024').",
+          "screenshot": "assets/screenshots/trajectories/0db80092/13.png",
+          "action_annotation": "[a2204] combobox 'Operator For Condition 3: Serial number is empty string' value='is empty string', visible, hasPopup='menu', expanded=False"
+        },
+        {
+          "state_index": 14,
+          "step": 14,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_asset_list.do%3Fsysparm_query%3Dassigned_to%253D26826bf03710200044e0bfc8bcbe5dee%255Einstall_status%253D10%255Eserial_numberEMPTYSTRING%26sysparm_first_row%3D1%26sysparm_view%3D",
+          "action": "click('a1024')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/0db80092/14.png",
+          "action_annotation": "[a1024] button 'Run filter', clickable, visible"
+        }
+      ]
+    },
+    {
+      "id": "0a6150e9",
+      "domain": "enterprise",
+      "subdomain": "workarena",
+      "outcome": "failure",
+      "goal": "Sort the \"hardware\" list by the following fields:\n - Request line (ascending)\n - Due in (descending)\n - Active transfer order (descending)",
+      "state_count": 16,
+      "sample_note": "Full WorkArena trajectory: all states from this run are shown.",
+      "states": [
+        {
+          "state_index": 0,
+          "step": 0,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "",
+          "thought": "I need to change the list sorting and/or visible columns to sort by the requested fields (Request line, Due in, Active transfer order). To access column configuration and sorting options, I'll open the \"Personalize List\" control which should allow adding columns and setting sort order.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/0.png"
+        },
+        {
+          "state_index": 1,
+          "step": 1,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "click('a80')",
+          "thought": "The \"Personalize List Columns\" dialog opened (a1034). I need to add the columns \"Request line\", \"Due in\", and \"Active transfer order\" from the Available list (a1055) into the Selected list, then move them into the desired sort order. First I'll select the \"Request line\" option in the Available listbox so I can add it to Selected.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/1.png",
+          "action_annotation": "[a80] button '\\uf13e Personalize List', clickable, visible"
+        },
+        {
+          "state_index": 2,
+          "step": 2,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "select_option('a1055', 'Request line')",
+          "thought": "I have selected \"Request line\" in the Available list (a1055). To move it into the Selected list, I'll click the \"Add selected options to the Selected listbox\" button (a1122).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/2.png",
+          "action_annotation": "[a1055] listbox 'Available', clickable, visible, multiselectable=True, orientation='vertical'"
+        },
+        {
+          "state_index": 3,
+          "step": 3,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "click('a1122')",
+          "thought": "I have already added \"Request line\" to the Selected list. Next I will select the \"Due in\" option in the Available list so I can add it to the Selected list as well.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/3.png",
+          "action_annotation": "[a1122] button '\\uf135 Add selected options to the Selected listbox', clickable, visible"
+        },
+        {
+          "state_index": 4,
+          "step": 4,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "select_option('a1055', 'Due in')",
+          "thought": "I have selected \"Due in\" in the Available list (a1055). I will click the \"Add selected options to the Selected listbox\" button (a1122) to move \"Due in\" into the Selected list.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/4.png",
+          "action_annotation": "[a1055] listbox 'Available', clickable, visible, multiselectable=True, orientation='vertical'"
+        },
+        {
+          "state_index": 5,
+          "step": 5,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "click('a1122')",
+          "thought": "I have already added \"Request line\" and \"Due in\" to the Selected list. Next I need to add \"Active transfer order\" from the Available list (a1055) so it appears in the Selected list as well. I'll select \"Active transfer order\" in the Available listbox.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/5.png",
+          "action_annotation": "[a1122] button '\\uf135 Add selected options to the Selected listbox', clickable, visible"
+        },
+        {
+          "state_index": 6,
+          "step": 6,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "select_option('a1055', 'Active transfer order')",
+          "thought": "I have selected \"Active transfer order\" in the Available list (a1055). To move it into the Selected list so the column appears in the Hardware list, I'll click the \"Add selected options to the Selected listbox\" button (a1122).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/6.png",
+          "action_annotation": "[a1055] listbox 'Available', clickable, visible, multiselectable=True, orientation='vertical'"
+        },
+        {
+          "state_index": 7,
+          "step": 7,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do",
+          "action": "click('a1122')",
+          "thought": "The three columns have been added to the Selected list. To make them appear in the Hardware list so I can set multi-column sorting, I'll confirm the Personalize dialog by clicking OK (a1177).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/7.png",
+          "action_annotation": "[a1122] button '\\uf135 Add selected options to the Selected listbox', clickable, visible"
+        },
+        {
+          "state_index": 8,
+          "step": 8,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1177')",
+          "thought": "The three columns have been added to the list. Next I need to set the multi-column sort order. I'll open the Request line column options menu so I can choose sort ascending (first priority).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/8.png",
+          "action_annotation": "[a1177] button 'OK', clickable, visible"
+        },
+        {
+          "state_index": 9,
+          "step": 9,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a279')",
+          "thought": "The Request line column options menu is open (the column options menu button a279 expanded). The \"Sort (a to z)\" menuitem (a1136) is focused in that menu. To set the first sort key to Request line ascending, I will choose \"Sort (a to z)\" by clicking the focused menu item a1136.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/9.png",
+          "action_annotation": "[a279] button 'Request line column options', clickable, visible, hasPopup='menu', expanded=True"
+        },
+        {
+          "state_index": 10,
+          "step": 10,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1136')",
+          "thought": "I set the Request line column to sort ascending in the previous step. Next I need to open the Due in column options menu so I can set it to sort descending (z to a) as the second sort key.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/10.png",
+          "action_annotation": "[a1136] menuitem 'Sort (a to z)', visible, focused"
+        },
+        {
+          "state_index": 11,
+          "step": 11,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1264')",
+          "thought": "I opened the \"Due in\" column options (a1264) which expanded the column menu. To set the second sort key (Due in) to descending, I will choose \"Sort (z to a)\" from the column menu. The corresponding menu item is a1137.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/11.png",
+          "action_annotation": "[a1264] button 'Due in column options', clickable, visible, hasPopup='menu', expanded=True"
+        },
+        {
+          "state_index": 12,
+          "step": 12,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1137')",
+          "thought": "I set the \"Due in\" column to sort descending in the previous step. Next I will open the \"Active transfer order\" column options menu so I can choose \"Sort (z to a)\" to set it as the third sort key (descending).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/12.png",
+          "action_annotation": "[a1137] menuitem 'Sort (z to a)', visible"
+        },
+        {
+          "state_index": 13,
+          "step": 13,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1986')",
+          "thought": "I opened the \"Active transfer order\" column options menu (a1986). To set that column to sort descending (third sort key), I will select the \"Sort (z to a)\" menu item (a1137).",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/13.png",
+          "action_annotation": "[a1986] button 'Active transfer order column options', clickable, visible, hasPopup='menu', expanded=True"
+        },
+        {
+          "state_index": 14,
+          "step": 14,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a1137')",
+          "thought": "I previously set the three column sorts (Request line ascending, Due in descending, Active transfer order descending). To ensure the list view saves and applies these sort settings, I'll click the \"Update Personalized List\" button.",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/14.png",
+          "action_annotation": "[a1137] menuitem 'Sort (z to a)', visible"
+        },
+        {
+          "state_index": 15,
+          "step": 15,
+          "url": "https://empmassimo20.service-now.com/now/nav/ui/classic/params/target/alm_hardware_list.do%3Fsysparm_nostack%3Dtrue",
+          "action": "click('a83')",
+          "thought": "",
+          "screenshot": "assets/screenshots/trajectories/0a6150e9/15.png",
+          "action_annotation": "[a83] button '\\uf13c Update Personalized List', clickable, visible"
         }
       ]
     }
