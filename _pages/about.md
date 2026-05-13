@@ -14,6 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2026/05] Introducing [LongMemEval-V2](https://xiaowu0162.github.io/longmemeval-v2/): Evaluating Long-Term Agent Memory Toward Experienced Colleagues. 
 * [2026/04] Introducing [Procedural Knowledge at Scale Improves Reasoning](https://xiaowu0162.github.io/reasoning-memory/): inducing a procedure knowledge datastore to facilitate future problem solving. 
 * [2026/03] Introducing [Open-Domain Safety Policy Construction](https://aclanthology.org/2026.findings-eacl.262/): automatically inducing policy datastores for niche domains.  
 * [2025/10] Check out our recent papers: [BRIEF-Pro](https://arxiv.org/abs/2510.13799) for context compression and [UI-Simulator](https://arxiv.org/abs/2510.14969) for agent training.
