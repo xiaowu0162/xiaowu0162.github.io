@@ -16,6 +16,6 @@ Then open `http://localhost:8022/`.
 
 ## Notes
 
-- Paper, code, and data links are intentionally marked TODO.
+- Paper, code, and data links are live in the page header.
 - The data viewer uses a compact sample bundle derived from the Kaggle archive.
 - The full Kaggle dataset archive is not included in this website repository.
