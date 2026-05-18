@@ -9,6 +9,7 @@ codeurl: 'https://github.com/xiaowu0162/Visualize-then-Retrieve'
 website: 'https://xiaowu0162.github.io/visret/'
 excerpt: ''
 topic: 'rag'
+oral: 'true'
 selected: 'true'
 ---
 ---
