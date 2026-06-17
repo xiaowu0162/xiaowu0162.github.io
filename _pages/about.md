@@ -14,19 +14,20 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2026/06] Started my research internship at Google Cloud AI Research (Sunnyvale).
 * [2026/05] Introducing [LongMemEval-V2](https://xiaowu0162.github.io/longmemeval-v2/): Evaluating Long-Term Agent Memory Toward Experienced Colleagues. 
 * [2026/04] Introducing [Procedural Knowledge at Scale Improves Reasoning](https://xiaowu0162.github.io/reasoning-memory/): inducing a procedure knowledge datastore to facilitate future problem solving. 
 * [2026/03] Introducing [Open-Domain Safety Policy Construction](https://aclanthology.org/2026.findings-eacl.262/): automatically inducing policy datastores for niche domains.  
 * [2025/10] Check out our recent papers: [BRIEF-Pro](https://arxiv.org/abs/2510.13799) for context compression and [UI-Simulator](https://arxiv.org/abs/2510.14969) for agent training.
 * [2025/10] Check out our [long-term memory reading list](https://github.com/xiaowu0162/awesome-long-term-memory).
-* [2025/06] Started my research internship at Meta FAIR (NYC).
-* [2025/05] Introducing [VisRet](https://xiaowu0162.github.io/visret/): imagine your query before retrieval. 
-* [2025/04] Introducing [Self-Routing RAG](https://arxiv.org/abs/2504.01018): efficiently enabling an LLM to route between knowledge sources and to act as a knowledge source itself.
-* [2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.
 
 <details>
 <summary>Show More News</summary>
 <ul>
+  <li>[2025/06] Started my research internship at Meta FAIR (NYC).
+  <li>[2025/05] Introducing [VisRet](https://xiaowu0162.github.io/visret/): imagine your query before retrieval. </li>
+  <li>[2025/04] Introducing [Self-Routing RAG](https://arxiv.org/abs/2504.01018): efficiently enabling an LLM to route between knowledge sources and to act as a knowledge source itself.</li>
+  <li>[2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.</li>
   <li>[2025/01] <a href="https://github.com/JasonForJoy/BRIEF">BRIEF</a> is accepted by NAACL 2025 (Findings).</li>
   <li>[2024/10] Check out <a href="https://github.com/JasonForJoy/BRIEF">BRIEF</a>: multi-hop reasoning-aware context compression.</li>
   <li>[2024/10] Introducing <a href="https://github.com/xiaowu0162/LongMemEval">LongMemEval</a>: a comprehensive, challenging, and scalable benchmark for long-term memory.</li>
