@@ -3,7 +3,7 @@ title: "Procedural Knowledge at Scale Improves Reasoning"
 collection: publications
 Authors: '<b>Di Wu</b>, Devendra Singh Sachan, Wen-tau Yih, Mingda Chen.'
 date: 04/2026
-venue: 'arXiv'
+venue: 'COLM'
 paperurl: 'https://arxiv.org/abs/2604.01348'
 codeurl: 'https://github.com/facebookresearch/reasoning-memory'
 website: 'https://xiaowu0162.github.io/reasoning-memory/'
