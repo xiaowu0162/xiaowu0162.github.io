@@ -14,6 +14,7 @@ I did my undergraduate studies at UCLA, where I researched on image translation 
 
 News
 ====
+* [2026/07] [Reasoning Memory](https://xiaowu0162.github.io/reasoning-memory/) is accepted by COLM 2026.
 * [2026/06] Started my research internship at Google Cloud AI Research (Sunnyvale).
 * [2026/05] Introducing [LongMemEval-V2](https://xiaowu0162.github.io/longmemeval-v2/): Evaluating Long-Term Agent Memory Toward Experienced Colleagues. 
 * [2026/04] Introducing [Procedural Knowledge at Scale Improves Reasoning](https://xiaowu0162.github.io/reasoning-memory/): inducing a procedure knowledge datastore to facilitate future problem solving. 
