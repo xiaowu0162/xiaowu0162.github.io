@@ -222,7 +222,7 @@ const leaderboardEntries = [
   },
   {
     system: "AgentRunbook-C v2 Online",
-    family: "Coding agent + online learning",
+    family: "Coding agent",
     tiers: ["small"],
     url: "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_c_v2.py",
     smallAccuracy: "75.6%",
