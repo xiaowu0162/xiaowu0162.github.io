@@ -127,7 +127,7 @@
 
     .hero {
       position: relative;
-      width: min(calc(100% - 48px), var(--page-max));
+      width: min(calc(100% - 48px), var(--reading));
       margin: 0 auto;
       padding: clamp(4rem, 9vw, 8rem) 0 clamp(3.5rem, 7vw, 6rem);
     }
@@ -166,10 +166,11 @@
     }
 
     .hero h1 {
-      max-width: 1120px;
+      width: min(900px, calc(100vw - 48px));
+      max-width: none;
       margin: 0;
       color: var(--heading);
-      font-size: clamp(2.5rem, 3.8vw, 3.5rem);
+      font-size: clamp(2.15rem, 2.8vw, 2.35rem);
       font-weight: 680;
       letter-spacing: -.055em;
       line-height: 1.02;
@@ -256,15 +257,14 @@
     }
 
     .content-section h2 {
-      width: min(calc(100vw - 48px), var(--wide));
-      margin: 0 50% 1.6rem;
+      width: 100%;
+      margin: 0 0 1.6rem;
       color: var(--heading);
-      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-size: clamp(1.95rem, 2.5vw, 2.2rem);
       font-weight: 620;
       letter-spacing: -.045em;
       line-height: 1.08;
       white-space: nowrap;
-      transform: translateX(-50%);
     }
 
     .content-section h3 {
@@ -648,7 +648,7 @@
       .site-actions { gap: .7rem; }
       .hero, .article-shell, .site-footer { width: calc(100% - 32px); }
       .hero::before { right: -45%; width: 430px; height: 430px; }
-      .hero h1 { font-size: clamp(2.05rem, 9.4vw, 2.8rem); }
+      .hero h1 { width: 100%; font-size: clamp(2.05rem, 9.4vw, 2.8rem); }
       .hero-title-line { display: inline; }
       .hero-title-line + .hero-title-line::before { content: " "; }
       .content-section h2 {
