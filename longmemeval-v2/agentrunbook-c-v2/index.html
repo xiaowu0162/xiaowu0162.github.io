@@ -166,15 +166,16 @@
     }
 
     .hero h1 {
-      max-width: 980px;
+      max-width: 1120px;
       margin: 0;
       color: var(--heading);
-      font-size: clamp(2.5rem, 4.7vw, 4.7rem);
+      font-size: clamp(2.5rem, 3.8vw, 3.5rem);
       font-weight: 680;
       letter-spacing: -.055em;
-      line-height: .98;
-      text-wrap: balance;
+      line-height: 1.02;
     }
+
+    .hero-title-line { display: block; }
 
     .hero-meta {
       display: flex;
@@ -255,13 +256,15 @@
     }
 
     .content-section h2 {
-      margin: 0 0 1.6rem;
+      width: min(calc(100vw - 48px), var(--wide));
+      margin: 0 50% 1.6rem;
       color: var(--heading);
-      font-size: clamp(2.15rem, 4.6vw, 4rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
       font-weight: 620;
       letter-spacing: -.045em;
-      line-height: 1.04;
-      text-wrap: balance;
+      line-height: 1.08;
+      white-space: nowrap;
+      transform: translateX(-50%);
     }
 
     .content-section h3 {
@@ -646,6 +649,15 @@
       .hero, .article-shell, .site-footer { width: calc(100% - 32px); }
       .hero::before { right: -45%; width: 430px; height: 430px; }
       .hero h1 { font-size: clamp(2.05rem, 9.4vw, 2.8rem); }
+      .hero-title-line { display: inline; }
+      .hero-title-line + .hero-title-line::before { content: " "; }
+      .content-section h2 {
+        width: auto;
+        margin: 0 0 1.6rem;
+        font-size: clamp(1.85rem, 8vw, 2.35rem);
+        white-space: normal;
+        transform: none;
+      }
       .wide-figure { width: calc(100vw - 32px); }
       .results-table-wrap { width: calc(100vw - 32px); }
       .figure-shell { padding-inline: .8rem; }
@@ -682,6 +694,7 @@
     @media print {
       .site-actions { display: none; }
       body { background: white; color: black; font-size: 11pt; }
+      .content-section h2 { width: 100%; margin-inline: 0; white-space: normal; transform: none; }
       .wide-figure,
       .results-table-wrap { width: 100%; margin-inline: 0; transform: none; }
       a { text-decoration: none; }
@@ -702,7 +715,7 @@
   <main id="article">
     <header class="hero">
       <p class="eyebrow">LongMemEval-V2 · Research update</p>
-      <h1>AgentRunbook-C V2: a self-improving lightweight memory controller</h1>
+      <h1><span class="hero-title-line">AgentRunbook-C V2: a self-improving</span><span class="hero-title-line">lightweight memory controller</span></h1>
       <div class="hero-meta">
         <span><a href="https://linkedin.com/in/zixiang-ji-56902624b">Zixiang Ji</a> and <a href="https://xiaowu0162.github.io/">Di Wu</a></span>
       </div>
