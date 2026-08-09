@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>AgentRunbook-C V2: A Self-Improving Lightweight Memory Controller</title>
+  <meta name="description" content="AgentRunbook-C V2 is a self-improving lightweight memory controller.">
+  <meta name="author" content="Zixiang Ji and Di Wu">
+  <link rel="canonical" href="https://xiaowu0162.github.io/longmemeval-v2/agentrunbook-c-v2/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AgentRunbook-C V2: A Self-Improving Lightweight Memory Controller">
+  <meta property="og:description" content="A faster, self-improving memory controller built with a lightweight harness and online learning.">
+  <meta property="og:url" content="https://xiaowu0162.github.io/longmemeval-v2/agentrunbook-c-v2/">
+  <meta property="og:image" content="https://xiaowu0162.github.io/longmemeval-v2/agentrunbook-c-v2/assets/method-overview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --canvas: #08100f;
+      --paper: #0c1513;
+      --ink: #dce7e2;
+      --ink-soft: #a9bab4;
+      --ink-faint: #71857e;
+      --heading: #f0f7f3;
+      --accent: #5cf0b3;
+      --accent-2: #ad8cff;
+      --codex: #d4a967;
+      --rule: rgba(177, 214, 200, .14);
+      --rule-strong: rgba(177, 214, 200, .34);
+      --figure-bg: #0b1513;
+      --figure-rule: rgba(177, 214, 200, .2);
+      --page-max: 1480px;
+      --reading: 720px;
+      --wide: 980px;
+      --ui-font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-width: 300px;
+      background-color: var(--canvas);
+      background-image:
+        linear-gradient(rgba(120, 160, 145, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 160, 145, .045) 1px, transparent 1px),
+        radial-gradient(circle at 80% 2%, rgba(92, 240, 179, .075), transparent 31rem),
+        radial-gradient(circle at 14% 24%, rgba(173, 140, 255, .055), transparent 28rem);
+      background-size: 32px 32px, 32px 32px, auto, auto;
+      color: var(--ink);
+      font-family: var(--ui-font);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(92, 240, 179, .5);
+      text-decoration-thickness: .08em;
+      text-underline-offset: .18em;
+    }
+
+    a:hover { text-decoration-color: currentColor; }
+
+    ::selection {
+      background: var(--accent);
+      color: #07110e;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: .75rem;
+      left: .75rem;
+      padding: .65rem .9rem;
+      background: var(--accent);
+      color: #06100d;
+      transform: translateY(-180%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 76px;
+      padding-inline: max(24px, calc((100vw - var(--page-max)) / 2));
+      border-bottom: 1px solid var(--rule);
+      background: rgba(8, 16, 15, .88);
+      backdrop-filter: blur(14px);
+    }
+
+    .site-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: .76rem;
+      font-weight: 650;
+    }
+
+    .site-actions a {
+      padding: .52rem .82rem;
+      border: 1px solid var(--rule-strong);
+      color: var(--ink);
+      text-decoration: none;
+      transition: border-color .16s ease, color .16s ease;
+    }
+
+    .site-actions a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    main { overflow: clip; }
+
+    .hero {
+      position: relative;
+      width: min(calc(100% - 48px), var(--page-max));
+      margin: 0 auto;
+      padding: clamp(4rem, 9vw, 8rem) 0 clamp(3.5rem, 7vw, 6rem);
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 13% 0 auto auto;
+      width: min(38vw, 540px);
+      height: min(38vw, 540px);
+      border: 1px solid rgba(92, 240, 179, .14);
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgba(92, 240, 179, .12) 50%, transparent 50.2%),
+        linear-gradient(transparent 49.8%, rgba(92, 240, 179, .12) 50%, transparent 50.2%);
+      content: "";
+      transform: rotate(8deg);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-family: var(--mono-font);
+      font-size: .69rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .section-kicker::before {
+      margin-right: .6rem;
+      color: var(--ink-faint);
+      content: "//";
+    }
+
+    .hero h1 {
+      max-width: 980px;
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(2.5rem, 4.7vw, 4.7rem);
+      font-weight: 680;
+      letter-spacing: -.055em;
+      line-height: .98;
+      text-wrap: balance;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem 1.4rem;
+      max-width: 780px;
+      margin-top: clamp(1.8rem, 4vw, 3rem);
+      padding-top: 1rem;
+      border-top: 1px solid var(--accent);
+      color: var(--ink-soft);
+      font-family: var(--mono-font);
+      font-size: .72rem;
+    }
+
+    .hero-meta strong { color: var(--accent); }
+
+    .hero-meta a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration-color: rgba(92, 240, 179, .42);
+    }
+
+    .article-shell {
+      width: min(calc(100% - 48px), var(--page-max));
+      margin: 0 auto;
+      padding-bottom: clamp(5rem, 10vw, 9rem);
+    }
+
+    .article-body {
+      width: min(100%, var(--reading));
+      margin: 0 auto;
+    }
+
+    .headline-statement {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(1.3rem, 2.6vw, 2rem);
+      font-weight: 520;
+      letter-spacing: -.025em;
+      line-height: 1.48;
+      text-wrap: pretty;
+    }
+
+    .headline-statement strong { color: var(--accent); }
+
+    .performance-points {
+      display: grid;
+      margin: 2rem 0 0;
+      padding: 0;
+      border-block: 1px solid var(--rule-strong);
+      list-style: none;
+    }
+
+    .performance-points li {
+      position: relative;
+      margin: 0;
+      padding: 1.15rem 0 1.15rem 1.55rem;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .performance-points li + li { border-top: 1px solid var(--rule); }
+
+    .performance-points li::before {
+      position: absolute;
+      top: 1.48rem;
+      left: .1rem;
+      color: var(--accent);
+      content: "◆";
+      font-size: .5rem;
+    }
+
+    .performance-points strong { color: var(--heading); }
+
+    .content-section {
+      margin-top: clamp(5.5rem, 12vw, 10rem);
+    }
+
+    .content-section h2 {
+      margin: 0 0 1.6rem;
+      color: var(--heading);
+      font-size: clamp(2.15rem, 4.6vw, 4rem);
+      font-weight: 620;
+      letter-spacing: -.045em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    .content-section h3 {
+      margin: 3.2rem 0 1rem;
+      color: var(--heading);
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      font-weight: 620;
+      letter-spacing: -.025em;
+      line-height: 1.25;
+    }
+
+    .content-section p { margin: 0 0 1.35em; }
+
+    .content-section .lead {
+      color: var(--heading);
+      font-size: 1.17rem;
+      line-height: 1.58;
+    }
+
+    .wide-figure {
+      width: min(100vw - 48px, var(--wide));
+      margin: clamp(3rem, 7vw, 5.5rem) 50% 0;
+      transform: translateX(-50%);
+    }
+
+    .figure-shell {
+      position: relative;
+      padding: clamp(1.1rem, 3vw, 2.2rem);
+      overflow: hidden;
+      border: 1px solid var(--figure-rule);
+      background: var(--figure-bg);
+    }
+
+    .figure-shell::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-top: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
+      content: "";
+    }
+
+    .figure-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: clamp(1.4rem, 3vw, 2.5rem);
+      padding-bottom: .9rem;
+      border-bottom: 1px solid var(--figure-rule);
+    }
+
+    .figure-title {
+      margin: 0;
+      color: var(--heading);
+      font-family: var(--mono-font);
+      font-size: .79rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .comparison-chart-shell {
+      width: 100%;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-color: var(--rule-strong) transparent;
+      scrollbar-width: thin;
+    }
+
+    .comparison-chart-frame {
+      position: relative;
+      width: 100%;
+      min-width: 660px;
+    }
+
+    .comparison-chart {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .comparison-chart .grid-line {
+      stroke: var(--rule);
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .comparison-chart .axis-line {
+      stroke: var(--rule-strong);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .comparison-chart .plot-bg {
+      fill: url(#comparison-plot-gradient);
+      stroke: var(--figure-rule);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .comparison-chart .axis-label,
+    .comparison-chart .tick-label,
+    .comparison-chart .legend-label,
+    .comparison-chart .effort-label {
+      font-family: var(--mono-font);
+    }
+
+    .comparison-chart .axis-label {
+      fill: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .comparison-chart .tick-label,
+    .comparison-chart .legend-label {
+      fill: var(--ink-faint);
+      font-size: 11px;
+    }
+
+    .comparison-chart .effort-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .035em;
+      paint-order: stroke;
+      stroke: var(--figure-bg);
+      stroke-linejoin: round;
+      stroke-width: 5px;
+    }
+
+    .comparison-chart .effort-codex { fill: var(--codex); }
+    .comparison-chart .effort-original { fill: var(--accent-2); }
+    .comparison-chart .effort-v2 { fill: var(--accent); }
+
+    .comparison-chart .plot-direction {
+      fill: var(--accent);
+      font-family: var(--mono-font);
+      font-size: 10px;
+      font-weight: 680;
+      letter-spacing: .045em;
+    }
+
+    .comparison-chart .series-line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .comparison-chart .series-point {
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .comparison-chart .series-codex {
+      stroke: var(--codex);
+      stroke-dasharray: 7 6;
+      stroke-opacity: .82;
+    }
+    .comparison-chart .series-original { stroke: var(--accent-2); stroke-opacity: .9; }
+    .comparison-chart .series-v2 { stroke: var(--accent); stroke-width: 3.2; }
+    .comparison-chart .point-codex { fill: var(--figure-bg); stroke: var(--codex); }
+    .comparison-chart .point-original { fill: var(--figure-bg); stroke: var(--accent-2); }
+    .comparison-chart .point-v2 { fill: var(--accent); stroke: var(--figure-bg); }
+
+    .comparison-chart .comparison-data-point {
+      cursor: pointer;
+      outline: none;
+      transition: filter .16s ease, stroke-width .16s ease;
+    }
+
+    .comparison-chart .comparison-data-point:hover,
+    .comparison-chart .comparison-data-point:focus-visible,
+    .comparison-chart .comparison-data-point[aria-expanded="true"] {
+      filter: drop-shadow(0 0 5px rgba(92, 240, 179, .48));
+      stroke-width: 4;
+    }
+
+    .chart-tooltip {
+      position: absolute;
+      z-index: 5;
+      width: max-content;
+      max-width: min(270px, calc(100% - 16px));
+      padding: .78rem .86rem .74rem;
+      border: 1px solid var(--figure-rule);
+      border-left: 3px solid var(--tooltip-accent, var(--accent));
+      background: rgba(4, 10, 9, .97);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, .42);
+      color: var(--heading);
+      font-size: .7rem;
+      line-height: 1.38;
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+
+    .chart-tooltip strong {
+      display: block;
+      margin-bottom: .22rem;
+      font-size: .76rem;
+      font-weight: 680;
+    }
+
+    .chart-tooltip span {
+      color: var(--ink-soft);
+      font-family: var(--mono-font);
+      font-size: .63rem;
+    }
+
+    .comparison-note,
+    figcaption {
+      max-width: 900px;
+      margin: .9rem auto 0;
+      color: var(--ink-faint);
+      font-family: var(--mono-font);
+      font-size: .68rem;
+      line-height: 1.55;
+    }
+
+    .comparison-scroll-hint { display: none; }
+
+    .method-image-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-color: var(--rule-strong) transparent;
+      scrollbar-width: thin;
+    }
+
+    .method-image-frame { min-width: 660px; }
+
+    .method-image-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .results-table-wrap {
+      width: min(100vw - 48px, var(--wide));
+      margin: clamp(2.5rem, 6vw, 4.5rem) 50% 0;
+      overflow-x: auto;
+      border: 1px solid var(--figure-rule);
+      background: var(--figure-bg);
+      scrollbar-color: var(--rule-strong) transparent;
+      scrollbar-width: thin;
+      transform: translateX(-50%);
+    }
+
+    .results-table {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: collapse;
+      font-size: .84rem;
+      line-height: 1.45;
+    }
+
+    .results-table caption {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--figure-rule);
+      color: var(--ink-faint);
+      font-family: var(--mono-font);
+      font-size: .67rem;
+      text-align: left;
+    }
+
+    .results-table th,
+    .results-table td {
+      padding: 1rem 1.2rem;
+      border-right: 1px solid var(--figure-rule);
+      border-bottom: 1px solid var(--figure-rule);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .results-table tr > :last-child { border-right: 0; }
+    .results-table tbody tr:last-child > * { border-bottom: 0; }
+
+    .results-table thead th {
+      color: var(--ink-faint);
+      font-family: var(--mono-font);
+      font-size: .66rem;
+      font-weight: 650;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .results-table thead .effort-group {
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    .results-table thead tr + tr th {
+      padding-block: .7rem;
+      font-size: .6rem;
+      text-align: right;
+    }
+
+    .results-table tbody th {
+      min-width: 150px;
+      color: var(--heading);
+      font-weight: 650;
+    }
+
+    .results-table .v2-row { background: rgba(92, 240, 179, .045); }
+    .results-table .v2-row th { color: var(--accent); }
+
+    .results-table td {
+      color: var(--heading);
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-weight: 400;
+    }
+
+    .results-table .best-value {
+      font-weight: 750;
+    }
+
+    .table-scroll-hint { display: none; }
+
+    .code-links {
+      display: grid;
+      margin: 2.4rem 0;
+      padding: 0;
+      border-block: 1px solid var(--rule-strong);
+      list-style: none;
+    }
+
+    .code-links li + li { border-top: 1px solid var(--rule); }
+
+    .code-links a {
+      display: grid;
+      gap: .34rem;
+      padding: 1.15rem 0;
+      text-decoration: none;
+    }
+
+    .code-links a:hover .code-link-title { color: var(--accent); }
+
+    .code-link-title {
+      color: var(--heading);
+      font-weight: 650;
+      transition: color .16s ease;
+    }
+
+    .code-link-path {
+      overflow-wrap: anywhere;
+      color: var(--ink-faint);
+      font-family: var(--mono-font);
+      font-size: .68rem;
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      width: min(calc(100% - 48px), var(--page-max));
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-faint);
+      font-family: var(--mono-font);
+      font-size: .68rem;
+    }
+
+    .site-footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem 1.3rem;
+      margin-left: auto;
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 16.5px; }
+      .site-header { min-height: 64px; padding-inline: 16px; }
+      .site-actions { gap: .7rem; }
+      .hero, .article-shell, .site-footer { width: calc(100% - 32px); }
+      .hero::before { right: -45%; width: 430px; height: 430px; }
+      .hero h1 { font-size: clamp(2.05rem, 9.4vw, 2.8rem); }
+      .wide-figure { width: calc(100vw - 32px); }
+      .results-table-wrap { width: calc(100vw - 32px); }
+      .figure-shell { padding-inline: .8rem; }
+      .comparison-scroll-hint {
+        display: block;
+        margin: .45rem 0 0;
+        color: var(--accent);
+        font-family: var(--mono-font);
+        font-size: .62rem;
+        text-align: right;
+      }
+      .content-section .table-scroll-hint {
+        display: block;
+        width: calc(100vw - 32px);
+        margin: .45rem 50% 0;
+        color: var(--accent);
+        font-family: var(--mono-font);
+        font-size: .62rem;
+        text-align: right;
+        transform: translateX(-50%);
+      }
+      .site-footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      .site-actions { display: none; }
+      body { background: white; color: black; font-size: 11pt; }
+      .wide-figure,
+      .results-table-wrap { width: 100%; margin-inline: 0; transform: none; }
+      a { text-decoration: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#article">Skip to the article</a>
+
+  <header class="site-header">
+    <nav class="site-actions" aria-label="Project links">
+      <a href="https://arxiv.org/abs/2605.12493">Paper</a>
+      <a href="https://github.com/xiaowu0162/LongMemEval-V2/">Code</a>
+    </nav>
+  </header>
+
+  <main id="article">
+    <header class="hero">
+      <p class="eyebrow">LongMemEval-V2 · Research update</p>
+      <h1>AgentRunbook-C V2: a self-improving lightweight memory controller</h1>
+      <div class="hero-meta">
+        <span><a href="https://linkedin.com/in/zixiang-ji-56902624b">Zixiang Ji</a> and <a href="https://xiaowu0162.github.io/">Di Wu</a></span>
+      </div>
+    </header>
+
+    <div class="article-shell">
+      <article class="article-body">
+        <section aria-label="Headline result">
+          <p class="headline-statement">We introduce AgentRunbook-C V2, a faster and smarter memory controller, especially in low-reasoning regimes.</p>
+          <ul class="performance-points">
+            <li>At medium reasoning with GPT-5.4-mini, AgentRunbook-C V2 improves accuracy by <strong>1.76 percentage points (2.5% relative)</strong> over AgentRunbook-C while being <strong>33.8% faster</strong>.</li>
+            <li>Compared with off-the-shelf Codex at the same setting, AgentRunbook-C V2 is <strong>5.56 points (8.4% relative) more accurate</strong> while being <strong>64.4% faster</strong>.</li>
+          </ul>
+
+          <figure class="wide-figure" aria-labelledby="comparison-title">
+            <div class="figure-shell">
+              <div class="figure-header">
+                <h3 class="figure-title" id="comparison-title">Codex, AgentRunbook-C, and AgentRunbook-C V2</h3>
+              </div>
+
+              <div class="comparison-chart-shell">
+                <div class="comparison-chart-frame">
+                  <svg class="comparison-chart" viewBox="0 0 900 455" role="img" aria-labelledby="comparison-chart-title comparison-chart-desc">
+                    <title id="comparison-chart-title">Accuracy versus latency for Codex, AgentRunbook-C, and AgentRunbook-C V2</title>
+                    <desc id="comparison-chart-desc">A line chart plots average memory-query latency in seconds on the horizontal axis and accuracy in percent on the vertical axis. Codex, AgentRunbook-C, and AgentRunbook-C V2 each have low, medium, and xhigh reasoning-effort points.</desc>
+
+                    <defs>
+                      <linearGradient id="comparison-plot-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#10221d" stop-opacity=".92" />
+                        <stop offset="52%" stop-color="#091310" stop-opacity=".86" />
+                        <stop offset="100%" stop-color="#171326" stop-opacity=".82" />
+                      </linearGradient>
+                    </defs>
+
+                    <g>
+                      <line class="series-line series-codex" x1="160" y1="30" x2="188" y2="30" />
+                      <polygon class="series-point point-codex" points="174,24 180,35 168,35" />
+                      <text class="legend-label" x="196" y="34">Codex</text>
+                      <line class="series-line series-original" x1="328" y1="30" x2="356" y2="30" />
+                      <circle class="series-point point-original" cx="342" cy="30" r="4.5" />
+                      <text class="legend-label" x="364" y="34">V1</text>
+                      <line class="series-line series-v2" x1="568" y1="30" x2="596" y2="30" />
+                      <rect class="series-point point-v2" x="577.5" y="25.5" width="9" height="9" rx="1" transform="rotate(45 582 30)" />
+                      <text class="legend-label" x="604" y="34">V2</text>
+
+                      <text class="plot-direction" x="100" y="64">↖ HIGHER ACCURACY · LOWER LATENCY</text>
+                      <rect class="plot-bg" x="100" y="80" width="740" height="310" rx="2" />
+
+                      <line class="grid-line" x1="100" y1="390" x2="840" y2="390" />
+                      <line class="grid-line" x1="100" y1="340" x2="840" y2="340" />
+                      <line class="grid-line" x1="100" y1="290" x2="840" y2="290" />
+                      <line class="grid-line" x1="100" y1="240" x2="840" y2="240" />
+                      <line class="grid-line" x1="100" y1="190" x2="840" y2="190" />
+                      <line class="grid-line" x1="100" y1="140" x2="840" y2="140" />
+                      <line class="grid-line" x1="100" y1="90" x2="840" y2="90" />
+                      <line class="grid-line" x1="100" y1="80" x2="100" y2="390" />
+                      <line class="grid-line" x1="285" y1="80" x2="285" y2="390" />
+                      <line class="grid-line" x1="470" y1="80" x2="470" y2="390" />
+                      <line class="grid-line" x1="655" y1="80" x2="655" y2="390" />
+                      <line class="grid-line" x1="840" y1="80" x2="840" y2="390" />
+                      <line class="axis-line" x1="100" y1="80" x2="100" y2="390" />
+                      <line class="axis-line" x1="100" y1="390" x2="840" y2="390" />
+
+                      <text class="tick-label" x="86" y="394" text-anchor="end">45</text>
+                      <text class="tick-label" x="86" y="344" text-anchor="end">50</text>
+                      <text class="tick-label" x="86" y="294" text-anchor="end">55</text>
+                      <text class="tick-label" x="86" y="244" text-anchor="end">60</text>
+                      <text class="tick-label" x="86" y="194" text-anchor="end">65</text>
+                      <text class="tick-label" x="86" y="144" text-anchor="end">70</text>
+                      <text class="tick-label" x="86" y="94" text-anchor="end">75</text>
+                      <text class="tick-label" x="100" y="414" text-anchor="middle">0</text>
+                      <text class="tick-label" x="285" y="414" text-anchor="middle">50</text>
+                      <text class="tick-label" x="470" y="414" text-anchor="middle">100</text>
+                      <text class="tick-label" x="655" y="414" text-anchor="middle">150</text>
+                      <text class="tick-label" x="840" y="414" text-anchor="middle">200</text>
+                      <text class="axis-label" x="470" y="440" text-anchor="middle">Average memory-query latency (seconds)</text>
+                      <text class="axis-label" x="30" y="235" text-anchor="middle" transform="rotate(-90 30 235)">Accuracy (%)</text>
+
+                      <polyline class="series-line series-codex" points="451.5,367 581,175 755.6,141" />
+                      <polyline class="series-line series-original" points="329.4,180 359,137 500.7,91" />
+                      <polyline class="series-line series-v2" points="187.1,179.2 271.3,119.4 529.2,95" />
+
+                      <text class="effort-label effort-codex" x="463" y="360">LOW</text>
+                      <text class="effort-label effort-codex" x="592" y="168">MEDIUM</text>
+                      <text class="effort-label effort-codex" x="744" y="130" text-anchor="end">XHIGH</text>
+                      <text class="effort-label effort-original" x="339" y="198">LOW</text>
+                      <text class="effort-label effort-original" x="370" y="132">MEDIUM</text>
+                      <text class="effort-label effort-original" x="488" y="83" text-anchor="end">XHIGH</text>
+                      <text class="effort-label effort-v2" x="175" y="170" text-anchor="end">LOW</text>
+                      <text class="effort-label effort-v2" x="260" y="111" text-anchor="end">MEDIUM</text>
+                      <text class="effort-label effort-v2" x="542" y="112">XHIGH</text>
+
+                      <g>
+                        <polygon class="series-point point-codex comparison-data-point" points="451.5,361 458,373 445,373" tabindex="0" role="button" data-system="Codex" data-effort="Low" data-accuracy="47.30%" data-latency="95.00s" aria-label="Off-the-shelf Codex, low reasoning effort: 47.30 percent accuracy at 95.00 seconds latency"><title>Codex · Low · 47.30% accuracy · 95.00s latency</title></polygon>
+                        <polygon class="series-point point-codex comparison-data-point" points="581,169 587.5,181 574.5,181" tabindex="0" role="button" data-system="Codex" data-effort="Medium" data-accuracy="66.50%" data-latency="130.00s" aria-label="Off-the-shelf Codex, medium reasoning effort: 66.50 percent accuracy at 130.00 seconds latency"><title>Codex · Medium · 66.50% accuracy · 130.00s latency</title></polygon>
+                        <polygon class="series-point point-codex comparison-data-point" points="755.6,135 762.1,147 749.1,147" tabindex="0" role="button" data-system="Codex" data-effort="Xhigh" data-accuracy="69.90%" data-latency="177.20s" aria-label="Off-the-shelf Codex, xhigh reasoning effort: 69.90 percent accuracy at 177.20 seconds latency"><title>Codex · Xhigh · 69.90% accuracy · 177.20s latency</title></polygon>
+                        <circle class="series-point point-original comparison-data-point" cx="329.4" cy="180" r="5" tabindex="0" role="button" data-system="AgentRunbook-C" data-effort="Low" data-accuracy="66.00%" data-latency="62.00s" aria-label="AgentRunbook-C, low reasoning effort: 66.00 percent accuracy at 62.00 seconds latency"><title>AgentRunbook-C · Low · 66.00% accuracy · 62.00s latency</title></circle>
+                        <circle class="series-point point-original comparison-data-point" cx="359" cy="137" r="5" tabindex="0" role="button" data-system="AgentRunbook-C" data-effort="Medium" data-accuracy="70.30%" data-latency="70.00s" aria-label="AgentRunbook-C, medium reasoning effort: 70.30 percent accuracy at 70.00 seconds latency"><title>AgentRunbook-C · Medium · 70.30% accuracy · 70.00s latency</title></circle>
+                        <circle class="series-point point-original comparison-data-point" cx="500.7" cy="91" r="5" tabindex="0" role="button" data-system="AgentRunbook-C" data-effort="Xhigh" data-accuracy="74.90%" data-latency="108.30s" aria-label="AgentRunbook-C, xhigh reasoning effort: 74.90 percent accuracy at 108.30 seconds latency"><title>AgentRunbook-C · Xhigh · 74.90% accuracy · 108.30s latency</title></circle>
+                        <rect class="series-point point-v2 comparison-data-point" x="182.1" y="174.2" width="10" height="10" rx="1" transform="rotate(45 187.1 179.2)" tabindex="0" role="button" data-system="AgentRunbook-C V2" data-effort="Low" data-accuracy="66.08%" data-latency="23.55s" aria-label="AgentRunbook-C V2, low reasoning effort: 66.08 percent accuracy at 23.55 seconds latency"><title>AgentRunbook-C V2 · Low · 66.08% accuracy · 23.55s latency</title></rect>
+                        <rect class="series-point point-v2 comparison-data-point" x="266.3" y="114.4" width="10" height="10" rx="1" transform="rotate(45 271.3 119.4)" tabindex="0" role="button" data-system="AgentRunbook-C V2" data-effort="Medium" data-accuracy="72.06%" data-latency="46.31s" aria-label="AgentRunbook-C V2, medium reasoning effort: 72.06 percent accuracy at 46.31 seconds latency"><title>AgentRunbook-C V2 · Medium · 72.06% accuracy · 46.31s latency</title></rect>
+                        <rect class="series-point point-v2 comparison-data-point" x="524.2" y="90" width="10" height="10" rx="1" transform="rotate(45 529.2 95)" tabindex="0" role="button" data-system="AgentRunbook-C V2" data-effort="Xhigh" data-accuracy="74.50%" data-latency="116.01s" aria-label="AgentRunbook-C V2, xhigh reasoning effort: 74.50 percent accuracy at 116.01 seconds latency"><title>AgentRunbook-C V2 · Xhigh · 74.50% accuracy · 116.01s latency</title></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <p class="comparison-scroll-hint" aria-hidden="true">Scroll horizontally to inspect all points →</p>
+              <p class="comparison-note">LME-V2-Small · GPT-5.4-mini · online memory-query latency. Hover, focus, or tap a point for exact values.</p>
+            </div>
+          </figure>
+        </section>
+
+        <section class="content-section" id="lightweight-harness" aria-labelledby="lightweight-harness-title">
+          <p class="section-kicker">01 / Lightweight harness</p>
+          <h2 id="lightweight-harness-title">A simpler memory controller harness</h2>
+          <p class="lead">AgentRunbook-C delivered a large latency improvement over a vanilla, off-the-shelf Codex setup. As model capabilities improved, we began questioning <a href="https://www.trainloop.ai/research/mercor">how much orchestration these retrieval tasks actually required</a>. As memory controller agents are dominated by file search and file reading, we test a much leaner design built around only two core tools: a <b>shell tool</b> for search and execution, and a <b>file editor</b> for persistent updates.</p>
+          <p>The result is AgentRunbook-C V2, implemented with the <a href="https://github.com/openai/openai-agents-python">OpenAI Agents SDK</a>. Its purpose-built execution layer preserves the active file search and state inspection that make AgentRunbook-C effective, while substantially reducing latency at the low and medium reasoning settings. We evaluated the lightweight harness with the latest efficient model, GPT-5.6 Luna. Because Luna's low- and medium-effort latencies are similar for V1 and V2, Figure 02 omits the low-effort points.</p>
+          <ul class="performance-points">
+            <li>At medium reasoning, V2 reaches <strong>66.52% accuracy at 24.72 seconds</strong>, compared with 68.29% at 62.71 seconds for V1 and 64.97% at 98.88 seconds for off-the-shelf Codex.</li>
+            <li>At xhigh reasoning, V2 reaches <strong>75.17% accuracy at 48.94 seconds</strong>, compared with 73.61% at 101.83 seconds for V1 and 73.39% at 155.51 seconds for off-the-shelf Codex.</li>
+          </ul>
+
+          <figure class="wide-figure" aria-labelledby="luna-comparison-title">
+            <div class="figure-shell">
+              <div class="figure-header">
+                <h3 class="figure-title" id="luna-comparison-title">LME-V2 Small Performance (GPT-5.6 Luna)</h3>
+              </div>
+
+              <div class="comparison-chart-shell">
+                <div class="comparison-chart-frame">
+                  <svg class="comparison-chart" viewBox="0 0 900 455" role="img" aria-labelledby="luna-chart-title luna-chart-desc">
+                    <title id="luna-chart-title">LME-V2 Small performance with GPT-5.6 Luna</title>
+                    <desc id="luna-chart-desc">Accuracy versus online memory-query latency for AgentRunbook-C V1, AgentRunbook-C V2, and off-the-shelf Codex at medium and xhigh reasoning effort. Low-effort points are omitted.</desc>
+
+                    <defs>
+                      <linearGradient id="luna-plot-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#10221d" stop-opacity=".92" />
+                        <stop offset="52%" stop-color="#091310" stop-opacity=".86" />
+                        <stop offset="100%" stop-color="#171326" stop-opacity=".82" />
+                      </linearGradient>
+                    </defs>
+
+                    <g>
+                      <line class="series-line series-original" x1="260" y1="30" x2="288" y2="30" />
+                      <circle class="series-point point-original" cx="274" cy="30" r="4.5" />
+                      <text class="legend-label" x="296" y="34">V1</text>
+                      <line class="series-line series-v2" x1="400" y1="30" x2="428" y2="30" />
+                      <rect class="series-point point-v2" x="409.5" y="25.5" width="9" height="9" rx="1" transform="rotate(45 414 30)" />
+                      <text class="legend-label" x="436" y="34">V2</text>
+                      <line class="series-line series-codex" x1="540" y1="30" x2="568" y2="30" />
+                      <polygon class="series-point point-codex" points="554,24 560,35 548,35" />
+                      <text class="legend-label" x="576" y="34">Codex</text>
+
+                      <text class="plot-direction" x="100" y="64">↖ HIGHER ACCURACY · LOWER LATENCY</text>
+                      <rect class="plot-bg" x="100" y="80" width="740" height="310" rx="2" style="fill:url(#luna-plot-gradient)" />
+
+                      <line class="grid-line" x1="100" y1="390" x2="840" y2="390" />
+                      <line class="grid-line" x1="100" y1="338.3" x2="840" y2="338.3" />
+                      <line class="grid-line" x1="100" y1="286.7" x2="840" y2="286.7" />
+                      <line class="grid-line" x1="100" y1="235" x2="840" y2="235" />
+                      <line class="grid-line" x1="100" y1="183.3" x2="840" y2="183.3" />
+                      <line class="grid-line" x1="100" y1="131.7" x2="840" y2="131.7" />
+                      <line class="grid-line" x1="100" y1="80" x2="840" y2="80" />
+                      <line class="grid-line" x1="100" y1="80" x2="100" y2="390" />
+                      <line class="grid-line" x1="285" y1="80" x2="285" y2="390" />
+                      <line class="grid-line" x1="470" y1="80" x2="470" y2="390" />
+                      <line class="grid-line" x1="655" y1="80" x2="655" y2="390" />
+                      <line class="grid-line" x1="840" y1="80" x2="840" y2="390" />
+                      <line class="axis-line" x1="100" y1="80" x2="100" y2="390" />
+                      <line class="axis-line" x1="100" y1="390" x2="840" y2="390" />
+
+                      <text class="tick-label" x="86" y="394" text-anchor="end">64</text>
+                      <text class="tick-label" x="86" y="342.3" text-anchor="end">66</text>
+                      <text class="tick-label" x="86" y="290.7" text-anchor="end">68</text>
+                      <text class="tick-label" x="86" y="239" text-anchor="end">70</text>
+                      <text class="tick-label" x="86" y="187.3" text-anchor="end">72</text>
+                      <text class="tick-label" x="86" y="135.7" text-anchor="end">74</text>
+                      <text class="tick-label" x="86" y="84" text-anchor="end">76</text>
+                      <text class="tick-label" x="100" y="414" text-anchor="middle">0</text>
+                      <text class="tick-label" x="285" y="414" text-anchor="middle">40</text>
+                      <text class="tick-label" x="470" y="414" text-anchor="middle">80</text>
+                      <text class="tick-label" x="655" y="414" text-anchor="middle">120</text>
+                      <text class="tick-label" x="840" y="414" text-anchor="middle">160</text>
+                      <text class="axis-label" x="470" y="440" text-anchor="middle">Average memory-query latency (seconds)</text>
+                      <text class="axis-label" x="30" y="235" text-anchor="middle" transform="rotate(-90 30 235)">Accuracy (%)</text>
+
+                      <polyline class="series-line series-original" points="390,279.2 571,141.7" />
+                      <polyline class="series-line series-v2" points="214.3,324.9 326.3,101.4" />
+                      <polyline class="series-line series-codex" points="557.3,364.9 819.2,147.4" />
+
+                      <text class="effort-label effort-original" x="401" y="272">MEDIUM</text>
+                      <text class="effort-label effort-original" x="559" y="132" text-anchor="end">XHIGH</text>
+                      <text class="effort-label effort-v2" x="203" y="317" text-anchor="end">MEDIUM</text>
+                      <text class="effort-label effort-v2" x="338" y="95">XHIGH</text>
+                      <text class="effort-label effort-codex" x="568" y="357">MEDIUM</text>
+                      <text class="effort-label effort-codex" x="807" y="137" text-anchor="end">XHIGH</text>
+
+                      <g>
+                        <circle class="series-point point-original comparison-data-point" cx="390" cy="279.2" r="5" tabindex="0" role="button" data-system="V1" data-effort="Medium" data-accuracy="68.29%" data-latency="62.71s" aria-label="AgentRunbook-C V1 with GPT-5.6 Luna, medium reasoning effort: 68.29 percent accuracy at 62.71 seconds latency"><title>V1 · Medium · 68.29% accuracy · 62.71s latency</title></circle>
+                        <circle class="series-point point-original comparison-data-point" cx="571" cy="141.7" r="5" tabindex="0" role="button" data-system="V1" data-effort="Xhigh" data-accuracy="73.61%" data-latency="101.83s" aria-label="AgentRunbook-C V1 with GPT-5.6 Luna, xhigh reasoning effort: 73.61 percent accuracy at 101.83 seconds latency"><title>V1 · Xhigh · 73.61% accuracy · 101.83s latency</title></circle>
+                        <rect class="series-point point-v2 comparison-data-point" x="209.3" y="319.9" width="10" height="10" rx="1" transform="rotate(45 214.3 324.9)" tabindex="0" role="button" data-system="V2" data-effort="Medium" data-accuracy="66.52%" data-latency="24.72s" aria-label="AgentRunbook-C V2 with GPT-5.6 Luna, medium reasoning effort: 66.52 percent accuracy at 24.72 seconds latency"><title>V2 · Medium · 66.52% accuracy · 24.72s latency</title></rect>
+                        <rect class="series-point point-v2 comparison-data-point" x="321.3" y="96.4" width="10" height="10" rx="1" transform="rotate(45 326.3 101.4)" tabindex="0" role="button" data-system="V2" data-effort="Xhigh" data-accuracy="75.17%" data-latency="48.94s" aria-label="AgentRunbook-C V2 with GPT-5.6 Luna, xhigh reasoning effort: 75.17 percent accuracy at 48.94 seconds latency"><title>V2 · Xhigh · 75.17% accuracy · 48.94s latency</title></rect>
+                        <polygon class="series-point point-codex comparison-data-point" points="557.3,358.9 563.8,370.9 550.8,370.9" tabindex="0" role="button" data-system="Codex" data-effort="Medium" data-accuracy="64.97%" data-latency="98.88s" aria-label="Off-the-shelf Codex with GPT-5.6 Luna, medium reasoning effort: 64.97 percent accuracy at 98.88 seconds latency"><title>Codex · Medium · 64.97% accuracy · 98.88s latency</title></polygon>
+                        <polygon class="series-point point-codex comparison-data-point" points="819.2,141.4 825.7,153.4 812.7,153.4" tabindex="0" role="button" data-system="Codex" data-effort="Xhigh" data-accuracy="73.39%" data-latency="155.51s" aria-label="Off-the-shelf Codex with GPT-5.6 Luna, xhigh reasoning effort: 73.39 percent accuracy at 155.51 seconds latency"><title>Codex · Xhigh · 73.39% accuracy · 155.51s latency</title></polygon>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <p class="comparison-scroll-hint" aria-hidden="true">Scroll horizontally to inspect all points →</p>
+              <p class="comparison-note">LME-V2-Small · GPT-5.6 Luna · medium and xhigh reasoning only · online memory-query latency. Hover, focus, or tap a point for exact values.</p>
+            </div>
+          </figure>
+        </section>
+
+        <section class="content-section" id="retrieval-experience" aria-labelledby="retrieval-experience-title">
+          <p class="section-kicker">02 / Test-time learning</p>
+          <h2 id="retrieval-experience-title">Learning from retrieval experience</h2>
+          <p class="lead">Simplifying the harness exposed another source of inefficiency: although many questions followed similar retrieval patterns, the agent still <b>approached each one from scratch.</b> Trace analysis showed that experience could often transfer across questions: successful search strategies, useful file paths, and previously exhausted directions were all reusable.</p>
+          <p>To preserve and transfer useful retrieval experience, we introduced a <b>memory consolidation agent</b> powered by Codex. After each question, it extracts reusable retrieval experience and updates a persistent strategy note, which becomes part of the query-time sandbox. This creates a lightweight form of test-time online learning: the system improves through accumulated experience without access to labels.</p>
+
+          <figure class="wide-figure" aria-labelledby="learning-method-title">
+            <div class="figure-shell">
+              <div class="figure-header">
+                <h3 class="figure-title" id="learning-method-title">System Illustration</h3>
+              </div>
+              <div class="method-image-scroll">
+                <div class="method-image-frame">
+                  <img src="assets/method-overview.png" width="1672" height="941" loading="lazy" decoding="async" alt="System diagram comparing AgentRunbook-C V2 without online learning and AgentRunbook-C V2 Online with a Codex memory consolidation agent and shared strategy memory.">
+                </div>
+              </div>
+              <p class="comparison-scroll-hint" aria-hidden="true">Scroll horizontally to inspect the complete method →</p>
+            </div>
+            <figcaption>The complete memory workflow: retrieval, consolidation, and reuse of the updated strategy on the next question.</figcaption>
+          </figure>
+        </section>
+
+        <section class="content-section" id="putting-it-together" aria-labelledby="putting-it-together-title">
+          <p class="section-kicker">03 / Combined system</p>
+          <h2 id="putting-it-together-title">Putting it together</h2>
+          <p class="lead"><a href="https://github.com/openai/openai-agents-python">OpenAI Agents SDK</a> + online learning = <b>AgentRunbook-C V2</b>.</p>
+          <p>The lightweight harness reduces orchestration overhead, while the consolidation agent carries useful retrieval strategies forward to later questions. Together, V2 is substantially faster at low and medium reasoning and reaches the highest accuracy at medium and xhigh.</p>
+
+          <div class="results-table-wrap">
+            <table class="results-table">
+              <caption>LME-V2-Small · GPT-5.4-mini · accuracy and average online memory-query latency</caption>
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">System</th>
+                  <th class="effort-group" scope="colgroup" colspan="2">Low</th>
+                  <th class="effort-group" scope="colgroup" colspan="2">Medium</th>
+                  <th class="effort-group" scope="colgroup" colspan="2">Xhigh</th>
+                </tr>
+                <tr>
+                  <th scope="col">Accuracy</th>
+                  <th scope="col">Latency</th>
+                  <th scope="col">Accuracy</th>
+                  <th scope="col">Latency</th>
+                  <th scope="col">Accuracy</th>
+                  <th scope="col">Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Codex</th>
+                  <td>47.30%</td>
+                  <td class="latency-cell">95.00s</td>
+                  <td>66.50%</td>
+                  <td class="latency-cell">130.00s</td>
+                  <td>69.90%</td>
+                  <td class="latency-cell">177.20s</td>
+                </tr>
+                <tr>
+                  <th scope="row">V1</th>
+                  <td><strong class="best-value">66.00%</strong></td>
+                  <td class="latency-cell">62.00s</td>
+                  <td>70.30%</td>
+                  <td class="latency-cell">70.00s</td>
+                  <td>74.90%</td>
+                  <td class="latency-cell"><strong class="best-value">108.30s</strong></td>
+                </tr>
+                <tr class="v2-row">
+                  <th scope="row">V2</th>
+                  <td>65.41%</td>
+                  <td class="latency-cell"><strong class="best-value">26.11s</strong></td>
+                  <td><strong class="best-value">72.73%</strong></td>
+                  <td class="latency-cell"><strong class="best-value">56.68s</strong></td>
+                  <td><strong class="best-value">75.61%</strong></td>
+                  <td class="latency-cell">130.54s</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-scroll-hint" aria-hidden="true">Scroll horizontally to inspect the complete table →</p>
+        </section>
+
+        <section class="content-section" id="code" aria-labelledby="code-title">
+          <p class="section-kicker">04 / Epilogue</p>
+          <h2 id="code-title">Explore the implementation</h2>
+          <p class="lead">AgentRunbook-C V2 is open source. The lightweight controller and its online-learning loop are available as separate, reusable implementations.</p>
+
+          <ul class="code-links">
+            <li>
+              <a href="https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_c_v2.py">
+                <span class="code-link-title">Main V2 implementation</span>
+                <code class="code-link-path">memory_modules/agentrunbook_c_v2.py</code>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_online_learning.py">
+                <span class="code-link-title">Online-learning implementation</span>
+                <code class="code-link-path">memory_modules/agentrunbook_online_learning.py</code>
+              </a>
+            </li>
+          </ul>
+
+          <p>Feel free to check out the implementation, contribute your own memory systems, and submit them to the <a href="https://github.com/xiaowu0162/LongMemEval-V2/tree/main/leaderboard">LongMemEval-V2 leaderboard</a>!</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="Footer links">
+      <a href="https://arxiv.org/abs/2605.12493">Paper</a>
+      <a href="https://github.com/xiaowu0162/LongMemEval-V2/">Repository</a>
+    </nav>
+  </footer>
+
+  <script>
+    (() => {
+      const frames = [...document.querySelectorAll('.comparison-chart-frame')];
+      if (!frames.length) return;
+
+      frames.forEach((frame, index) => {
+
+      const shell = frame.closest('.comparison-chart-shell');
+      const tooltip = document.createElement('div');
+      const tooltipTitle = document.createElement('strong');
+      const tooltipValue = document.createElement('span');
+      const points = [...frame.querySelectorAll('.comparison-data-point')];
+      let active = null;
+      let pinned = null;
+
+      tooltip.id = `comparison-line-tooltip-${index + 1}`;
+      tooltip.className = 'chart-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+      tooltip.append(tooltipTitle, tooltipValue);
+      frame.append(tooltip);
+
+      const positionTooltip = () => {
+        if (!active || tooltip.hidden) return;
+        const frameRect = frame.getBoundingClientRect();
+        const pointRect = active.getBoundingClientRect();
+        const pointX = pointRect.left - frameRect.left + pointRect.width / 2;
+        const pointY = pointRect.top - frameRect.top + pointRect.height / 2;
+        const viewportLeft = shell.scrollLeft;
+        const margin = 8;
+        const left = Math.min(
+          viewportLeft + shell.clientWidth - tooltip.offsetWidth / 2 - margin,
+          Math.max(viewportLeft + tooltip.offsetWidth / 2 + margin, pointX)
+        );
+        const above = pointY - tooltip.offsetHeight - 14;
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${above >= margin ? above : pointY + 14}px`;
+      };
+
+      const show = point => {
+        if (active && active !== point) active.setAttribute('aria-expanded', 'false');
+        active = point;
+        point.setAttribute('aria-expanded', 'true');
+        tooltipTitle.textContent = `${point.dataset.accuracy} accuracy`;
+        tooltipValue.textContent = `${point.dataset.latency} latency`;
+        tooltip.style.setProperty(
+          '--tooltip-accent',
+          point.dataset.system === 'AgentRunbook-C V2' || point.dataset.system === 'V2'
+            ? 'var(--accent)'
+            : point.dataset.system === 'Codex'
+              ? 'var(--codex)'
+              : 'var(--accent-2)'
+        );
+        tooltip.hidden = false;
+        positionTooltip();
+      };
+
+      const hide = () => {
+        if (active) active.setAttribute('aria-expanded', 'false');
+        active = null;
+        tooltip.hidden = true;
+      };
+
+      points.forEach(point => {
+        const fallbackTitle = point.querySelector('title');
+        if (fallbackTitle) fallbackTitle.remove();
+        point.setAttribute('aria-describedby', tooltip.id);
+        point.setAttribute('aria-expanded', 'false');
+        point.addEventListener('mouseenter', () => { if (!pinned) show(point); });
+        point.addEventListener('mouseleave', () => {
+          if (!pinned && active === point && document.activeElement !== point) hide();
+        });
+        point.addEventListener('focus', () => {
+          if (pinned && pinned !== point) pinned = null;
+          show(point);
+        });
+        point.addEventListener('blur', () => {
+          if (pinned !== point && active === point) hide();
+        });
+        point.addEventListener('click', event => {
+          event.stopPropagation();
+          if (pinned === point) {
+            pinned = null;
+            hide();
+            return;
+          }
+          pinned = point;
+          show(point);
+        });
+      });
+
+      frame.addEventListener('click', event => {
+        if (event.target.closest('.comparison-data-point')) return;
+        pinned = null;
+        hide();
+      });
+      shell.addEventListener('scroll', positionTooltip, { passive: true });
+      document.addEventListener('pointerdown', event => {
+        if (frame.contains(event.target)) return;
+        pinned = null;
+        hide();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        pinned = null;
+        hide();
+      });
+
+      if ('ResizeObserver' in window) new ResizeObserver(positionTooltip).observe(frame);
+      });
+    })();
+  </script>
+</body>
+</html>
