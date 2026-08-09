@@ -184,6 +184,61 @@ const leaderboardEntries = [
     mediumGotchasValue: 44.9,
     lafsGain: null,
   },
+  {
+    system: "OPS-Agentic-Memory-v1",
+    family: "Coding agent",
+    tiers: ["small"],
+    smallAccuracy: "81.4%",
+    smallLatency: "153.6s",
+    smallStatic: "87.8%",
+    smallDynamic: "81.1%",
+    smallProcedure: "76.4%",
+    smallGotchas: "58.6%",
+    smallAccuracyValue: 81.37472283813747,
+    smallLatencyValue: 153.63720432745492,
+    smallStaticValue: 87.83068783068783,
+    smallDynamicValue: 81.10236220472441,
+    smallProcedureValue: 76.41509433962264,
+    smallGotchasValue: 58.62068965517241,
+    lafsGain: 0.32227885581633586,
+  },
+  {
+    system: "Perpetual Recall V3",
+    family: "Hybrid retrieval",
+    tiers: ["small"],
+    smallAccuracy: "53.2%",
+    smallLatency: "1.96s",
+    smallStatic: "58.2%",
+    smallDynamic: "46.5%",
+    smallProcedure: "56.6%",
+    smallGotchas: "37.9%",
+    smallAccuracyValue: 53.2150776053215,
+    smallLatencyValue: 1.9575045172992667,
+    smallStaticValue: 58.2010582010582,
+    smallDynamicValue: 46.45669291338583,
+    smallProcedureValue: 56.60377358490566,
+    smallGotchasValue: 37.93103448275862,
+    lafsGain: 1.0955389462894232,
+  },
+  {
+    system: "AgentRunbook-C v2 Online",
+    family: "Coding agent + online learning",
+    tiers: ["small"],
+    url: "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_c_v2.py",
+    smallAccuracy: "75.6%",
+    smallLatency: "130.5s",
+    smallStatic: "-",
+    smallDynamic: "-",
+    smallProcedure: "-",
+    smallGotchas: "-",
+    smallAccuracyValue: 75.60975609756098,
+    smallLatencyValue: 130.5406,
+    smallStaticValue: null,
+    smallDynamicValue: null,
+    smallProcedureValue: null,
+    smallGotchasValue: null,
+    lafsGain: 2.8231,
+  },
 ];
 
 leaderboardEntries.forEach((entry, index) => {
@@ -272,14 +327,12 @@ function normalizeIndex(index, length) {
   return ((index % length) + length) % length;
 }
 
-function formatMetric(value, suffix = "") {
+function formatLafsGain(value) {
   if (value === null || value === undefined || value === "") {
     return "-";
   }
-  return `${Number(value).toLocaleString(undefined, {
-    maximumFractionDigits: 2,
-    minimumFractionDigits: 0,
-  })}${suffix}`;
+  const numericValue = Number(value);
+  return `${numericValue > 0 ? "+" : ""}${numericValue.toFixed(4)}`;
 }
 
 function currentPageLink() {
@@ -538,14 +591,18 @@ function renderLeaderboardTier(tier) {
     return;
   }
 
-  if (leaderboardEntries.length === 0) {
+  const tierEntries = leaderboardEntries.filter(
+    (entry) => !entry.tiers || entry.tiers.includes(tier),
+  );
+
+  if (tierEntries.length === 0) {
     body.innerHTML = `<tr><td colspan="9">Leaderboard entries coming soon.</td></tr>`;
     return;
   }
 
   const { key: sortKey, direction } = state.leaderboardSort[tier];
   const metricKey = leaderboardMetricKey(tier, sortKey);
-  const sorted = [...leaderboardEntries].sort((left, right) => {
+  const sorted = [...tierEntries].sort((left, right) => {
     const diff = compareLeaderboardValues(left[metricKey], right[metricKey], direction);
     return Number.isFinite(diff) && diff !== 0 ? diff : left.order - right.order;
   });
@@ -556,7 +613,7 @@ function renderLeaderboardTier(tier) {
         <tr>
           <td><a href="${escapeHtml(entry.url || currentPageLink())}">${escapeHtml(entry.system)}</a></td>
           <td>${escapeHtml(entry.family)}</td>
-          <td>${escapeHtml(formatMetric(entry.lafsGain))}</td>
+          <td>${escapeHtml(formatLafsGain(entry.lafsGain))}</td>
           <td>${escapeHtml(entry[`${tier}Latency`])}</td>
           <td>${escapeHtml(entry[`${tier}Accuracy`])}</td>
           <td>${escapeHtml(entry[`${tier}Static`])}</td>
