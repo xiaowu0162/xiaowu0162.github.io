@@ -10,10 +10,10 @@ redirect_from:
 
 I am a fourth-year PhD candidate at University of California, Los Angeles (UCLA) advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/). Generally, I am interested in building trustworthy knowledge-augmented language models and agents. Specifically, I have been working on information retrieval, retrieval-augmented generation, and memory.
 
+I did my undergraduate studies at UCLA, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/).
+
 📣 **I am on the industry job market for 2026–2027. Please reach out if you think I am a good fit!**
 {: .notice--info}
-
-I did my undergraduate studies at UCLA, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/). 
 
 News
 ====
@@ -29,10 +29,10 @@ News
 <details>
 <summary>Show More News</summary>
 <ul>
-  <li>[2025/06] Started my research internship at Meta FAIR (NYC).
-  <li>[2025/05] Introducing [VisRet](https://xiaowu0162.github.io/visret/): imagine your query before retrieval. </li>
-  <li>[2025/04] Introducing [Self-Routing RAG](https://arxiv.org/abs/2504.01018): efficiently enabling an LLM to route between knowledge sources and to act as a knowledge source itself.</li>
-  <li>[2025/01] [LongMemEval](https://github.com/xiaowu0162/LongMemEval) is accepted by ICLR 2025.</li>
+  <li>[2025/06] Started my research internship at Meta FAIR (NYC).</li>
+  <li>[2025/05] Introducing <a href="https://xiaowu0162.github.io/visret/">VisRet</a>: imagine your query before retrieval.</li>
+  <li>[2025/04] Introducing <a href="https://arxiv.org/abs/2504.01018">Self-Routing RAG</a>: efficiently enabling an LLM to route between knowledge sources and to act as a knowledge source itself.</li>
+  <li>[2025/01] <a href="https://github.com/xiaowu0162/LongMemEval">LongMemEval</a> is accepted by ICLR 2025.</li>
   <li>[2025/01] <a href="https://github.com/JasonForJoy/BRIEF">BRIEF</a> is accepted by NAACL 2025 (Findings).</li>
   <li>[2024/10] Check out <a href="https://github.com/JasonForJoy/BRIEF">BRIEF</a>: multi-hop reasoning-aware context compression.</li>
   <li>[2024/10] Introducing <a href="https://github.com/xiaowu0162/LongMemEval">LongMemEval</a>: a comprehensive, challenging, and scalable benchmark for long-term memory.</li>
@@ -51,4 +51,4 @@ News
 </details>
 
 <br />
-<a href="https://clustrmaps.com/site/1bw2e" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=YEXbU0ztNHSLCXRZZYQ1EhkrUToe0dYoB34LhCgU-xU&cl=ffffff"></a>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=xiaowu0162.github.io" alt="Visitor count" />
