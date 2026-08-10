@@ -52,4 +52,4 @@ News
 </details>
 
 <br />
-<img src="https://visitor-badge.laobi.icu/badge?page_id=xiaowu0162.github.io" alt="Visitor count" />
+<a href="https://mapmyvisitors.com/web/1c7fc" title="Visit tracker"><img src="https://mapmyvisitors.com/map.png?d=DzEEn3qPzmklRD2TVo3QO_YYcEDXbZGS7gLOtEUF5LU&amp;cl=ffffff" alt="Visitor map" /></a>
