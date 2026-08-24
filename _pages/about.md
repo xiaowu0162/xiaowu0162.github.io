@@ -13,7 +13,7 @@ I am a fourth-year PhD candidate at University of California, Los Angeles (UCLA)
 I did my undergraduate studies at UCLA, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/).
 
 📣 I am on the industry job market for positions starting December 2026. Please reach out if you think I am a good fit!
-{: .notice--info .notice--body-text}
+{: .notice--info style="font-family: inherit; font-size: inherit !important; font-weight: inherit; line-height: inherit;"}
 
 News
 ====

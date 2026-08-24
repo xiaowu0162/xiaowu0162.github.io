@@ -97,11 +97,3 @@
 .notice--danger {
   @include notice($danger-color);
 }
-
-/* Notice variant that matches the surrounding page copy. */
-.notice--body-text {
-  font-family: inherit;
-  font-size: 1em !important;
-  font-weight: normal;
-  line-height: inherit;
-}
