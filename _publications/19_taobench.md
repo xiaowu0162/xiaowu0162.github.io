@@ -1,9 +1,10 @@
 ---
-title: "TaoBench: Do Automated Theorem Prover LLMs Generalize Beyond MathLib?"
+title: "TaoAnalysisBench: Do Automated Theorem Prover LLMs Generalize Beyond MathLib?"
 collection: publications
 Authors: 'Alexander K Taylor, Junyi Zhang, Ethan Ji, Vigyan Sahai, Haikang Deng, Yuanzhou Chen, Yifan Yuan, <b>Di Wu</b>, Jia-Chen Gu, Kai-Wei Chang, Nanyun Peng, Amit Sahai, Wei Wang.'
 date: 03/2026
-venue: 'arXiv'
+# Venue and final title: https://web.cs.ucla.edu/~kwchang/bibliography/taylor2026taobench/
+venue: 'EMNLP (Findings)'
 paperurl: 'https://arxiv.org/abs/2603.12744/'
 codeurl: ''
 excerpt: ''

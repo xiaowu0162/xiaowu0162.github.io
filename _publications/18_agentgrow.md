@@ -3,9 +3,10 @@ title: "LLMs as Scalable, General-Purpose Simulators For Evolving Digital Agent 
 collection: publications
 Authors: 'Yiming Wang, Da Yin, Yuedong Cui, Ruichen Zheng, Zhiqian Li, Zongyu Lin, <b>Di Wu</b>, Xueqing Wu, Chenchen Ye, Yu Zhou, and Kai-Wei Chang.'
 date: 10/2025
-venue: 'arXiv'
+# Workshop acceptance: https://sea-workshop.github.io/2025/
+venue: 'SEA Workshop at NeurIPS'
 paperurl: 'https://arxiv.org/abs/2510.14969/'
-codeurl: ''
+codeurl: 'https://github.com/WadeYin9712/UI-Simulator'
 excerpt: ''
 topic: 'llm'
 selected: 'false'

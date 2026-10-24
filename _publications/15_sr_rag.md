@@ -2,7 +2,7 @@
 title: "Self-Routing RAG: Binding Selective Retrieval with Knowledge Verbalization"
 collection: publications
 Authors: '<b>Di Wu*</b>, Jia-Chen Gu*, Kai-Wei Chang, and Nanyun Peng.'
-date: 04/2025
+date: 04/2026
 venue: 'AACL (Findings)'
 paperurl: 'https://arxiv.org/abs/2504.01018'
 codeurl: 'https://github.com/xiaowu0162/self-routing-rag'
