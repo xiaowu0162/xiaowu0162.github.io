@@ -13,8 +13,8 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2026/07).
 
 # Education
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
-    - Ph.D. Student in Computer Science<br/>
-    - Period of Study: September 2022 - present <br/>
+    - Ph.D. in Computer Science<br/>
+    - Period of Study: September 2022 - November 2026 <br/>
 
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
     - Bachelor of Science (B.Sc.) in Computer Science, <b>Summa Cum Laude</b> <a href="../files/bs_diploma.pdf">[Diploma]</a> <br/>
