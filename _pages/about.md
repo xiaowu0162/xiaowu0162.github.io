@@ -8,12 +8,12 @@ redirect_from:
   - /about.html
 ---
 
-I am a fourth-year PhD candidate at University of California, Los Angeles (UCLA) advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/). Generally, I am interested in building trustworthy knowledge-augmented language models and agents. Specifically, I have been working on information retrieval, retrieval-augmented generation, and memory.
+Currently, I work on autoresearch, memory, and agents.  
 
-I did my undergraduate studies at UCLA, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/).
+I recently received my Ph.D. from University of California, Los Angeles (UCLA) advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/). My [thesis](https://escholarship.org/content/qt3gj3t6ct/qt3gj3t6ct.pdf) focuses on building effective knowledge-augmented language models. Specifically, I have been working on information retrieval, retrieval-augmented generation, and memory.
 
-📣 I'm seeking industry roles starting **December 2026**. Please reach out if I might be a good fit! [[My CV](/files/CV_diwu.pdf)] [[LinkedIn](https://www.linkedin.com/in/di-wu-7ba602193/)]
-{: .notice--info style="font-family: inherit; font-size: inherit !important; font-weight: inherit; line-height: inherit;"}
+I did my undergraduate studies at UCLA as well, where I researched on image translation and registration for [virtual histology](https://www.nature.com/articles/s41377-021-00674-8) under the supervision of [Prof. Aydogan Ozcan](https://www.ee.ucla.edu/aydogan-ozcan/) and [Dr. Jingxi Li](https://www.linkedin.com/in/jingxi-li/).
+
 
 News
 ====
