@@ -17,6 +17,7 @@ I did my undergraduate studies at UCLA as well, where I researched on image tran
 
 News
 ====
+* [2026/11] Graduated from UCLA with a Ph.D. in Computer Science! Thesis: *Integrating Language Models with Evolving External Knowledge*. [[thesis](https://escholarship.org/content/qt3gj3t6ct/qt3gj3t6ct.pdf)] [[defense slides](/files/diwu_phd_defense_slides.pdf)]
 * [2026/10] Introducing [OpenVLHarness](https://openvlharness.github.io/): equipping multimodal models with visual tools and persistent multimodal memory.
 * [2026/08] Giving a talk at WashU. [[slides](https://drive.google.com/file/d/1UKoVn75Lp0N2a5g4y4Zuzswu2tycmu0N/view?usp=sharing)]
 * [2026/08] Checkout [AgentRunbook-C V2](https://xiaowu0162.github.io/longmemeval-v2/agentrunbook-c-v2/), an improved memory controller harness.
@@ -26,7 +27,7 @@ News
 * [2026/04] Introducing [Procedural Knowledge at Scale Improves Reasoning](https://xiaowu0162.github.io/reasoning-memory/): inducing a procedure knowledge datastore to facilitate future problem solving. 
 * [2026/03] Introducing [Open-Domain Safety Policy Construction](https://aclanthology.org/2026.findings-eacl.262/): automatically inducing policy datastores for niche domains.  
 * [2025/10] Check out our recent papers: [BRIEF-Pro](https://arxiv.org/abs/2510.13799) for context compression and [UI-Simulator](https://arxiv.org/abs/2510.14969) for agent training.
-* [2025/10] Check out our [long-term memory reading list](https://github.com/xiaowu0162/awesome-long-term-memory).
+* [2025/10] Check out our [long-term memory reading list](https://github.com/xiaowu0162/awesome-long-memory).
 
 <details>
 <summary>Show More News</summary>

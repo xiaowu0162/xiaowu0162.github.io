@@ -13,7 +13,8 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2026/07).
 
 # Education
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
-    - Ph.D. in Computer Science<br/>
+    - Ph.D. in Computer Science, advised by [Prof. Kai-Wei Chang](http://web.cs.ucla.edu/~kwchang/)<br/>
+    - Thesis: <i>Integrating Language Models with Evolving External Knowledge</i> <a href="https://escholarship.org/content/qt3gj3t6ct/qt3gj3t6ct.pdf" target="_blank">[Thesis]</a> <a href="/files/diwu_phd_defense_slides.pdf" target="_blank">[Defense Slides]</a><br/>
     - Period of Study: September 2022 - November 2026 <br/>
 
 * <span style="color:black; font-size:15px"><b><a href="https://cs.ucla.edu" target="_blank"><font color="brown" size="4">University of California, Los Angeles</font></a></b></span><br/>
@@ -25,6 +26,10 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2026/07).
     - Period of Study: September 2012 - July 2018 <br/>
 
 # Internship
+* <span style="color:black; font-size:15px"><b><a href="https://cloud.google.com/" target="_blank"><font color="brown" size="4">Google Cloud AI Research</font></a></b></span> (June 2026 – Sept. 2026)
+    - Student Researcher
+    - Mentors: Rujun Han, Yanfei Chen, and Chen-Yu Lee
+    - Research Topic: Continually Evolving Multi-Agent Systems.
 * <span style="color:black; font-size:15px"><b><a href="https://ai.meta.com/research/" target="_blank"><font color="brown" size="4">Meta FAIR</font></a></b></span> (June 2025 – Oct. 2025)
     - Research Scientist Intern under Communication & Language
     - Mentors: [Mingda Chen](https://mingdachen.github.io/), [Devendra Sachan](https://www.dsachan.com/), and [Scott Yih](https://scottyih.org/).
@@ -33,14 +38,14 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2026/07).
 * <span style="color:black; font-size:15px"><b><a href="https://ai.tencent.com/ailab/en/about/" target="_blank"><font color="brown" size="4">Tencent AI Lab</font></a></b></span> (June 2024 – Sept. 2024)
     - Research Intern, team <a href="https://arxiv.org/abs/2409.10277" target="_blank">Cognitive Kernel</a>
     - Mentors: [Hongwei Wang](https://hongweiw.net/) and [Wenhao Yu](https://wyu97.github.io/)
-    - Manager: [Dong Yu](https://sites.google.com/view/dongyu888/))
+    - Manager: [Dong Yu](https://sites.google.com/view/dongyu888/)
     - Research Topic: RAG and Memory. 
 * <span style="color:black; font-size:15px"><b><a href="https://www.amazon.science/" target="_blank"><font color="brown" size="4">AWS AI Labs</font></a></b></span> (June 2023 – Sept. 2023)
     - Applied Scientist Intern, team <a href="https://aws.amazon.com/codewhisperer/" target="_blank">CodeWhisperer</a>
     - Mentors: [Wasi Ahmad](https://wasiahmad.github.io/) and [Dejiao Zhang](https://dejiao2018.github.io/)
     - Manager: [Xiaofei Ma](https://www.linkedin.com/in/xiaofei-ma-b3627928/)
     - Research Topic: RAG, Code Generation. 
-* <span style="color:black; font-size:15px"><b><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank"><font color="brown" size="4">Microsoft Research Asia</font></a></b></span> (June 2021 – Sept. 2021)
+* <span style="color:black; font-size:15px"><b><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank"><font color="brown" size="4">Microsoft Research Asia</font></a></b></span> (April 2021 – Sept. 2021)
     - Research Intern, team <a href="https://github.com/microsoft/nni/" target="_blank">NNI</a>
     - Mentors: [Ning Shang](https://openreview.net/profile?id=~Ning_Shang1) and [Quanlu Zhang](https://openreview.net/profile?id=~Quanlu_Zhang1)
     - Manager: [Qiufeng Yin](https://www.microsoft.com/en-us/research/people/qfyin/)
@@ -59,6 +64,7 @@ Please find my latest CV [here](/files/CV_diwu.pdf) (updated 2026/07).
   * EMNLP 2023
   * ACL ARR: 2023, 2024, 2025
   * ICLR: 2025
+  * ICML, NeurIPS
   * JAIR
 * Volunteer: NAACL 2025
 * Session Chair: NAACL 2025

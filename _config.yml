@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Di Wu"
 title_separator          : "-"
 name                     : &name "Di Wu"
-description              : &description "Fourth-year PhD student at UCLA"
+description              : &description "Researcher working on autoresearch, memory, and agents"
 url                      : https://xiaowu0162.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "xiaowu0162/xiaowu0162.github.io"
@@ -73,7 +73,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               :  false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Di Wu"
   avatar           : "wudi_2022_ucla.png"
-  bio              : "Fourth-year PhD student at UCLA"
-  location         : "Los Angeles, CA"
+  bio              : "Researcher"
+  location         : "San Jose, CA"
   employer         :
   pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=vu1pDZgAAAAJ"

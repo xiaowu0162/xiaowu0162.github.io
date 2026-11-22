@@ -3,7 +3,8 @@ title: "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Col
 collection: publications
 Authors: '<b>Di Wu</b>, Zixiang Ji, Asmi Kawatkar, Bryan Kwan, Jia-Chen Gu, Nanyun Peng, Kai-Wei Chang.'
 date: 05/2026
-venue: 'arXiv'
+venue: 'SCALE Workshop at ICML'
+oral: 'true'
 paperurl: 'https://arxiv.org/abs/2605.12493'
 codeurl: 'https://github.com/xiaowu0162/LongMemEval-V2/'
 website: 'https://xiaowu0162.github.io/longmemeval-v2/'
