@@ -538,7 +538,7 @@
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Results</h2>
         <div class="section-highlight">
-          AgentRunbook-C currently gives the strongest average accuracy while improving the accuracy-latency frontier.
+          Among the original baselines, AgentRunbook-C achieved the highest average accuracy across the two tiers.
         </div>
         <div class="table-wrap">
           <table class="table is-fullwidth results-table">
@@ -675,6 +675,40 @@
                 </tbody>
               </table>
             </div>
+            <p class="mt-3" id="warm-g1">
+              <strong>WARM G1 (WritersLogic).</strong> A Gemini 3.6 Flash controller selects and verifies trajectory states.
+              The team developed the method on 228 of the 451 public questions. On the 223 questions held out by the team,
+              the fastest configuration (op2) reached 76.7%. The leaderboard row shows op2 metrics and the LAFS gain
+              across all three configurations. <a href="https://github.com/writerslogic/warm/releases/tag/lme2-leaderboard-2026-11-22">Submission package</a>
+            </p>
+            <details class="mt-2">
+              <summary>Compare WARM G1 operating points</summary>
+              <div class="table-wrap">
+                <table class="table is-fullwidth" aria-label="WARM G1 operating points on LME-V2-Small">
+                  <thead>
+                    <tr>
+                      <th scope="col">Operating point</th>
+                      <th scope="col">Draft reread</th>
+                      <th scope="col">Mean query latency</th>
+                      <th scope="col">Accuracy (451)</th>
+                      <th scope="col">Held-out accuracy (223)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><th scope="row">op2</th><td>Off</td><td>31.6s</td><td>78.05%</td><td>76.7%</td></tr>
+                    <tr><th scope="row">op1b</th><td>When the verdict is supported or partial</td><td>66.3s</td><td>78.94%</td><td>77.1%</td></tr>
+                    <tr><th scope="row">op1</th><td>Every question</td><td>119.1s</td><td>77.16%</td><td>76.7%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <p class="mt-3" id="perpetual-recall-v4">
+              <strong>Perpetual Recall V4 (Equinox Labs).</strong> This update to V3 uses the configuration without a fixed
+              grounding header or answer-format examples. On 44 of 451 questions, it tells the reader that the retrieved
+              evidence lacks direct support for the question’s premise and asks it to check the full context.
+              <a href="https://lmev2-submissions.pages.dev/perpetual_recall_v4_clean.tar.gz">Submission package (.tar.gz)</a>
+              · <a href="https://dev.to/bryanw/we-made-it-on-a-leaderboard-wed-stopped-watching-1p54">Submitter’s description</a>
+            </p>
           </div>
 
           <div class="leaderboard-tier" role="group" aria-labelledby="leaderboard-medium-title">
