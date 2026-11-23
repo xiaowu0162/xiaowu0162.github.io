@@ -538,7 +538,7 @@
       <div class="container is-max-widescreen">
         <h2 class="title section-title">Results</h2>
         <div class="section-highlight">
-          Among the original baselines, AgentRunbook-C achieved the highest average accuracy across the two tiers.
+          AgentRunbook-C currently gives the strongest average accuracy while improving the accuracy-latency frontier.
         </div>
         <div class="table-wrap">
           <table class="table is-fullwidth results-table">
@@ -617,7 +617,61 @@
         <!-- <div class="section-highlight">
           Leaderboard entries measure how much a memory system improves the released baseline + AgentRunbook accuracy-latency frontier.
         </div> -->
-        <div class="leaderboard-intro">
+        <p class="lb-lead">
+          LAFS Gain ranks memory systems by how much they push the accuracy&ndash;latency frontier beyond the released baselines and AgentRunbook.
+          The maintainers validate every submitted package before it appears here.
+        </p>
+        <div class="lb" id="leaderboard-app">
+          <div class="lb-toolbar">
+            <div class="lb-tier-toggle" id="lb-tier-toggle" role="tablist" aria-label="Benchmark tier"></div>
+            <div class="lb-actions">
+              <a class="lb-action is-primary" href="https://forms.gle/rxUpiuRKDERqpqSi9" target="_blank" rel="noopener">Submit a system</a>
+              <a class="lb-action" href="https://github.com/xiaowu0162/LongMemEval-V2/tree/main/leaderboard" target="_blank" rel="noopener">Submission guide</a>
+            </div>
+          </div>
+
+          <figure class="lb-card lb-chart-card">
+            <div class="lb-card-head">
+              <h3>Accuracy vs. memory-query latency</h3>
+              <p>Each colored line joins one submission&rsquo;s operating points, and the gray step is the reference frontier. Hover or select a submission to shade the accuracy it adds.</p>
+            </div>
+            <div class="lb-legend" id="lb-legend"></div>
+            <div class="lb-chart-wrap">
+              <div class="lb-chart" id="lb-chart"></div>
+              <div class="lb-tooltip" id="lb-tooltip" role="status" hidden></div>
+            </div>
+            <figcaption class="lb-chart-note">
+              <span id="lb-focus-caption"></span>
+              <span id="lb-omitted-note"></span>
+            </figcaption>
+          </figure>
+
+          <div class="table-wrap lb-table-wrap">
+            <table class="table is-fullwidth lb-table">
+              <thead>
+                <tr>
+                  <th class="lb-rank" rowspan="2" scope="col" aria-label="Rank">#</th>
+                  <th class="lb-system" rowspan="2" scope="col">System</th>
+                  <th class="lb-num" rowspan="2" scope="col"><button class="lb-sort" type="button" data-sort="lafsGain">LAFS Gain <span aria-hidden="true"></span></button></th>
+                  <th class="lb-num" rowspan="2" scope="col"><button class="lb-sort" type="button" data-sort="accuracy">Accuracy <span aria-hidden="true"></span></button></th>
+                  <th class="lb-num" rowspan="2" scope="col"><button class="lb-sort" type="button" data-sort="latency">Latency <span aria-hidden="true"></span></button></th>
+                  <th class="lb-colgroup" colspan="4" scope="colgroup">Accuracy by question type</th>
+                </tr>
+                <tr>
+                  <th class="lb-num" scope="col"><button class="lb-sort" type="button" data-sort="static">Static <span aria-hidden="true"></span></button></th>
+                  <th class="lb-num" scope="col"><button class="lb-sort" type="button" data-sort="dynamic">Dynamic <span aria-hidden="true"></span></button></th>
+                  <th class="lb-num" scope="col"><button class="lb-sort" type="button" data-sort="procedure">Procedure <span aria-hidden="true"></span></button></th>
+                  <th class="lb-num" scope="col"><button class="lb-sort" type="button" data-sort="gotchas">Gotchas <span aria-hidden="true"></span></button></th>
+                </tr>
+              </thead>
+              <tbody id="lb-body">
+                <tr><td colspan="9">Loading leaderboard&hellip;</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="leaderboard-intro lb-explainer">
           <div class="leaderboard-goal">
             <h3>Goal: accurate and efficient memory</h3>
             <p>
@@ -648,93 +702,6 @@
             <p>
               A score of 0 means the method does not beat the released reference frontier at any latency budget.
             </p>
-          </div>
-        </div>
-        <div class="leaderboard-tiers">
-          <div class="leaderboard-tier" role="group" aria-labelledby="leaderboard-small-title">
-            <h3 id="leaderboard-small-title">LME-V2-Small</h3>
-            <div class="table-wrap">
-              <table class="table is-fullwidth leaderboard-table">
-                <thead>
-                  <tr>
-                    <th>System</th>
-                    <th>Method Family</th>
-                    <th><button class="leaderboard-sort active" type="button" data-tier="small" data-sort="lafsGain" data-direction="desc" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="latency" aria-pressed="false">Query Latency <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="accuracy" aria-pressed="false">Accuracy <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="static" aria-pressed="false">Static <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="dynamic" aria-pressed="false">Dynamic <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="procedure" aria-pressed="false">Procedure <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="small" data-sort="gotchas" aria-pressed="false">Gotchas <span aria-hidden="true"></span></button></th>
-                  </tr>
-                </thead>
-                <tbody id="leaderboard-small-body">
-                  <tr>
-                    <td colspan="9">Leaderboard entries coming soon.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="mt-3" id="warm-g1">
-              <strong>WARM G1 (WritersLogic).</strong> A Gemini 3.6 Flash controller selects and verifies trajectory states.
-              The team developed the method on 228 of the 451 public questions. On the 223 questions held out by the team,
-              the fastest configuration (op2) reached 76.7%. The leaderboard row shows op2 metrics and the LAFS gain
-              across all three configurations. <a href="https://github.com/writerslogic/warm/releases/tag/lme2-leaderboard-2026-11-22">Submission package</a>
-            </p>
-            <details class="mt-2">
-              <summary>Compare WARM G1 operating points</summary>
-              <div class="table-wrap">
-                <table class="table is-fullwidth" aria-label="WARM G1 operating points on LME-V2-Small">
-                  <thead>
-                    <tr>
-                      <th scope="col">Operating point</th>
-                      <th scope="col">Draft reread</th>
-                      <th scope="col">Mean query latency</th>
-                      <th scope="col">Accuracy (451)</th>
-                      <th scope="col">Held-out accuracy (223)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><th scope="row">op2</th><td>Off</td><td>31.6s</td><td>78.05%</td><td>76.7%</td></tr>
-                    <tr><th scope="row">op1b</th><td>When the verdict is supported or partial</td><td>66.3s</td><td>78.94%</td><td>77.1%</td></tr>
-                    <tr><th scope="row">op1</th><td>Every question</td><td>119.1s</td><td>77.16%</td><td>76.7%</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
-            <p class="mt-3" id="perpetual-recall-v4">
-              <strong>Perpetual Recall V4 (Equinox Labs).</strong> This update to V3 uses the configuration without a fixed
-              grounding header or answer-format examples. On 44 of 451 questions, it tells the reader that the retrieved
-              evidence lacks direct support for the question’s premise and asks it to check the full context.
-              <a href="https://lmev2-submissions.pages.dev/perpetual_recall_v4_clean.tar.gz">Submission package (.tar.gz)</a>
-              · <a href="https://dev.to/bryanw/we-made-it-on-a-leaderboard-wed-stopped-watching-1p54">Submitter’s description</a>
-            </p>
-          </div>
-
-          <div class="leaderboard-tier" role="group" aria-labelledby="leaderboard-medium-title">
-            <h3 id="leaderboard-medium-title">LME-V2-Medium</h3>
-            <div class="table-wrap">
-              <table class="table is-fullwidth leaderboard-table">
-                <thead>
-                  <tr>
-                    <th>System</th>
-                    <th>Method Family</th>
-                    <th><button class="leaderboard-sort active" type="button" data-tier="medium" data-sort="lafsGain" data-direction="desc" aria-pressed="true">LAFS Gain <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="latency" aria-pressed="false">Query Latency <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="accuracy" aria-pressed="false">Accuracy <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="static" aria-pressed="false">Static <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="dynamic" aria-pressed="false">Dynamic <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="procedure" aria-pressed="false">Procedure <span aria-hidden="true"></span></button></th>
-                    <th><button class="leaderboard-sort" type="button" data-tier="medium" data-sort="gotchas" aria-pressed="false">Gotchas <span aria-hidden="true"></span></button></th>
-                  </tr>
-                </thead>
-                <tbody id="leaderboard-medium-body">
-                  <tr>
-                    <td colspan="9">Leaderboard entries coming soon.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
@@ -778,6 +745,7 @@
       </div>
     </section>
   </main>
+  <script src="./static/js/leaderboard.js"></script>
   <script src="./static/js/index.js"></script>
 </body>
 

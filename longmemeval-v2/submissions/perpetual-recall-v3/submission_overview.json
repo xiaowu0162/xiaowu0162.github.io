@@ -1,0 +1,68 @@
+{
+  "submission_name": "perpetual_recall_v3",
+  "method": "perpetual_recall_v3",
+  "tier": "small",
+  "generated_at_utc": "2026-08-08T13:03:43.857466+00:00",
+  "archive_name": "perpetual_recall_v3.tar.gz",
+  "system_description_file": "SYSTEM_DESCRIPTION.md",
+  "code_file": "perpetual_recall_v3_artifact.py",
+  "lafs": {
+    "tier": "small",
+    "t_min_seconds": 1.0,
+    "t_max_seconds": 200.0,
+    "floor_accuracy": 0.0,
+    "accuracy_unit": "percentage_points",
+    "reference_lafs": 55.76484693638005,
+    "submission_lafs": 56.860385882669476,
+    "lafs_gain": 1.0955389462894232,
+    "reference_frontier": [
+      {
+        "name": "RAG: query -> slice + notes",
+        "accuracy": 51.0,
+        "latency_seconds": 0.2
+      },
+      {
+        "name": "AgentRunbook-R",
+        "accuracy": 58.6,
+        "latency_seconds": 26.9
+      },
+      {
+        "name": "AgentRunbook-C",
+        "accuracy": 74.9,
+        "latency_seconds": 108.3
+      }
+    ],
+    "submission_frontier": [
+      {
+        "name": "RAG: query -> slice + notes",
+        "accuracy": 51.0,
+        "latency_seconds": 0.2
+      },
+      {
+        "name": "fast_1p9s",
+        "accuracy": 53.215077605321504,
+        "latency_seconds": 1.9575045172992667
+      },
+      {
+        "name": "AgentRunbook-R",
+        "accuracy": 58.6,
+        "latency_seconds": 26.9
+      },
+      {
+        "name": "AgentRunbook-C",
+        "accuracy": 74.9,
+        "latency_seconds": 108.3
+      }
+    ]
+  },
+  "operating_points": [
+    {
+      "name": "fast_1p9s",
+      "metric_overview_file": "operating_points/fast_1p9s/metric_overview.json",
+      "overall_full_set": 0.532150776053215,
+      "memory_query_avg_seconds": 1.9575045172992667,
+      "lafs_accuracy_percentage_points": 53.215077605321504,
+      "lafs_latency_seconds": 1.9575045172992667
+    }
+  ]
+}

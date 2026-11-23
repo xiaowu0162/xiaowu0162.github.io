@@ -1,0 +1,409 @@
+{
+  "lafs": {
+    "tMin": 1,
+    "tMax": 200,
+    "floorAccuracy": 0
+  },
+  "links": {
+    "submitForm": "https://forms.gle/rxUpiuRKDERqpqSi9",
+    "submissionGuide": "https://github.com/xiaowu0162/LongMemEval-V2/tree/main/leaderboard"
+  },
+  "tiers": [
+    {
+      "id": "small",
+      "label": "LME-V2-Small"
+    },
+    {
+      "id": "medium",
+      "label": "LME-V2-Medium"
+    }
+  ],
+  "systems": [
+    {
+      "id": "agentrunbook-c-v2-online",
+      "name": "AgentRunbook-C v2 Online",
+      "role": "submission",
+      "family": "Coding agent",
+      "team": "LongMemEval-V2 team",
+      "links": [
+        {
+          "type": "article",
+          "label": "Article",
+          "url": "https://xiaowu0162.github.io/longmemeval-v2/agentrunbook-c-v2/"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_c_v2.py"
+        },
+        {
+          "type": "code",
+          "label": "Online learning",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_online_learning.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "lafsGain": 2.8231,
+          "operatingPoints": [
+            {
+              "name": "low",
+              "accuracy": 65.41,
+              "latency": 26.11
+            },
+            {
+              "name": "medium",
+              "accuracy": 72.73,
+              "latency": 56.68
+            },
+            {
+              "name": "xhigh",
+              "accuracy": 75.60975609756098,
+              "latency": 130.5406
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "perpetual-recall-v3",
+      "name": "Perpetual Recall V3",
+      "role": "submission",
+      "family": "Hybrid retrieval",
+      "team": "Equinox Labs",
+      "published": "2026-08-09",
+      "links": [],
+      "package": {
+        "path": "submissions/perpetual-recall-v3",
+        "description": "SYSTEM_DESCRIPTION.md",
+        "code": null,
+        "overview": "submission_overview.json"
+      },
+      "results": {
+        "small": {
+          "lafsGain": 1.0955389462894232,
+          "operatingPoints": [
+            {
+              "name": "fast_1p9s",
+              "accuracy": 53.2150776053215,
+              "latency": 1.9575045172992667,
+              "static": 58.2010582010582,
+              "dynamic": 46.45669291338583,
+              "procedure": 56.60377358490566,
+              "gotchas": 37.93103448275862
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ops-agentic-memory-v1",
+      "name": "OPS-Agentic-Memory-v1",
+      "role": "submission",
+      "family": "Coding agent",
+      "team": "Alibaba Cloud",
+      "published": "2026-08-09",
+      "links": [],
+      "package": {
+        "path": "submissions/ops-agentic-memory-v1",
+        "description": "SYSTEM_DESCRIPTION.md",
+        "code": "agentrunbook_c_plus.py",
+        "overview": "submission_overview.json"
+      },
+      "results": {
+        "small": {
+          "lafsGain": 0.32227885581633586,
+          "operatingPoints": [
+            {
+              "name": "balanced",
+              "accuracy": 81.37472283813747,
+              "latency": 153.63720432745492,
+              "static": 87.83068783068784,
+              "dynamic": 81.10236220472441,
+              "procedure": 76.41509433962264,
+              "gotchas": 58.62068965517241
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "agentrunbook-c",
+      "name": "AgentRunbook-C",
+      "role": "reference",
+      "family": "Coding agent",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_c.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 74.9,
+              "latency": 108.3,
+              "static": 82.0,
+              "dynamic": 72.4,
+              "procedure": 72.6,
+              "gotchas": 48.3
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 70.1,
+              "latency": 139.9,
+              "static": 78.8,
+              "dynamic": 70.1,
+              "procedure": 61.3,
+              "gotchas": 44.9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "role": "reference",
+      "family": "Coding agent",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/codex.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 69.9,
+              "latency": 177.2,
+              "static": 80.4,
+              "dynamic": 67.0,
+              "procedure": 57.5,
+              "gotchas": 58.6
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 68.7,
+              "latency": 185.8,
+              "static": 78.3,
+              "dynamic": 64.6,
+              "procedure": 61.3,
+              "gotchas": 51.7
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "agentrunbook-r",
+      "name": "AgentRunbook-R",
+      "role": "reference",
+      "family": "RAG",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/agentrunbook_r.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 58.6,
+              "latency": 26.9,
+              "static": 66.1,
+              "dynamic": 58.3,
+              "procedure": 52.8,
+              "gotchas": 31.0
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 57.0,
+              "latency": 25.8,
+              "static": 63.0,
+              "dynamic": 61.4,
+              "procedure": 47.2,
+              "gotchas": 34.5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rag-slice-notes",
+      "name": "RAG: query to slice + notes",
+      "shortName": "RAG + notes",
+      "role": "reference",
+      "family": "RAG",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/rag.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 51.0,
+              "latency": 0.2,
+              "static": 52.4,
+              "dynamic": 49.6,
+              "procedure": 52.8,
+              "gotchas": 41.4
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 45.9,
+              "latency": 0.3,
+              "static": 48.7,
+              "dynamic": 47.2,
+              "procedure": 43.4,
+              "gotchas": 31.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rag-slice",
+      "name": "RAG: query to slice",
+      "shortName": "RAG",
+      "role": "baseline",
+      "family": "RAG",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/rag.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 42.8,
+              "latency": 0.1,
+              "static": 47.1,
+              "dynamic": 42.5,
+              "procedure": 41.5,
+              "gotchas": 20.7
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 38.1,
+              "latency": 0.1,
+              "static": 43.4,
+              "dynamic": 40.5,
+              "procedure": 29.3,
+              "gotchas": 24.2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "no-retrieval",
+      "name": "No retrieval",
+      "role": "baseline",
+      "family": "Reader only",
+      "links": [
+        {
+          "type": "paper",
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2605.12493"
+        },
+        {
+          "type": "code",
+          "label": "Code",
+          "url": "https://github.com/xiaowu0162/LongMemEval-V2/blob/main/memory_modules/no_retrieval.py"
+        }
+      ],
+      "results": {
+        "small": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 1.3,
+              "latency": 0,
+              "static": 0.0,
+              "dynamic": 0.8,
+              "procedure": 9.4,
+              "gotchas": 13.8
+            }
+          ]
+        },
+        "medium": {
+          "operatingPoints": [
+            {
+              "name": "paper",
+              "accuracy": 1.3,
+              "latency": 0,
+              "static": 0.0,
+              "dynamic": 0.8,
+              "procedure": 9.4,
+              "gotchas": 13.8
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

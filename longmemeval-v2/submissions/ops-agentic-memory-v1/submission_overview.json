@@ -1,0 +1,68 @@
+{
+  "submission_name": "OPS-Agentic-Memory-v1",
+  "method": "OPS-Agentic-Memory-v1",
+  "tier": "small",
+  "generated_at_utc": "2026-06-26T03:03:38.307178+00:00",
+  "archive_name": "OPS-Agentic-Memory-v1.tar.gz",
+  "system_description_file": "SYSTEM_DESCRIPTION.md",
+  "code_file": "agentrunbook_c_plus.py",
+  "lafs": {
+    "tier": "small",
+    "t_min_seconds": 1.0,
+    "t_max_seconds": 200.0,
+    "floor_accuracy": 0.0,
+    "accuracy_unit": "percentage_points",
+    "reference_lafs": 55.76484693638005,
+    "submission_lafs": 56.08712579219639,
+    "lafs_gain": 0.32227885581633586,
+    "reference_frontier": [
+      {
+        "name": "RAG: query -> slice + notes",
+        "accuracy": 51.0,
+        "latency_seconds": 0.2
+      },
+      {
+        "name": "AgentRunbook-R",
+        "accuracy": 58.6,
+        "latency_seconds": 26.9
+      },
+      {
+        "name": "AgentRunbook-C",
+        "accuracy": 74.9,
+        "latency_seconds": 108.3
+      }
+    ],
+    "submission_frontier": [
+      {
+        "name": "RAG: query -> slice + notes",
+        "accuracy": 51.0,
+        "latency_seconds": 0.2
+      },
+      {
+        "name": "AgentRunbook-R",
+        "accuracy": 58.6,
+        "latency_seconds": 26.9
+      },
+      {
+        "name": "AgentRunbook-C",
+        "accuracy": 74.9,
+        "latency_seconds": 108.3
+      },
+      {
+        "name": "balanced",
+        "accuracy": 81.37472283813747,
+        "latency_seconds": 153.63720432745492
+      }
+    ]
+  },
+  "operating_points": [
+    {
+      "name": "balanced",
+      "metric_overview_file": "operating_points/balanced/metric_overview.json",
+      "overall_full_set": 0.8137472283813747,
+      "memory_query_avg_seconds": 153.63720432745492,
+      "lafs_accuracy_percentage_points": 81.37472283813747,
+      "lafs_latency_seconds": 153.63720432745492
+    }
+  ]
+}
